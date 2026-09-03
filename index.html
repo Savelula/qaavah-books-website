@@ -507,6 +507,14 @@ body[data-lane="shop"] [data-lane="personal-only"]{display:none!important}
 body[data-lane="personal"] a[data-lane="shop"],
 body[data-lane="personal"] .navlinks a[href="#tour"]{display:none!important}
 body[data-lane="personal"] .tour-band{display:none!important}
+
+body[data-lane="personal"] .hero .stage .phone[data-lane="shop"]{display:none!important}
+body[data-lane="shop"] .hero .stage .phone[data-lane="personal-only"]{display:none!important}
+body[data-lane="personal"] .quote-band .q-stage[data-lane="shop"]{display:none!important}
+body[data-lane="shop"] .quote-band .q-stage[data-lane="personal-only"]{display:none!important}
+body[data-lane="personal"] #qdotsShop{display:none!important}
+body[data-lane="shop"] #qdotsPersonal{display:none!important}
+
 body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
 @media (max-width:900px){
   .country-pick label,.lang-pick label{display:none}
@@ -567,20 +575,29 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
       <div class="micro">
         <span class="m"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#16834A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Works offline</span>
         <span class="m" data-lane="shop"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#16834A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Staff &amp; catalogue</span>
+        <span class="m" data-lane="personal-only"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#16834A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Budgets &amp; pots</span>
         <span class="m"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#16834A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Free to start</span>
       </div>
     </div>
 
     <div class="stage">
-      <div class="fchip f1">
+      <div class="fchip f1" data-lane="shop">
         <div class="ci tint-sage"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6"/></svg></div>
         <div><div class="ck">Sale recorded</div><div class="cv" style="color:var(--income)">+$240</div></div>
       </div>
-      <div class="fchip f2">
+      <div class="fchip f2" data-lane="shop">
         <div class="ci tint-amber"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6.3 6.6.9-4.8 4.7 1.2 6.6L12 17.3 6 20.5l1.2-6.6L2.4 9.2 9 8.3z"/></svg></div>
         <div><div class="ck">Best day</div><div class="cv">Friday</div></div>
       </div>
-      <div class="phone">
+      <div class="fchip f1" data-lane="personal-only">
+        <div class="ci tint-sage"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6.3 6.6.9-4.8 4.7 1.2 6.6L12 17.3 6 20.5l1.2-6.6L2.4 9.2 9 8.3z"/></svg></div>
+        <div><div class="ck">Saved this month</div><div class="cv" style="color:var(--income)">+$420</div></div>
+      </div>
+      <div class="fchip f2" data-lane="personal-only">
+        <div class="ci tint-amber"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div><div class="ck">Due soon</div><div class="cv">Rent</div></div>
+      </div>
+      <div class="phone" data-lane="shop">
         <div class="screen phone-ui">
           <div class="st-top"><span>9:41</span><span>●●● ▮</span></div>
           <div class="st-body">
@@ -602,6 +619,32 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
               <div class="txn live"><div class="ic tint-sage"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1.5 13.5a1 1 0 0 1-1 1.1H5.5a1 1 0 0 1-1-1.1z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg></div><div><div class="nm">Store sales</div><div class="sb">Just now</div></div><div class="amt up">+$240</div></div>
               <div class="txn"><div class="ic tint-red"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div><div><div class="nm">Electricity</div><div class="sb">Yesterday</div></div><div class="amt dn">−$85</div></div>
               <div class="txn"><div class="ic tint-indigo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 8.3L12 13l8.7-4.7M12 13v9"/></svg></div><div><div class="nm">Restock</div><div class="sb">Mon</div></div><div class="amt dn">−$420</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phone" data-lane="personal-only">
+        <div class="screen phone-ui">
+          <div class="st-top"><span>9:41</span><span>●●● ▮</span></div>
+          <div class="st-body">
+            <div class="app-h">
+              <div class="hi">Personal money</div>
+              <div class="av">MS</div>
+            </div>
+            <div class="bal">
+              <div class="lab">Saved this month</div>
+              <div class="amt">$420.00</div>
+              <div class="chg">▲ on track for rent</div>
+            </div>
+            <div class="mini">
+              <div class="mcard"><div class="k">Money in</div><div class="v up">+$3,200</div></div>
+              <div class="mcard"><div class="k">Spent</div><div class="v dn">−$2,780</div></div>
+            </div>
+            <div class="rows">
+              <div class="rt">Recent</div>
+              <div class="txn live"><div class="ic tint-sage"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6.3 6.6.9-4.8 4.7 1.2 6.6L12 17.3 6 20.5l1.2-6.6L2.4 9.2 9 8.3z"/></svg></div><div><div class="nm">Salary</div><div class="sb">Just now</div></div><div class="amt up">+$2,400</div></div>
+              <div class="txn"><div class="ic tint-red"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div><div><div class="nm">Groceries</div><div class="sb">Yesterday</div></div><div class="amt dn">−$86</div></div>
+              <div class="txn"><div class="ic tint-indigo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><div class="nm">Rent pot</div><div class="sb">Mon</div></div><div class="amt up">+$150</div></div>
             </div>
           </div>
         </div>
@@ -635,7 +678,7 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
 <!-- ═══════════ TRUST ═══════════ -->
 <div class="trust">
   <div class="wrap row">
-    <span class="lab">Trusted by shops &amp; teams worldwide</span>
+    <span class="lab" id="trustLab">Trusted by shops &amp; teams worldwide</span>
     <div class="stats">
       <div class="stat"><div class="n"><span class="cnt" data-to="180">0</span><span class="u">+</span></div><div class="l">Countries supported</div></div>
       <div class="stat"><div class="n"><span class="cnt" data-to="4">0</span></div><div class="l">Languages (EN · FR · ES · PT)</div></div>
@@ -659,16 +702,28 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
       <p>Built for home books where shop tools are not open yet. Record in seconds, see where you stand, even offline.</p>
     </div>
     <div class="features">
-      <div class="feat rv">
+      <div class="feat rv" data-lane="shop">
         <div class="fi tint-sage"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div>
         <h3>Record in seconds</h3>
         <p>Log a sale or expense with shortcuts and a receipt scanner. Fast enough to do at the counter.</p>
         <div class="viz viz-chips"><span class="on">+ Sale</span><span>− Expense</span><span>↻ Recurring</span><span>Scan receipt</span></div>
       </div>
-      <div class="feat rv d1">
+      <div class="feat rv d1" data-lane="shop">
         <div class="fi tint-indigo"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 14l4-4 3 3 6-7"/><path d="M20 6v4h-4"/></svg></div>
         <h3>Insights that make sense</h3>
         <p>Daily, weekly, monthly and yearly views with your best day, revenue trend, and a plain-language forecast.</p>
+        <div class="viz viz-spark"><span style="height:40%"></span><span style="height:62%"></span><span style="height:48%"></span><span style="height:78%"></span><span style="height:58%"></span><span class="hi" style="height:100%"></span><span style="height:70%"></span></div>
+      </div>
+      <div class="feat rv" data-lane="personal-only">
+        <div class="fi tint-sage"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div>
+        <h3>Record in seconds</h3>
+        <p>Log income or spending with shortcuts and a receipt scanner. Fast enough between errands.</p>
+        <div class="viz viz-chips"><span class="on">+ Income</span><span>− Expense</span><span>↻ Bills</span><span>Scan receipt</span></div>
+      </div>
+      <div class="feat rv d1" data-lane="personal-only">
+        <div class="fi tint-indigo"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 14l4-4 3 3 6-7"/><path d="M20 6v4h-4"/></svg></div>
+        <h3>Insights that make sense</h3>
+        <p>Week and month views with savings rate, top categories, and a plain-language forecast for your books.</p>
         <div class="viz viz-spark"><span style="height:40%"></span><span style="height:62%"></span><span style="height:48%"></span><span style="height:78%"></span><span style="height:58%"></span><span class="hi" style="height:100%"></span><span style="height:70%"></span></div>
       </div>
       <div class="feat rv d2" data-lane="shop">
@@ -923,15 +978,15 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
           <div class="go"><a href="#get">Start with a shop →</a></div>
         </div>
         <div class="aud personal">
-          <div class="tag">Home books</div>
-          <h3>Keep a personal ledger too</h3>
-          <p>Optional — for household income and bills alongside the shop, when you want both.</p>
+          <div class="tag" id="whoPersTag">Home books</div>
+          <h3 id="whoPersH3">Keep a personal ledger too</h3>
+          <p id="whoPersP">Optional — for household income and bills alongside the shop, when you want both.</p>
           <ul>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Income, expenses &amp; recurring bills</li>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Budgets, pots &amp; savings goals</li>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Money Tools when you upgrade</li>
           </ul>
-          <div class="go"><a href="#get">Start with home books →</a></div>
+          <div class="go"><a href="#get" id="whoPersGo">Start with home books →</a></div>
         </div>
       </div>
     </div>
@@ -954,7 +1009,7 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
       <div class="step">
         <div class="no"></div>
         <h3>Record as you go</h3>
-        <p>Log a sale at the counter, scan a receipt, or let staff record on their phone. It takes seconds and works offline.</p>
+        <p id="howStep2">Log a sale at the counter, scan a receipt, or let staff record on their phone. It takes seconds and works offline.</p>
       </div>
       <div class="step">
         <div class="no"></div>
@@ -1273,7 +1328,7 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
       </div>
     </div>
 
-    <p class="price-note">US list prices (annual = 10× monthly ≈ 2 months free). Local PPP differs in-app (e.g. Ghana Personal Plus GH₵15/mo, Shop Pro GH₵75/mo). Shop plans apply where shop tools are open (Africa / LatAm); US &amp; Europe launch with personal finance first. Prices may change; taxes may apply at checkout.</p>
+    <p class="price-note" id="priceNote">US list prices (annual = 10× monthly ≈ 2 months free). Local PPP differs in-app (e.g. Ghana Personal Plus GH₵15/mo, Shop Pro GH₵75/mo). Shop plans apply where shop tools are open (Africa / LatAm); US &amp; Europe launch with personal finance first. Prices may change; taxes may apply at checkout.</p>
   </div>
 </section>
 
@@ -1283,7 +1338,7 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
     <div class="wrap">
       <div class="quote">
         <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:18px">The kind of days we're building for</p>
-        <div class="q-stage" id="qstage" data-lane="shop">
+        <div class="q-stage" id="qstageShop" data-lane="shop">
           <div class="q-item on">
             <blockquote>"I used to close the shop not really knowing if it was a good day. Now I know before I lock up — and my savings finally have a plan."</blockquote>
             <div class="by"><b>Shop owner</b> · retail &amp; personal books</div>
@@ -1293,11 +1348,30 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
             <div class="by"><b>Café owner</b> · team + daily totals</div>
           </div>
           <div class="q-item">
+            <blockquote>"Stock counts used to take forever. Now labels and the catalogue keep the floor honest."</blockquote>
+            <div class="by"><b>Market trader</b> · catalogue + labels</div>
+          </div>
+        </div>
+        <div class="q-stage" id="qstagePersonal" data-lane="personal-only">
+          <div class="q-item on">
             <blockquote>"The budget nudged me before I went over on groceries — not a week after. That one habit changed my whole month."</blockquote>
             <div class="by"><b>Household budgeter</b> · personal ledger</div>
           </div>
+          <div class="q-item">
+            <blockquote>"I finally see money in, spent, and what's left for rent — without a spreadsheet I abandon by Wednesday."</blockquote>
+            <div class="by"><b>Renter</b> · bills focus</div>
+          </div>
+          <div class="q-item">
+            <blockquote>"Savings pots made the goal feel real. School fees is at 70% and I actually stick to it."</blockquote>
+            <div class="by"><b>Parent</b> · savings focus</div>
+          </div>
         </div>
-        <div class="q-dots" id="qdots">
+        <div class="q-dots" id="qdotsShop" data-lane="shop">
+          <button class="on" aria-label="Quote 1"></button>
+          <button aria-label="Quote 2"></button>
+          <button aria-label="Quote 3"></button>
+        </div>
+        <div class="q-dots" id="qdotsPersonal" data-lane="personal-only">
           <button class="on" aria-label="Quote 1"></button>
           <button aria-label="Quote 2"></button>
           <button aria-label="Quote 3"></button>
@@ -1394,13 +1468,18 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
   },{threshold:.6});
   document.querySelectorAll('.cnt').forEach(function(el){cio.observe(el)});
 
-  // quote carousel
-  var items=document.querySelectorAll('#qstage .q-item'),dots=document.querySelectorAll('#qdots button'),cur=0,timer;
-  function go(n){items[cur].classList.remove('on');dots[cur].classList.remove('on');cur=n%items.length;
-    items[cur].classList.add('on');dots[cur].classList.add('on');}
-  function auto(){timer=setInterval(function(){go(cur+1)},6000);}
-  dots.forEach(function(d,i){d.addEventListener('click',function(){clearInterval(timer);go(i);auto();})});
-  if(items.length)auto();
+  // quote carousel (shop + personal stages)
+  function wireQuotes(stageSel, dotsSel){
+    var items=document.querySelectorAll(stageSel+' .q-item'),dots=document.querySelectorAll(dotsSel+' button'),cur=0,timer;
+    if(!items.length)return;
+    function go(n){items[cur].classList.remove('on');if(dots[cur])dots[cur].classList.remove('on');cur=n%items.length;
+      items[cur].classList.add('on');if(dots[cur])dots[cur].classList.add('on');}
+    function auto(){timer=setInterval(function(){go(cur+1)},6000);}
+    dots.forEach(function(d,i){d.addEventListener('click',function(){clearInterval(timer);go(i);auto();})});
+    auto();
+  }
+  wireQuotes('#qstageShop','#qdotsShop');
+  wireQuotes('#qstagePersonal','#qdotsPersonal');
 
   // app tour tabs
   var ttabs=document.querySelectorAll('#ttabs .ttab'),tscr=document.querySelectorAll('#tstage .tscreen'),tcur=0,ttimer;
@@ -1671,6 +1750,13 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
     if(copy.ctaP) setText('ctaP', copy.ctaP);
     if(copy.ctaNote) setText('ctaNote', copy.ctaNote);
     if(copy.footer) setText('footerAbout', copy.footer);
+    if(copy.trust) setText('trustLab', copy.trust);
+    if(copy.how2) setText('howStep2', copy.how2);
+    if(copy.priceNote) setText('priceNote', copy.priceNote);
+    if(copy.whoPersTag) setText('whoPersTag', copy.whoPersTag);
+    if(copy.whoPersH3) setText('whoPersH3', copy.whoPersH3);
+    if(copy.whoPersP) setText('whoPersP', copy.whoPersP);
+    if(copy.whoPersGo) setText('whoPersGo', copy.whoPersGo);
     try{ localStorage.setItem('qb_country', c.cc); }catch(e){}
     var csel=document.getElementById('countrySel');
     if(csel && csel.value!==c.cc) csel.value=c.cc;

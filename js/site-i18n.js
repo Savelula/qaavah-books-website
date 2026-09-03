@@ -94,7 +94,14 @@
         ctaH2: 'Start keeping your money in order — today.',
         ctaP: 'Free to start, no card required. Bring the shop — keep a personal book too if you want.',
         ctaNote: 'Android first · iOS next · Shop tools in Africa & LatAm · Works offline',
-        footer: 'Bookkeeping made simple — for the shop, the team, and home books. A product of Qavaah Platforms LLC.'
+        footer: 'Bookkeeping made simple — for the shop, the team, and home books. A product of Qavaah Platforms LLC.',
+        trust: 'Trusted by shops & teams worldwide',
+        how2: 'Log a sale at the counter, scan a receipt, or let staff record on their phone. It takes seconds and works offline.',
+        priceNote: 'US list prices (annual = 10× monthly ≈ 2 months free). Local PPP differs in-app (e.g. Ghana Personal Plus GH₵15/mo, Shop Pro GH₵75/mo). Shop plans apply where shop tools are open (Africa / LatAm); US & Europe launch with personal finance first. Prices may change; taxes may apply at checkout.',
+        whoPersTag: 'Home books',
+        whoPersH3: 'Keep a personal ledger too',
+        whoPersP: 'Optional — for household income and bills alongside the shop, when you want both.',
+        whoPersGo: 'Start with home books →',
       },
       personal: {
         banner: function (name) {
@@ -112,7 +119,14 @@
         ctaH2: 'Start your personal books — today.',
         ctaP: 'Free to start, no card required. Shop bookkeeping is not available in your country yet.',
         ctaNote: 'Android first · iOS next · Personal finance here · Works offline',
-        footer: 'Personal bookkeeping made simple. Shop tools open in Africa & Latin America. A product of Qavaah Platforms LLC.'
+        footer: 'Personal bookkeeping made simple. Shop tools open in Africa & Latin America. A product of Qavaah Platforms LLC.',
+        trust: 'Built for personal books worldwide',
+        how2: 'Log income or spending, scan a receipt, or set recurring bills. It takes seconds and works offline.',
+        priceNote: 'US list prices (annual = 10× monthly ≈ 2 months free). Local PPP differs in-app. In your country we show personal plans only — shop plans appear when shop bookkeeping opens in your region. Prices may change; taxes may apply at checkout.',
+        whoPersTag: 'Personal finance',
+        whoPersH3: 'Your home books, right here',
+        whoPersP: 'Income, bills, budgets and savings pots — without shop tools that are not open in your country yet.',
+        whoPersGo: 'Start personal books →',
       }
     },
     fr: {
@@ -176,7 +190,14 @@
         ctaH2: 'Mettez vos comptes en ordre — aujourd’hui.',
         ctaP: 'Gratuit, sans carte. Boutique — et un livre perso si vous voulez.',
         ctaNote: 'Android d’abord · iOS ensuite · Boutique en Afrique & LatAm · Hors ligne',
-        footer: 'La compta, en simple — boutique, équipe et maison. Un produit de Qavaah Platforms LLC.'
+        footer: 'La compta, en simple — boutique, équipe et maison. Un produit de Qavaah Platforms LLC.',
+        trust: 'Des boutiques et équipes partout',
+        how2: 'Vente au comptoir, scan de reçu, ou l’équipe sur son téléphone. En quelques secondes, même hors ligne.',
+        priceNote: 'Prix indicatifs US (annuel ≈ 2 mois offerts). PPP local dans l’app. Offres boutique là où les outils boutique sont ouverts (Afrique / LatAm). Prix susceptibles de changer ; taxes éventuelles.',
+        whoPersTag: 'Livres perso',
+        whoPersH3: 'Gardez aussi un ledger perso',
+        whoPersP: 'Optionnel — revenus et factures du foyer, en plus de la boutique.',
+        whoPersGo: 'Commencer livres perso →',
       },
       personal: {
         banner: function (name) {
@@ -194,7 +215,14 @@
         ctaH2: 'Commencez vos livres perso — aujourd’hui.',
         ctaP: 'Gratuit, sans carte. La compta boutique n’est pas encore disponible dans votre pays.',
         ctaNote: 'Android d’abord · iOS ensuite · Finances perso ici · Hors ligne',
-        footer: 'Compta perso, en simple. Outils boutique en Afrique et Amérique latine. Un produit de Qavaah Platforms LLC.'
+        footer: 'Compta perso, en simple. Outils boutique en Afrique et Amérique latine. Un produit de Qavaah Platforms LLC.',
+        trust: 'Pensé pour les livres perso partout',
+        how2: 'Revenus ou dépenses, scan de reçu, ou factures récurrentes. En quelques secondes, même hors ligne.',
+        priceNote: 'Prix indicatifs US. Dans votre pays, offres perso seulement — les offres boutique arrivent quand la compta boutique s’ouvre chez vous. Prix susceptibles de changer.',
+        whoPersTag: 'Finances perso',
+        whoPersH3: 'Vos livres à la maison, ici',
+        whoPersP: 'Revenus, factures, budgets et pots d’épargne — sans outils boutique encore fermés chez vous.',
+        whoPersGo: 'Commencer livres perso →',
       }
     },
     es: {
@@ -258,7 +286,14 @@
         ctaH2: 'Pon tu dinero en orden — hoy.',
         ctaP: 'Gratis, sin tarjeta. Trae la tienda — y un libro personal si quieres.',
         ctaNote: 'Android primero · iOS después · Tienda en África y LatAm · Sin conexión',
-        footer: 'Contabilidad simple — para la tienda, el equipo y el hogar. Un producto de Qavaah Platforms LLC.'
+        footer: 'Contabilidad simple — para la tienda, el equipo y el hogar. Un producto de Qavaah Platforms LLC.',
+        trust: 'Tiendas y equipos en todo el mundo',
+        how2: 'Venta en caja, escaneo de recibo o el equipo en su teléfono. Segundos, también sin conexión.',
+        priceNote: 'Precios de lista EE. UU. (anual ≈ 2 meses gratis). PPP local en la app. Planes de tienda donde están abiertas (África / LatAm). Los precios pueden cambiar.',
+        whoPersTag: 'Libros en casa',
+        whoPersH3: 'También un ledger personal',
+        whoPersP: 'Opcional — ingresos y facturas del hogar junto a la tienda.',
+        whoPersGo: 'Empezar libros en casa →',
       },
       personal: {
         banner: function (name) {
@@ -276,7 +311,14 @@
         ctaH2: 'Empieza tus libros personales — hoy.',
         ctaP: 'Gratis, sin tarjeta. La contabilidad de tienda aún no está disponible en tu país.',
         ctaNote: 'Android primero · iOS después · Finanzas personales aquí · Sin conexión',
-        footer: 'Contabilidad personal, simple. Herramientas de tienda en África y Latinoamérica. Un producto de Qavaah Platforms LLC.'
+        footer: 'Contabilidad personal, simple. Herramientas de tienda en África y Latinoamérica. Un producto de Qavaah Platforms LLC.',
+        trust: 'Hecho para finanzas personales en todo el mundo',
+        how2: 'Ingresos o gastos, escanea un recibo o fija facturas recurrentes. Segundos, también sin conexión.',
+        priceNote: 'Precios de lista EE. UU. En tu país solo planes personales — los de tienda aparecen cuando se abra la contabilidad de tienda en tu región.',
+        whoPersTag: 'Finanzas personales',
+        whoPersH3: 'Tus libros en casa, aquí',
+        whoPersP: 'Ingresos, facturas, presupuestos y metas — sin herramientas de tienda aún cerradas en tu país.',
+        whoPersGo: 'Empezar libros personales →',
       }
     },
     pt: {
@@ -340,7 +382,14 @@
         ctaH2: 'Organize o seu dinheiro — hoje.',
         ctaP: 'Grátis, sem cartão. Traga a loja — e um livro pessoal se quiser.',
         ctaNote: 'Android primeiro · iOS a seguir · Loja em África e LatAm · Offline',
-        footer: 'Contabilidade simples — para a loja, a equipa e a casa. Um produto da Qavaah Platforms LLC.'
+        footer: 'Contabilidade simples — para a loja, a equipa e a casa. Um produto da Qavaah Platforms LLC.',
+        trust: 'Lojas e equipas em todo o mundo',
+        how2: 'Venda no balcão, scan de recibo ou a equipa no telemóvel. Em segundos, também offline.',
+        priceNote: 'Preços de lista EUA (anual ≈ 2 meses grátis). PPP local na app. Planos de loja onde as ferramentas de loja estão abertas (África / LatAm). Preços sujeitos a alteração.',
+        whoPersTag: 'Livros em casa',
+        whoPersH3: 'Também um ledger pessoal',
+        whoPersP: 'Opcional — rendimentos e contas de casa junto da loja.',
+        whoPersGo: 'Começar livros em casa →',
       },
       personal: {
         banner: function (name) {
@@ -358,7 +407,14 @@
         ctaH2: 'Comece os seus livros pessoais — hoje.',
         ctaP: 'Grátis, sem cartão. A contabilidade de loja ainda não está disponível no seu país.',
         ctaNote: 'Android primeiro · iOS a seguir · Finanças pessoais aqui · Offline',
-        footer: 'Contabilidade pessoal, simples. Ferramentas de loja em África e América Latina. Um produto da Qavaah Platforms LLC.'
+        footer: 'Contabilidade pessoal, simples. Ferramentas de loja em África e América Latina. Um produto da Qavaah Platforms LLC.',
+        trust: 'Feito para livros pessoais em todo o mundo',
+        how2: 'Rendimentos ou despesas, scan de recibo ou contas recorrentes. Em segundos, também offline.',
+        priceNote: 'Preços de lista EUA. No seu país só planos pessoais — planos de loja quando a contabilidade de loja abrir na sua região.',
+        whoPersTag: 'Finanças pessoais',
+        whoPersH3: 'Os seus livros em casa, aqui',
+        whoPersP: 'Rendimentos, contas, orçamentos e potes — sem ferramentas de loja ainda fechadas no seu país.',
+        whoPersGo: 'Começar livros pessoais →',
       }
     }
   };
