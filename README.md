@@ -15,10 +15,10 @@ The landing page has a **country picker** (nav). It mirrors the app gate (`Billi
 
 | Lane | Regions | Site shows |
 |------|---------|------------|
-| **Shop + personal** | Africa, LatAm (+ listed open markets) | Shop hero, Who/shop card, shop plans |
+| **Shop + personal** | All **53 African** countries, LatAm/Caribbean, Asia & Oceania | Shop hero, Who/shop card, shop plans |
 | **Personal only** | US, Canada, Europe | Personal copy; shop cards hidden |
 
-Choice is stored in `localStorage` (`qb_country`).
+The picker lists **181** countries from the app registry, grouped (Africa → LatAm → Asia & Oceania → personal-only). Choice is stored in `localStorage` (`qb_country`).
 
 ## Preview
 
