@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Qaavah Books — Bookkeeping made simple</title>
-<meta name="description" content="Qaavah Books — simple bookkeeping for shops and teams. Record sales, manage stock and staff, see today's totals. Works offline. Personal books optional." />
+<meta name="description" content="Qaavah Books — shop bookkeeping where open (Africa & LatAm), personal finance elsewhere. Works offline. Pick your country on the site." />
 <meta property="og:title" content="Qaavah Books — Bookkeeping made simple" />
 <meta property="og:description" content="Daily books for your shop — sales, stock, staff. Free to start. Works offline." />
 <meta property="og:type" content="website" />
@@ -487,6 +487,27 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
   .cta-card h2{font-size:32px}
   .hero .cta .btn-ghost{display:none}
 }
+
+/* ── Market lane (country gate — mirrors BillingConfig.shopBusinessOpenFor) ── */
+.country-pick{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--inkSoft)}
+.country-pick label{white-space:nowrap;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.country-pick select{appearance:none;font-family:var(--sans);font-size:13.5px;font-weight:700;color:var(--ink);background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%237A7D85' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 10px center;border:1.5px solid var(--ruleSoft);border-radius:10px;padding:8px 28px 8px 12px;max-width:180px;cursor:pointer}
+.country-pick select:hover{border-color:var(--muted)}
+.market-banner{background:var(--sage-soft);border-bottom:1px solid var(--sage-border);padding:10px 0;font-size:13.5px;font-weight:600;color:var(--sage-dark,#3E614C)}
+.market-banner .wrap{display:flex;align-items:center;justify-content:center;gap:10px;text-align:center;flex-wrap:wrap}
+.market-banner[data-lane="personal"]{background:rgba(40,53,147,.07);border-color:rgba(40,53,147,.18);color:var(--brand-deep)}
+.market-banner b{font-weight:800}
+body[data-lane="personal"] [data-lane="shop"]{display:none!important}
+body[data-lane="personal"] .pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:640px;margin-left:auto;margin-right:auto}
+body[data-lane="personal"] #who .split{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+body[data-lane="personal"] .compare-wrap{display:none!important}
+body[data-lane="personal"] .micro .m[data-lane="shop"]{display:none!important}
+@media (max-width:900px){
+  .country-pick label{display:none}
+  .nav .cta{gap:8px}
+  .country-pick select{max-width:140px;font-size:12.5px;padding:7px 26px 7px 10px}
+}
+
 </style>
 </head>
 <body>
@@ -507,26 +528,34 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
       <a href="/privacy/">Privacy</a>
     </nav>
     <div class="cta">
+      <div class="country-pick">
+        <label for="countrySel">Country</label>
+        <select id="countrySel" aria-label="Your country"></select>
+      </div>
       <a href="#get" class="btn btn-ghost">Get the app</a>
       <a href="#get" class="btn btn-primary">Get started free</a>
     </div>
   </div>
 </header>
 
+<div class="market-banner" id="marketBanner" data-lane="shop" role="status">
+  <div class="wrap"><span id="marketBannerText">Shop bookkeeping is available in your country — plus personal ledgers.</span></div>
+</div>
+
 <!-- ═══════════ HERO ═══════════ -->
 <section class="hero">
   <div class="wrap grid">
     <div class="col">
-      <span class="pill">Built for shops · works for home books too</span>
+      <span class="pill" id="heroPill">Built for shops · works for home books too</span>
       <h1>Bookkeeping,<br><span class="k">made simple.</span></h1>
-      <p class="lede">Run the till, the team, and today's totals in one book — then keep a personal ledger if you want. Record in seconds, see where you stand, even offline.</p>
+      <p class="lede" id="heroLede">Run the till, the team, and today's totals in one book — then keep a personal ledger if you want. Record in seconds, see where you stand, even offline.</p>
       <div class="actions">
         <a href="#get" class="btn btn-primary btn-lg">Start free — no card needed</a>
         <a href="#tour" class="btn btn-ghost btn-lg">See it in action</a>
       </div>
       <div class="micro">
         <span class="m"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#16834A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Works offline</span>
-        <span class="m"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#16834A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Staff &amp; catalogue</span>
+        <span class="m" data-lane="shop"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#16834A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Staff &amp; catalogue</span>
         <span class="m"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#16834A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Free to start</span>
       </div>
     </div>
@@ -842,12 +871,12 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
   <section id="who">
     <div class="wrap">
     <div class="s-head center rv">
-      <span class="eyebrow">One app, two ways to use it</span>
-        <h2>Built for the shop — home books when you want them.</h2>
-        <p>Most people start with a shop or stall. Add a personal ledger later if you need both.</p>
+      <span class="eyebrow" id="whoEyebrow">One app, two ways to use it</span>
+        <h2 id="whoH2">Built for the shop — home books when you want them.</h2>
+        <p id="whoP">Most people start with a shop or stall. Add a personal ledger later if you need both.</p>
       </div>
       <div class="split">
-        <div class="aud business">
+        <div class="aud business" data-lane="shop">
           <div class="tag">Shop &amp; team</div>
           <h3>Run the shop by the numbers</h3>
           <p>For retail, services, market traders and more. Record sales, manage stock and staff, and see the day's totals at a glance.</p>
@@ -885,7 +914,7 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
       <div class="step">
         <div class="no"></div>
         <h3>Pick your focus</h3>
-        <p>Shop, service, or personal ledger — choose at signup and the app sets itself up in your currency and language.</p>
+        <p id="howStep1">Shop, service, or personal ledger — choose at signup and the app sets itself up in your currency and language.</p>
       </div>
       <div class="step">
         <div class="no"></div>
@@ -907,11 +936,11 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
     <div class="s-head center rv">
       <span class="eyebrow">Simple pricing</span>
       <h2>Plans to suit your <em style="font-style:italic;font-weight:700;color:var(--sage-deep)">books</em></h2>
-      <p>Free to start. Same plans worldwide — priced locally (PPP). Figures below are US list prices; checkout in the app shows your currency.</p>
+      <p id="pricingIntro">Free to start. Same plans worldwide — priced locally (PPP). Figures below are US list prices; checkout in the app shows your currency.</p>
       <ul class="pricing-benefits">
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> No card to start</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Works offline</li>
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Personal or shop</li>
+        <li id="pricingBenefitLane"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Personal or shop</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Cancel anytime in-app</li>
       </ul>
     </div>
@@ -923,7 +952,7 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
 
     <div class="pricing-grid">
       <!-- Free -->
-      <div class="price-card rv">
+      SKIP">
         <div class="plan">Free</div>
         <div class="price-block">
           <div class="amt">$0</div>
@@ -935,7 +964,7 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Up to 20 entries / month</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Today’s dashboard &amp; report</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Manual income &amp; expenses</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> One personal ledger or shop book</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> <span id="freePerkLane">One personal ledger or shop book</span></li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Phone + OTP sign-in</li>
         </ul>
         <a href="#get" class="btn btn-ghost">Start free</a>
@@ -969,7 +998,7 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
       </div>
 
       <!-- Shop Starter -->
-      <div class="price-card rv d2">
+      <div class="price-card rv d2" data-lane="shop">
         <div class="plan">Shop Starter</div>
         <div class="price-block">
           <div class="show-monthly">
@@ -995,7 +1024,7 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
       </div>
 
       <!-- Shop Pro (featured) -->
-      <div class="price-card featured rv d3">
+      <div class="price-card featured rv d3" data-lane="shop">
         <div class="ribbon">Most popular for shops</div>
         <div class="plan">Shop Pro</div>
         <div class="price-block">
@@ -1023,7 +1052,7 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
       </div>
 
       <!-- Ultimate -->
-      <div class="price-card rv d4">
+      <div class="price-card rv d4" data-lane="shop">
         <div class="plan">Business Ultimate</div>
         <div class="price-block">
           <div class="show-monthly">
@@ -1247,13 +1276,13 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
 <section id="get" class="cta-final">
   <div class="wrap">
     <div class="cta-card">
-      <h2>Start keeping your money in order — today.</h2>
-      <p>Free to start, no card required. Bring the shop — keep a personal book too if you want.</p>
+      <h2 id="ctaH2">Start keeping your money in order — today.</h2>
+      <p id="ctaP">Free to start, no card required. Bring the shop — keep a personal book too if you want.</p>
       <div class="actions" id="download">
         <a href="#get" class="btn btn-primary btn-lg" aria-disabled="true">Google Play — coming soon</a>
         <a href="#get" class="btn btn-sage btn-lg" aria-disabled="true">App Store — coming soon</a>
       </div>
-      <div class="note">Android first · iOS next · 180+ countries · Works offline</div>
+      <div class="note" id="ctaNote">Android first · iOS next · 180+ countries · Works offline</div>
     </div>
   </div>
 </section>
@@ -1267,7 +1296,7 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
           <img class="mark" src="assets/logo-mark.png" width="30" height="30" alt="" />
           <span class="wm"><span class="qa">Qaavah</span> <span class="bk">Books</span></span>
         </a>
-        <p>Bookkeeping made simple — for the shop, the team, and home books. A product of Qavaah Platforms LLC.</p>
+        <p id="footerAbout">Bookkeeping made simple — for the shop, the team, and home books. A product of Qavaah Platforms LLC.</p>
       </div>
       <div class="fcol">
         <h4>Product</h4>
@@ -1345,6 +1374,141 @@ footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(-
   function tauto(){ttimer=setInterval(function(){tgo(tcur+1)},6000);}
   ttabs.forEach(function(tb,i){tb.addEventListener('click',function(){clearInterval(ttimer);tgo(i);tauto();})});
   if(ttabs.length && !matchMedia('(prefers-reduced-motion: reduce)').matches)tauto();
+
+
+  // ── Country / market lane (matches app BillingConfig.shopBusinessOpenFor) ──
+  // Shop tools open: Africa + LatAm (+ most other non-EU). Closed: US, CA, Europe.
+  var COUNTRIES = [
+    {cc:'GH', name:'Ghana', lane:'shop'},
+    {cc:'NG', name:'Nigeria', lane:'shop'},
+    {cc:'KE', name:'Kenya', lane:'shop'},
+    {cc:'ZA', name:'South Africa', lane:'shop'},
+    {cc:'EG', name:'Egypt', lane:'shop'},
+    {cc:'CI', name:"Côte d'Ivoire", lane:'shop'},
+    {cc:'SN', name:'Senegal', lane:'shop'},
+    {cc:'TZ', name:'Tanzania', lane:'shop'},
+    {cc:'UG', name:'Uganda', lane:'shop'},
+    {cc:'RW', name:'Rwanda', lane:'shop'},
+    {cc:'BR', name:'Brazil', lane:'shop'},
+    {cc:'MX', name:'Mexico', lane:'shop'},
+    {cc:'CO', name:'Colombia', lane:'shop'},
+    {cc:'AR', name:'Argentina', lane:'shop'},
+    {cc:'PE', name:'Peru', lane:'shop'},
+    {cc:'CL', name:'Chile', lane:'shop'},
+    {cc:'IN', name:'India', lane:'shop'},
+    {cc:'PH', name:'Philippines', lane:'shop'},
+    {cc:'US', name:'United States', lane:'personal'},
+    {cc:'CA', name:'Canada', lane:'personal'},
+    {cc:'GB', name:'United Kingdom', lane:'personal'},
+    {cc:'IE', name:'Ireland', lane:'personal'},
+    {cc:'FR', name:'France', lane:'personal'},
+    {cc:'DE', name:'Germany', lane:'personal'},
+    {cc:'ES', name:'Spain', lane:'personal'},
+    {cc:'PT', name:'Portugal', lane:'personal'},
+    {cc:'IT', name:'Italy', lane:'personal'},
+    {cc:'NL', name:'Netherlands', lane:'personal'},
+    {cc:'SE', name:'Sweden', lane:'personal'},
+    {cc:'PL', name:'Poland', lane:'personal'}
+  ];
+  var byCc = {};
+  COUNTRIES.forEach(function(c){ byCc[c.cc]=c; });
+
+  var COPY = {
+    shop: {
+      banner: function(name){ return '<b>Shop bookkeeping is open in '+name+'</b> — run the till and team, plus an optional personal ledger.'; },
+      pill: 'Built for shops · works for home books too',
+      lede: "Run the till, the team, and today's totals in one book — then keep a personal ledger if you want. Record in seconds, see where you stand, even offline.",
+      whoEyebrow: 'One app, two ways to use it',
+      whoH2: 'Built for the shop — home books when you want them.',
+      whoP: 'Most people start with a shop or stall. Add a personal ledger later if you need both.',
+      how1: 'Shop, service, or personal ledger — choose at signup and the app sets itself up in your currency and language.',
+      pricingIntro: 'Free to start. Shop and personal plans where shop tools are open. Figures below are US list prices; checkout in the app shows your currency.',
+      benefitLane: 'Personal or shop',
+      freePerk: 'One personal ledger or shop book',
+      ctaH2: 'Start keeping your money in order — today.',
+      ctaP: 'Free to start, no card required. Bring the shop — keep a personal book too if you want.',
+      ctaNote: 'Android first · iOS next · Shop tools in Africa & LatAm · Works offline',
+      footer: 'Bookkeeping made simple — for the shop, the team, and home books. A product of Qavaah Platforms LLC.'
+    },
+    personal: {
+      banner: function(name){ return '<b>Personal finance in '+name+'</b> — shop bookkeeping is not open here yet. Staff can still join a shop abroad.'; },
+      pill: 'Personal money · on this phone',
+      lede: 'Track income, bills, and savings in one private ledger. Shop tools (catalogue, staff, till) are rolling out region by region — not available in your country yet.',
+      whoEyebrow: 'Personal books first',
+      whoH2: 'Home finance where you are — shop tools coming later.',
+      whoP: 'In the US, Canada, and Europe we launch with personal ledgers only. Staff invites still work if you work at a shop abroad.',
+      how1: 'Pick a personal finance focus at signup — household, bills, or savings — in your currency and language.',
+      pricingIntro: 'Free to start. Personal plans for your country. Shop plans appear when shop bookkeeping opens in your region. US list prices below; checkout shows your currency.',
+      benefitLane: 'Personal ledger',
+      freePerk: 'One personal ledger',
+      ctaH2: 'Start your personal books — today.',
+      ctaP: 'Free to start, no card required. Shop bookkeeping is not available in your country yet.',
+      ctaNote: 'Android first · iOS next · Personal finance here · Works offline',
+      footer: 'Personal bookkeeping made simple. Shop tools open in Africa & Latin America. A product of Qavaah Platforms LLC.'
+    }
+  };
+
+  function setText(id, text){
+    var el=document.getElementById(id);
+    if(el) el.textContent=text;
+  }
+  function applyLane(cc){
+    var c = byCc[cc] || byCc.GH;
+    var lane = c.lane;
+    var copy = COPY[lane];
+    document.body.setAttribute('data-lane', lane);
+    var banner=document.getElementById('marketBanner');
+    if(banner){
+      banner.setAttribute('data-lane', lane);
+      var bt=document.getElementById('marketBannerText');
+      if(bt) bt.innerHTML = copy.banner(c.name);
+    }
+    setText('heroPill', copy.pill);
+    setText('heroLede', copy.lede);
+    setText('whoEyebrow', copy.whoEyebrow);
+    setText('whoH2', copy.whoH2);
+    setText('whoP', copy.whoP);
+    setText('howStep1', copy.how1);
+    setText('pricingIntro', copy.pricingIntro);
+    var bl=document.getElementById('pricingBenefitLane');
+    if(bl){ var t=bl.querySelector('svg'); bl.innerHTML=''; if(t) bl.appendChild(t); bl.appendChild(document.createTextNode(' '+copy.benefitLane)); }
+    setText('freePerkLane', copy.freePerk);
+    setText('ctaH2', copy.ctaH2);
+    setText('ctaP', copy.ctaP);
+    setText('ctaNote', copy.ctaNote);
+    setText('footerAbout', copy.footer);
+    try{ localStorage.setItem('qb_country', c.cc); }catch(e){}
+    var sel=document.getElementById('countrySel');
+    if(sel && sel.value!==c.cc) sel.value=c.cc;
+  }
+
+  function detectCc(){
+    try{
+      var s=localStorage.getItem('qb_country');
+      if(s && byCc[s]) return s;
+    }catch(e){}
+    var lang=(navigator.language||'en').toUpperCase();
+    var parts=lang.split(/[-_]/);
+    var guess=parts[parts.length-1];
+    if(guess && byCc[guess]) return guess;
+    if(lang.indexOf('EN-US')===0 || lang==='EN-US') return 'US';
+    return 'GH';
+  }
+
+  var sel=document.getElementById('countrySel');
+  if(sel){
+    // Group: Shop markets first, then personal-only
+    var ogShop=document.createElement('optgroup'); ogShop.label='Shop + personal';
+    var ogPers=document.createElement('optgroup'); ogPers.label='Personal finance only (for now)';
+    COUNTRIES.forEach(function(c){
+      var o=document.createElement('option');
+      o.value=c.cc; o.textContent=c.name;
+      (c.lane==='shop'?ogShop:ogPers).appendChild(o);
+    });
+    sel.appendChild(ogShop); sel.appendChild(ogPers);
+    sel.addEventListener('change', function(){ applyLane(sel.value); });
+    applyLane(detectCc());
+  }
 
   // pricing monthly / annual
   var pricing=document.getElementById('pricing');
