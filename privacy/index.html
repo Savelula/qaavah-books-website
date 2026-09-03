@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Qaavah Books</title>
+<meta name="description" content="Privacy Policy for Qaavah Books by Qavaah Platforms LLC — how we collect, use, and protect your information." />
+<meta property="og:title" content="Privacy Policy | Qaavah Books" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://qaavah.com/privacy/" />
+<link rel="canonical" href="https://qaavah.com/privacy/" />
+<link rel="icon" type="image/png" href="../assets/logo-mark.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAFAF7; --surface:#FFFFFF; --ink:#15161A; --inkSoft:#3B3D44;
+  --muted:#7A7D85; --faint:#A8ABB3;
+  --ruleSoft:rgba(21,22,34,.08); --ruleHair:rgba(21,22,34,.05);
+  --brand:#283593; --brand-deep:#1A237E; --income:#16834A; --expense:#B33A2A; --amber:#B07310;
+  --tile:#F1EFE9;
+  --sage:#5F8A6E; --sage-deep:#4A7259; --sage-soft:rgba(95,138,110,.12); --sage-border:rgba(95,138,110,.30);
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.5}
+a{color:var(--brand);text-decoration:none}
+a:hover{color:var(--brand-deep)}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+header.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,247,.82);backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--ruleHair);transition:box-shadow .3s ease}
+header.nav.scrolled{box-shadow:0 10px 30px -18px rgba(20,22,45,.25)}
+.nav .row{display:flex;align-items:center;gap:36px;height:72px}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.brand img.mark{width:34px;height:34px;border-radius:8px}
+.brand .wm{font-size:20px;font-weight:800;letter-spacing:-.5px;line-height:1}
+.brand .wm .qa{color:var(--brand)}.brand .wm .bk{color:var(--sage-deep)}
+.navlinks{display:flex;gap:30px;margin-left:8px}
+.navlinks a{color:var(--inkSoft);font-size:15px;font-weight:600}
+.navlinks a:hover,.navlinks a.on{color:var(--ink)}
+.nav .cta{margin-left:auto;display:flex;align-items:center;gap:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:700;font-size:15px;border-radius:12px;padding:11px 20px;cursor:pointer;border:1.5px solid transparent;transition:transform .12s ease,box-shadow .2s ease,background .2s ease;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 8px 20px -8px rgba(40,53,147,.6)}
+.btn-primary:hover{background:var(--brand-deep);color:#fff}
+.btn-ghost{color:var(--inkSoft);border-color:var(--ruleSoft);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--muted);color:var(--ink)}
+
+.page-hero{position:relative;overflow:hidden;padding:56px 0 40px;border-bottom:1px solid var(--ruleHair)}
+.page-hero::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(95,138,110,.14),transparent 62%);top:-280px;right:-200px;pointer-events:none}
+.page-hero::after{content:"";position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(40,53,147,.08),transparent 64%);bottom:-260px;left:-180px;pointer-events:none}
+.page-hero .inner{position:relative;max-width:760px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-deep)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--sage);border-radius:2px}
+.page-hero h1{font-size:52px;font-weight:800;letter-spacing:-2px;line-height:1.05;margin-top:14px;text-wrap:balance}
+.page-hero .lede{font-size:18px;color:var(--inkSoft);margin-top:16px;max-width:540px;line-height:1.55}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--ruleSoft);border-radius:100px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--inkSoft);box-shadow:0 2px 8px rgba(21,22,34,.04)}
+.chip b{color:var(--ink);font-weight:700}
+.chip a{font-weight:700}
+
+.legal-shell{padding:48px 0 88px}
+.legal-layout{display:grid;grid-template-columns:220px minmax(0,760px);gap:48px;align-items:start}
+.toc{position:sticky;top:96px;padding:20px 0}
+.toc h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:14px}
+.toc a{display:block;font-size:13.5px;font-weight:600;color:var(--inkSoft);padding:7px 0;border-left:2px solid transparent;padding-left:12px;margin-left:-1px}
+.toc a:hover{color:var(--brand);border-left-color:var(--sage)}
+
+.legal{background:var(--surface);border:1px solid var(--ruleSoft);border-radius:24px;padding:40px 44px 48px;box-shadow:0 24px 60px -40px rgba(20,22,45,.28)}
+.legal h2{font-size:22px;font-weight:800;letter-spacing:-.6px;margin:36px 0 12px;color:var(--ink)}
+.legal h2:first-of-type{margin-top:8px}
+.legal h3{font-size:15.5px;font-weight:700;margin:22px 0 10px;color:var(--inkSoft)}
+.legal p,.legal li{font-size:15px;color:var(--inkSoft);line-height:1.65}
+.legal p{margin:0 0 12px}
+.legal ul{padding-left:1.2rem;margin:0 0 14px}
+.legal li{margin:6px 0}
+.legal strong{color:var(--ink);font-weight:700}
+.legal code{font-family:var(--mono);font-size:13px;background:var(--tile);padding:2px 7px;border-radius:6px}
+.legal table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0 18px;font-size:14px;overflow:hidden;border:1px solid var(--ruleSoft);border-radius:14px}
+.legal th,.legal td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--ruleHair)}
+.legal th{background:rgba(40,53,147,.04);color:var(--ink);font-weight:700;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
+.legal tr:last-child td{border-bottom:none}
+.legal .callout{background:var(--sage-soft);border:1px solid var(--sage-border);border-radius:14px;padding:14px 16px;font-size:14px;color:var(--inkSoft);margin:8px 0 20px;line-height:1.55}
+
+footer{border-top:1px solid var(--ruleHair);padding:56px 0 40px;background:var(--surface)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+.foot .about{max-width:280px}
+.foot .about p{font-size:14px;color:var(--muted);margin-top:14px;line-height:1.55}
+.fcol h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:16px}
+.fcol a{display:block;font-size:14.5px;color:var(--inkSoft);font-weight:500;margin-bottom:11px}
+.fcol a:hover{color:var(--ink)}
+.foot-btm{display:flex;align-items:center;justify-content:space-between;margin-top:44px;padding-top:26px;border-top:1px solid var(--ruleHair);font-size:13.5px;color:var(--muted);flex-wrap:wrap;gap:14px}
+
+@media (max-width:940px){
+  .legal-layout{grid-template-columns:1fr;gap:24px}
+  .toc{position:static;display:flex;flex-wrap:wrap;gap:4px 16px;padding:0 0 8px;border-bottom:1px solid var(--ruleHair)}
+  .toc h4{width:100%;margin-bottom:6px}
+  .toc a{border:none;padding:6px 0;margin:0}
+  .navlinks{display:none}
+  .foot{grid-template-columns:1fr 1fr}
+  .page-hero h1{font-size:40px}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px}
+  .legal{padding:28px 22px 36px;border-radius:18px}
+  .page-hero{padding:40px 0 28px}
+  .page-hero h1{font-size:34px}
+  .foot{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap row">
+    <a class="brand" href="/">
+      <img class="mark" src="../assets/logo-mark.png" width="34" height="34" alt="Qaavah Books" />
+      <span class="wm"><span class="qa">Qaavah</span> <span class="bk">Books</span></span>
+    </a>
+    <nav class="navlinks">
+      <a href="/#features">Features</a>
+      <a href="/#who">Who it's for</a>
+      <a href="/#pricing">Pricing</a>
+      <a class="on" href="/privacy/">Privacy</a>
+    </nav>
+    <div class="cta">
+      <a href="/#get" class="btn btn-ghost">Get the app</a>
+      <a href="/#get" class="btn btn-primary">Get started free</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="inner">
+      <span class="eyebrow">Legal</span>
+      <h1>Privacy Policy</h1>
+      <p class="lede">How Qaavah Books handles your account, ledger data, and on-device privacy — from Qavaah Platforms LLC.</p>
+      <div class="meta-row">
+        <span class="chip"><b>Updated</b> 15 July 2026</span>
+        <span class="chip"><b>Effective</b> 15 July 2026</span>
+        <span class="chip"><b>Contact</b> <a href="mailto:privacy@qaavah.com">privacy@qaavah.com</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="legal-shell">
+  <div class="wrap legal-layout">
+    <aside class="toc" aria-label="On this page">
+      <h4>On this page</h4>
+      <a href="#scope">1. Scope</a>
+      <a href="#collect">2. Information we collect</a>
+      <a href="#use">3. How we use it</a>
+      <a href="#share">4. How we share it</a>
+      <a href="#transfers">5. International transfers</a>
+      <a href="#retention">6. Retention</a>
+      <a href="#security">7. Security</a>
+      <a href="#rights">8. Your rights</a>
+      <a href="#children">9. Children</a>
+      <a href="#stores">10. Stores</a>
+      <a href="#changes">11. Changes</a>
+      <a href="#contact">12. Contact</a>
+    </aside>
+
+    <article class="legal">
+      <div class="callout">
+        This policy describes how Qaavah Books handles information today. It is product documentation for users and store listings — not a substitute for legal advice tailored to your jurisdiction.
+      </div>
+
+      <h2 id="scope">1. Scope</h2>
+      <p>This policy explains how we collect, use, store, and share information when you use Qaavah Books on Android or iOS, and our related backend services.</p>
+      <p>It does not cover third-party websites or apps that we do not control.</p>
+      <p><strong>Operator:</strong> Qavaah Platforms LLC (“we”, “us”, “our”) · <strong>Product:</strong> Qaavah Books</p>
+
+      <h2 id="collect">2. Information we collect</h2>
+
+      <h3>2.1 Account and authentication</h3>
+      <ul>
+        <li><strong>Phone number</strong> — used to create and sign in to your account.</li>
+        <li><strong>One-time passcodes (OTP)</strong> — sent by SMS through our SMS provider so we can verify that you control the number. Session access uses a secure token stored on your device.</li>
+        <li><strong>Account profile details you provide</strong> — for example display name and optional profile photo.</li>
+      </ul>
+
+      <h3>2.2 Business and financial data you enter</h3>
+      <p>Depending on how you use the app, this may include:</p>
+      <ul>
+        <li>Business / workplace names, country, currency, and business type</li>
+        <li>Sales, expenses, custom ledger entries, notes, payment method labels</li>
+        <li>Inventory or services catalogue (names, prices, stock, barcodes you generate)</li>
+        <li>Staff-related data owners invite (for example staff phone for join invites, role/tier)</li>
+        <li>Transport-related records if you use those features (trips, handovers, costs)</li>
+        <li>Personal-finance entries, budgets, debts, wallets, and similar tools when you use a personal ledger</li>
+      </ul>
+      <p>You decide what to type or import. We process it to provide the product (sync, reports, multi-device/staff access where enabled).</p>
+
+      <h3>2.3 Photos and device captures</h3>
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>What happens</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Profile avatar</strong></td>
+            <td>Uploaded to our servers; we resize/re-encode as JPEG and store it for your account.</td>
+          </tr>
+          <tr>
+            <td><strong>Inventory product photos</strong></td>
+            <td>Processed on the device for shelf labels; not synced to our servers in the current version.</td>
+          </tr>
+          <tr>
+            <td><strong>Receipt scan</strong></td>
+            <td>Image is processed on the device for OCR to help fill an entry. The receipt image is not uploaded to our servers as part of that flow.</td>
+          </tr>
+          <tr>
+            <td><strong>Barcode / QR scanner</strong></td>
+            <td>Camera is used on-device to look up catalogue items; we do not receive a live camera stream.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>2.4 Device and technical data</h3>
+      <ul>
+        <li>App version, device type/OS (as needed for diagnostics and compatibility)</li>
+        <li>Approximate request metadata such as IP address, timestamps, and security/rate-limit signals when your app talks to our API</li>
+        <li>Crash or error information if we later enable a crash-reporting SDK (we will update this policy if we do)</li>
+      </ul>
+      <p>We do not sell your personal information.</p>
+
+      <h3>2.5 Personal finance “on-device-only” mode</h3>
+      <p>For a personal ledger, you may enable on-device-only privacy. When enabled for that ledger:</p>
+      <ul>
+        <li>Entries for that ledger stay on your phone.</li>
+        <li>Those entries are not uploaded to our cloud sync for that ledger.</li>
+        <li>If you lose the device without a backup you exported yourself, we cannot restore that on-device data.</li>
+      </ul>
+      <p>Encrypted personal backups (<code>.konta</code> files) that you export stay under your control; we do not receive them unless you choose to send them to us for support.</p>
+
+      <h2 id="use">3. How we use information</h2>
+      <p>We use the information above to:</p>
+      <ul>
+        <li>Create and authenticate accounts (including OTP verification)</li>
+        <li>Provide bookkeeping features, sync, reports, staff access, and related product functions</li>
+        <li>Secure the service (abuse prevention, rate limits, fraud/security monitoring)</li>
+        <li>Communicate transactional messages (for example login codes); marketing only if you opt in where required by law</li>
+        <li>Comply with law and enforce our terms</li>
+        <li>Improve reliability and fix bugs</li>
+      </ul>
+      <p>Legal bases (where GDPR/UK GDPR or similar apply) typically include contract (providing the app you asked for), legitimate interests (security, product integrity), and consent where required.</p>
+
+      <h2 id="share">4. How we share information</h2>
+      <p>We share data only as needed to run the service:</p>
+      <table>
+        <thead>
+          <tr><th>Recipient</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cloud hosting / infrastructure</strong></td>
+            <td>Run the API and databases in regions we configure.</td>
+          </tr>
+          <tr>
+            <td><strong>SMS provider</strong></td>
+            <td>Deliver OTP codes to your phone number.</td>
+          </tr>
+          <tr>
+            <td><strong>Payment / billing providers</strong></td>
+            <td>Process paid plans if you subscribe. Card data is handled by the payment provider.</td>
+          </tr>
+          <tr>
+            <td><strong>Staff you invite</strong></td>
+            <td>Owners can grant workplace access; staff see data allowed by their role.</td>
+          </tr>
+          <tr>
+            <td><strong>Professional advisers / authorities</strong></td>
+            <td>Only when required by law or to protect rights, safety, and the service.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>We do not sell personal information or share it for third-party advertising.</p>
+
+      <h2 id="transfers">5. International transfers</h2>
+      <p>Our servers and subprocessors may be located in countries different from yours (including the United States or other regions). Where required, we use appropriate safeguards for cross-border transfers.</p>
+
+      <h2 id="retention">6. Retention</h2>
+      <ul>
+        <li><strong>Account and synced ledger data</strong> — kept while your account is active and for a reasonable period afterward if needed for backups, disputes, or legal obligations.</li>
+        <li><strong>On-device-only personal data</strong> — retained on your device until you delete it or uninstall the app (subject to your device backups).</li>
+        <li><strong>OTP / security logs</strong> — short retention consistent with security needs.</li>
+        <li><strong>Profile photos</strong> — retained while associated with an active account.</li>
+      </ul>
+      <p>When you request deletion, we delete or anonymize personal data in our systems within a reasonable period, except where we must retain information for law, fraud prevention, or unresolved disputes.</p>
+
+      <h2 id="security">7. Security</h2>
+      <p>We use industry-standard measures appropriate to a financial bookkeeping app, including:</p>
+      <ul>
+        <li>Encryption in transit (HTTPS/TLS) for production API traffic</li>
+        <li>Access controls and session tokens for authenticated APIs</li>
+        <li>Server-side checks on certain uploads (for example avatar size and image re-encoding)</li>
+        <li>Optional on-device-only mode for personal ledgers</li>
+      </ul>
+      <p>No method of transmission or storage is 100% secure. Protect your phone with a device lock; treat staff invites carefully.</p>
+
+      <h2 id="rights">8. Your rights and choices</h2>
+      <p>Depending on where you live, you may have rights to access, correct, delete, export, or restrict certain processing of your personal data, and to object to certain processing.</p>
+      <p><strong>In-app / product choices today:</strong></p>
+      <ul>
+        <li>Edit or delete many ledger entries you control</li>
+        <li>Enable/disable personal on-device-only privacy for a personal ledger</li>
+        <li>Export encrypted personal backups where the app provides that feature</li>
+        <li>Sign out and remove the local session token from the device</li>
+      </ul>
+      <p><strong>Account or full data deletion:</strong> email <a href="mailto:privacy@qaavah.com">privacy@qaavah.com</a> from contact details associated with the account and ask for deletion. We may verify that you control the account before acting.</p>
+      <p>You may also complain to a data protection authority in your country where applicable.</p>
+
+      <h2 id="children">9. Children</h2>
+      <p>Qaavah Books is aimed at adults running businesses or personal finances. We do not knowingly collect personal information from children under 13 (or under 16 where that is the local standard). If you believe a child has created an account, contact us and we will take appropriate steps.</p>
+
+      <h2 id="stores">10. Third-party links and stores</h2>
+      <p>Purchases may be processed by Google Play or Apple. Their privacy policies apply to store account and payment data. We only receive what we need to unlock features you bought.</p>
+
+      <h2 id="changes">11. Changes to this policy</h2>
+      <p>We may update this policy from time to time. We will change the “Last updated” date and, for material changes, provide additional notice where appropriate. Continued use after the effective date means you accept the updated policy where permitted by law.</p>
+
+      <h2 id="contact">12. Contact</h2>
+      <p><strong>Privacy requests:</strong> <a href="mailto:privacy@qaavah.com">privacy@qaavah.com</a></p>
+      <p><strong>Operator:</strong> Qavaah Platforms LLC</p>
+      <p><strong>Support:</strong> <a href="mailto:hello@qaavah.com">hello@qaavah.com</a></p>
+      <p><strong>Postal address:</strong> Available on request at the privacy contact while LLC registration details are finalized.</p>
+    </article>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="about">
+        <a class="brand" href="/">
+          <img class="mark" src="../assets/logo-mark.png" width="30" height="30" alt="" />
+          <span class="wm"><span class="qa">Qaavah</span> <span class="bk">Books</span></span>
+        </a>
+        <p>Bookkeeping made simple — for your own money, or your whole shop. A product of Qavaah Platforms LLC.</p>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <a href="/#features">Features</a>
+        <a href="/#who">Who it's for</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#get">Get the app</a>
+      </div>
+      <div class="fcol">
+        <h4>Company</h4>
+        <a href="mailto:hello@qaavah.com">Contact</a>
+        <a href="/privacy/">Privacy</a>
+      </div>
+      <div class="fcol">
+        <h4>Legal</h4>
+        <a href="/privacy/">Privacy policy</a>
+        <a href="mailto:privacy@qaavah.com">privacy@qaavah.com</a>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <span>© 2026 Qavaah Platforms LLC. All rights reserved.</span>
+      <div class="soc">
+        <a href="mailto:hello@qaavah.com">hello@qaavah.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.querySelector('header.nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>8)},{passive:true});
+})();
+</script>
+</body>
+</html>

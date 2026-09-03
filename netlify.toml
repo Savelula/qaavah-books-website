@@ -1,0 +1,4 @@
+# When this folder alone is the Netlify site root (drag-and-drop).
+[build]
+  publish = "."
+  command = "echo 'static site — no build'"
