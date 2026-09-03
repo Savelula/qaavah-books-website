@@ -940,7 +940,7 @@ body[data-lane="personal"] .micro .m[data-lane="shop"]{display:none!important}
       <ul class="pricing-benefits">
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> No card to start</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Works offline</li>
-        <li id="pricingBenefitLane"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Personal or shop</li>
+        <li id="pricingBenefitLane"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> <span id="pricingBenefitLaneText">Personal or shop</span></li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4A7259" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Cancel anytime in-app</li>
       </ul>
     </div>
@@ -1470,8 +1470,7 @@ body[data-lane="personal"] .micro .m[data-lane="shop"]{display:none!important}
     setText('whoP', copy.whoP);
     setText('howStep1', copy.how1);
     setText('pricingIntro', copy.pricingIntro);
-    var bl=document.getElementById('pricingBenefitLane');
-    if(bl){ var t=bl.querySelector('svg'); bl.innerHTML=''; if(t) bl.appendChild(t); bl.appendChild(document.createTextNode(' '+copy.benefitLane)); }
+    setText('pricingBenefitLaneText', copy.benefitLane);
     setText('freePerkLane', copy.freePerk);
     setText('ctaH2', copy.ctaH2);
     setText('ctaP', copy.ctaP);

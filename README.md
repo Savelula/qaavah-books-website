@@ -9,11 +9,22 @@ Marketing site + privacy policy for **Qaavah Books** (operator: **Qavaah Platfor
 
 Draft markdown for counsel: `docs/privacy-policy-draft.md`
 
+## Country / market lane
+
+The landing page has a **country picker** (nav). It mirrors the app gate (`BillingConfig.shopBusinessOpenFor`):
+
+| Lane | Regions | Site shows |
+|------|---------|------------|
+| **Shop + personal** | Africa, LatAm (+ listed open markets) | Shop hero, Who/shop card, shop plans |
+| **Personal only** | US, Canada, Europe | Personal copy; shop cards hidden |
+
+Choice is stored in `localStorage` (`qb_country`).
+
 ## Preview
 
 ```bash
 python3 -m http.server 8080
-# http://127.0.0.1:8080/  and  http://127.0.0.1:8080/privacy/
+# http://127.0.0.1:8080/  — try switching United States vs Ghana
 ```
 
 ## Before go-live
