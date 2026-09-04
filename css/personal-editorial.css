@@ -432,8 +432,8 @@
   #layoutPersonal .flowin > div:first-child{
     border-left:none;border-bottom:var(--edge);padding:48px 24px;order:1;
   }
-  #layoutPersonal .flow .phone{order:2;}
   #layoutPersonal .flow .phone{
+    order:2;
     position:relative;top:auto;margin:32px auto 48px;max-width:340px;
   }
   #layoutPersonal .plans{grid-template-columns:1fr}
