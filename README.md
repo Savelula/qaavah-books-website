@@ -11,20 +11,22 @@ Draft markdown for counsel: `docs/privacy-policy-draft.md`
 
 ## Country / market lane
 
-The landing page has a **country picker** (nav). It mirrors the app gate (`BillingConfig.shopBusinessOpenFor`):
+The landing page has a **country picker** (nav). Marketing lanes (website):
 
 | Lane | Regions | Site shows |
 |------|---------|------------|
-| **Shop + personal** | All **53 African** countries, LatAm/Caribbean, Asia & Oceania | Shop hero, Who/shop card, shop plans |
-| **Personal only** | US, Canada, Europe | Personal hero, features, quotes, pricing & Who — shop tour / till / staff hidden |
+| **Shop + personal** | **Africa** only | Existing shop landing (till, staff, catalogue, shop plans) |
+| **Personal money** | Everywhere except Africa (US, Canada, Europe, LatAm, Asia & Oceania) | Product Tour US-EU layout (`css/personal-tour.css`): night hero, 6-step workflow phone, screens gallery, Free + Personal Plus |
 
-The picker lists **181** countries from the app registry, grouped (Africa → LatAm → Asia & Oceania → personal-only). Choice is stored in `localStorage` (`qb_country`).
+> App gate still opens shop tools in Africa **and** LatAm (`BillingConfig.shopBusinessOpenFor`). This marketing page uses Africa-only for the shop story; LatAm visitors see the personal tour until product decides otherwise.
+
+The picker lists **181** countries from the app registry. Choice is stored in `localStorage` (`qb_country`).
 
 ## Preview
 
 ```bash
 python3 -m http.server 8080
-# http://127.0.0.1:8080/  — try switching United States vs Ghana
+# http://127.0.0.1:8080/  — United States / France → personal tour; Ghana → shop
 ```
 
 ## Before go-live

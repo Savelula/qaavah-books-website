@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Qaavah Books — Bookkeeping made simple</title>
-<meta name="description" content="Qaavah Books — shop bookkeeping where open (Africa & LatAm), personal finance elsewhere. Works offline. Pick your country on the site." />
+<meta name="description" content="Qaavah Books — shop bookkeeping in Africa; personal money everywhere else. Works offline. Pick your country on the site." />
 <meta property="og:title" content="Qaavah Books — Bookkeeping made simple" />
 <meta property="og:description" content="Daily books for your shop — sales, stock, staff. Free to start. Works offline." />
 <meta property="og:type" content="website" />
@@ -14,7 +14,7 @@
 <link rel="icon" type="image/png" href="assets/logo-mark.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
 <style>
 .brand img.mark{width:34px;height:34px;border-radius:8px}
 .btn[aria-disabled="true"]{opacity:.85;cursor:default;pointer-events:none}
@@ -523,9 +523,12 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
 }
 
 </style>
+<link rel="stylesheet" href="css/personal-tour.css">
 </head>
 <body>
 
+
+<div id="layoutShop">
 <!-- ═══════════ NAV ═══════════ -->
 <header class="nav">
   <div class="wrap row">
@@ -1436,7 +1439,316 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
   </div>
 </footer>
 
-<script src="/js/site-i18n.js"></script>
+</div><!-- /layoutShop -->
+
+<div id="layoutPersonal">
+<nav>
+  <div class="navin">
+    <a class="brand" href="#"><img src="assets/logo-mark.png" alt="Qaavah Books">Qaavah <i>Books</i></a>
+    <div class="nlinks"><a href="#flow">Workflow</a><a href="#screens">Screens</a><a href="#pfPricing">Pricing</a></div>
+    <div class="pf-picks">
+      <label class="pf-lab" for="langSelPf">Language</label>
+      <select id="langSelPf" aria-label="Language"></select>
+      <label class="pf-lab" for="countrySelPf">Country</label>
+      <select id="countrySelPf" aria-label="Your country"></select>
+    </div>
+    <a class="btn sm" href="#pfPricing">Get the app</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap in">
+    <div class="tag" style="color:var(--accent)" id="pfHeroTag">Personal money</div>
+    <h1>Every account. <em>One honest number.</em></h1>
+    <p class="hlede">Checking, credit card, Apple Pay, Venmo, Zelle, cash in your pocket. Qaavah Books puts them in one place in four seconds a time — <b>without ever asking for a bank login.</b></p>
+    <div class="hctas">
+      <a class="btn" href="#pfPricing">Start free</a>
+      <a class="btn line" href="#flow">Watch the workflow</a>
+    </div>
+    <p class="hnote">No Plaid. No open banking. No credentials. 20 entries a month, free.</p>
+  </div>
+</header>
+
+<section class="flow" id="flow">
+  <div class="wrap flowin">
+    <div>
+      <div class="tag">The workflow</div>
+      <h2>Coffee to <em>closed books</em> in six steps</h2>
+      <p class="slede">This is the actual sequence, running live. It plays on its own — or click any step to jump.</p>
+      <div class="steps" id="steps">
+        <div class="step on" data-i="0"><div class="n">01</div><div><h4>Open to today</h4><p>Net for the month, money in against spending, and the week beside it. No login screen, no sync spinner.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="1"><div class="n">02</div><div><h4>Tap the amount</h4><p>One field, big keypad, quick amounts for the numbers you type most. Groceries, gas, a $6 latte.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="2"><div class="n">03</div><div><h4>Say how you paid</h4><p>Card, Apple Pay, Venmo, Zelle, cash — the real methods for your country, not a generic list.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="3"><div class="n">04</div><div><h4>Saved, and the total moves</h4><p>The entry lands and your remaining budget updates on the spot. Four seconds, start to finish.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="4"><div class="n">05</div><div><h4>Bills come to you</h4><p>Rent, utilities, subscriptions — each on its own schedule. One tap confirms, or edit if the amount changed.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="5"><div class="n">06</div><div><h4>Know what's left</h4><p>Left to spend before payday, where it went, and the categories quietly eating the month.</p></div><div class="bar"></div></div>
+      </div>
+      <div class="flowctl"><button id="pp">Pause</button><span id="cnt" class="mono">STEP 01 / 06</span></div>
+    </div>
+
+    <div class="phone"><div class="screen" id="screen">
+      <div class="notch"></div>
+
+      <!-- 1 HOME -->
+      <div class="pane on" data-p="0">
+        <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="pb">
+          <div class="pkick">FRIDAY · AUGUST 15</div>
+          <div class="pgreet">Good morning, Maya.</div>
+          <div class="phero">
+            <div class="phl">Saved this month</div>
+            <div class="phv"><span class="c">$</span>412</div>
+            <div class="phc">$180 more than last month</div>
+            <div class="psub">
+              <div><div class="psl">Money in</div><div class="psv in">$4,180</div></div>
+              <div><div class="psl">Spent</div><div class="psv out">$3,768</div></div>
+            </div>
+          </div>
+          <div class="prow">
+            <div class="pcard"><div class="pcl">This week</div><div class="pcv">$284</div><div class="pbars"><i style="height:40%"></i><i style="height:56%"></i><i style="height:44%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:84%"></i><i style="height:100%"></i></div></div>
+            <div class="pcard" style="background:var(--sageTint);border-color:rgba(74,114,89,.35)"><div class="pcl">This month</div><div class="pcv">$412</div><div class="pbars em"><i style="height:38%"></i><i style="height:52%"></i><i style="height:66%"></i><i style="height:48%"></i><i style="height:78%"></i><i style="height:90%"></i><i style="height:100%"></i></div></div>
+          </div>
+          <div class="plist">
+            <div class="pent"><div class="pei" style="background:var(--incomeTint)"><span class="msr" style="font-size:16px;color:var(--income)">payments</span></div><div style="flex:1"><div class="pen">Paycheck · Northwind Inc</div><div class="pes">CHECKING · AUG 1</div></div><span class="pea" style="color:var(--income)">+2,090</span></div>
+            <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">shopping_basket</span></div><div style="flex:1"><div class="pen">Trader Joe's</div><div class="pes">CARD · AUG 12</div></div><span class="pea" style="color:var(--clay)">−86</span></div>
+            <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">group</span></div><div style="flex:1"><div class="pen">Dinner · split with Sam</div><div class="pes">VENMO · AUG 13</div></div><span class="pea" style="color:var(--clay)">−34</span></div>
+          </div>
+        </div>
+        <div class="ptab"><div class="pt on"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>List</div><div class="pt"><div class="pfab"><span class="msr">add</span></div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
+      </div>
+
+      <!-- 2 RECORD -->
+      <div class="pane" data-p="1">
+        <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="pb">
+          <div class="ph"><div class="bk"><span class="msr" style="font-size:16px">close</span></div><div class="tt">Record</div></div>
+          <div class="segs"><span>Money in</span><span class="on">Spending</span><span>Transfer</span></div>
+          <div class="amt"><div class="amtc">Amount</div><div class="amtv"><span class="c">$</span>86<span class="caret"></span></div></div>
+          <div class="chips"><span class="chip">+5</span><span class="chip">+20</span><span class="chip">+50</span><span class="chip gh">Clear</span></div>
+          <div class="mini">What was it</div>
+          <div class="field">Groceries · Trader Joe's <span class="msr" style="font-size:17px;color:var(--muted)">expand_more</span></div>
+          <div class="field" style="color:var(--muted)">Add a note <span class="msr" style="font-size:17px;color:var(--muted)">edit</span></div>
+        </div>
+        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>List</div><div class="pt"><div class="pfab"><span class="msr">add</span></div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
+      </div>
+
+      <!-- 3 PAYMENT -->
+      <div class="pane" data-p="2">
+        <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="pb">
+          <div class="ph"><div class="bk"><span class="msr" style="font-size:15px">arrow_back_ios_new</span></div><div class="tt">How did you pay?</div></div>
+          <div class="amt" style="padding:14px 0 18px"><div class="amtc">Groceries · Trader Joe's</div><div class="amtv" style="font-size:40px"><span class="c" style="font-size:19px">$</span>86</div></div>
+          <div class="pays">
+            <div class="pay on"><span class="msr">credit_card</span>Card</div>
+            <div class="pay"><span class="msr">contactless</span>Apple Pay</div>
+            <div class="pay"><span class="msr">group</span>Venmo</div>
+            <div class="pay"><span class="msr">swap_horiz</span>Zelle</div>
+            <div class="pay"><span class="msr">payments</span>Cash</div>
+            <div class="pay"><span class="msr">account_balance</span>PayPal</div>
+          </div>
+          <div class="cta">Save entry</div>
+          <p class="pes" style="text-align:center;margin-top:12px">METHODS MATCH YOUR COUNTRY</p>
+        </div>
+        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>List</div><div class="pt"><div class="pfab"><span class="msr">add</span></div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
+      </div>
+
+      <!-- 4 SAVED -->
+      <div class="pane" data-p="3">
+        <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="done">
+          <div class="tick"><span class="msr">check</span></div>
+          <h5>Saved.</h5>
+          <div class="sm">GROCERIES · $86 · CARD</div>
+          <div class="runbox">
+            <div class="rl">Left to spend · 16 days</div>
+            <div class="rv">$734</div>
+            <div class="track" style="margin-top:14px"><i style="width:62%;animation:wide .8s cubic-bezier(.22,.9,.24,1) both;transform-origin:left"></i></div>
+            <div class="rl" style="margin-top:11px">62% OF AUGUST BUDGET USED</div>
+          </div>
+        </div>
+        <div class="ptab"><div class="pt on"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>List</div><div class="pt"><div class="pfab"><span class="msr">add</span></div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
+      </div>
+
+      <!-- 5 BILLS -->
+      <div class="pane" data-p="4">
+        <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="pb">
+          <div class="ph"><div class="bk"><span class="msr" style="font-size:15px">arrow_back_ios_new</span></div><div class="tt">Due bills</div></div>
+          <div class="pkick">TODAY</div>
+          <div class="bill">
+            <div class="bi"><span class="msr" style="font-size:17px;color:var(--amber)">bolt</span></div>
+            <div style="flex:1"><div class="bt">Con Edison · <span style="color:#96690D">$142</span></div><div class="bs">REPEATS MONTHLY · CHECKING</div></div>
+            <div class="logbtn">LOG</div>
+          </div>
+          <div class="bill">
+            <div class="bi"><span class="msr" style="font-size:17px;color:var(--amber)">home</span></div>
+            <div style="flex:1"><div class="bt">Rent · <span style="color:#96690D">$1,850</span></div><div class="bs">DUE IN 2 DAYS · TRANSFER</div></div>
+            <div class="logbtn">LOG</div>
+          </div>
+          <div class="mini">Later this month</div>
+          <div class="plist">
+            <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">wifi</span></div><div style="flex:1"><div class="pen">Verizon Fios</div><div class="pes">AUG 22 · CARD</div></div><span class="pea">$79</span></div>
+            <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">subscriptions</span></div><div style="flex:1"><div class="pen">Netflix + Spotify</div><div class="pes">AUG 24 · CARD</div></div><span class="pea">$28</span></div>
+            <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">fitness_center</span></div><div style="flex:1"><div class="pen">Gym membership</div><div class="pes">AUG 28 · CARD</div></div><span class="pea">$45</span></div>
+          </div>
+        </div>
+        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>List</div><div class="pt"><div class="pfab"><span class="msr">add</span></div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt on"><span class="msr">account_balance_wallet</span>Budget</div></div>
+      </div>
+
+      <!-- 6 INSIGHTS -->
+      <div class="pane" data-p="5">
+        <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="pb">
+          <div class="ph"><div class="tt">Insights</div><div class="bk"><span class="msr" style="font-size:16px">calendar_today</span></div></div>
+          <div class="pkick">LEFT TO SPEND · 16 DAYS</div>
+          <div class="big"><span class="c">$</span>734</div>
+          <div class="fbars">
+            <i style="height:36%"></i><i style="height:54%"></i><i style="height:46%"></i><i style="height:72%"></i><i style="height:60%"></i><i class="em" style="height:84%"></i><i class="pk" style="height:100%"></i>
+          </div>
+          <div class="pes" style="margin-top:6px">MON — SUN · SPENDING BY DAY</div>
+          <div class="mini">Where it went</div>
+          <div class="plist" style="padding:4px 12px">
+            <div class="rank"><div class="rn">1</div><div style="flex:1"><div class="pen">Groceries</div><div class="rb" style="width:100%"></div></div><span class="pea">$612</span></div>
+            <div class="rank"><div class="rn">2</div><div style="flex:1"><div class="pen">Rent &amp; utilities</div><div class="rb" style="width:74%"></div></div><span class="pea">$1,992</span></div>
+            <div class="rank"><div class="rn">3</div><div style="flex:1"><div class="pen">Eating out</div><div class="rb" style="width:38%"></div></div><span class="pea">$236</span></div>
+          </div>
+        </div>
+        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>List</div><div class="pt"><div class="pfab"><span class="msr">add</span></div></div><div class="pt on"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<section id="screens" style="background:var(--sageTint)">
+  <div class="wrap">
+    <div class="tag">More of the app</div>
+    <h2>Six more screens <em>you'll actually use</em></h2>
+    <p class="slede">The parts that stop money leaking — statement imports instead of typing, gift cards that expire, goals that don't get raided.</p>
+    <div class="gal">
+      <div class="gcell">
+        <div class="gt"><span class="msr">upload_file</span>Statement import</div>
+        <div class="gd">Export a CSV or OFX from your bank and drop it in. Review the rows, keep what's yours, skip the rest. No credentials, ever.</div>
+        <div class="gp">
+          <div class="gl">Chase_Aug.csv · 84 rows</div>
+          <div class="grow" style="margin-top:10px">Trader Joe's <span>$86.20</span></div>
+          <div class="grow">Con Edison <span>$142.00</span></div>
+          <div class="grow">Shell gas <span>$54.80</span></div>
+          <div class="grow" style="color:var(--muted)">Transfer to savings <span>skipped</span></div>
+        </div>
+        <span class="plus">Personal Plus</span>
+      </div>
+      <div class="gcell">
+        <div class="gt"><span class="msr">card_giftcard</span>Gift cards</div>
+        <div class="gd">The average American household sits on unspent gift cards. Track the balance, spend from it like a wallet, get warned 30 days before it expires.</div>
+        <div class="gp" style="padding:12px">
+          <div class="gcx" style="background:#0E7C4A"><div class="gcxb">AMAZON</div><div class="gcxv">$74</div></div>
+          <div class="gcx" style="background:#283593"><div class="gcxb">TARGET · EXPIRES IN 6 DAYS</div><div class="gcxv">$40</div></div>
+          <div class="gcx" style="background:#E8A200;color:#241A00"><div class="gcxb">STARBUCKS</div><div class="gcxv">$18</div></div>
+        </div>
+        <span class="plus">Personal Plus</span>
+      </div>
+      <div class="gcell">
+        <div class="gt"><span class="msr">savings</span>Pots</div>
+        <div class="gd">A goal with money in it — emergency fund, security deposit, a trip. Move money in from any account; transfers never count as spending.</div>
+        <div class="gp">
+          <div class="gl">3 goals</div>
+          <div style="margin-top:10px">
+            <div class="grow" style="border:none;padding-bottom:2px">Emergency fund <span>2,400 / 3,000</span></div><div class="track"><i style="width:80%"></i></div>
+            <div class="grow" style="border:none;padding:12px 0 2px">Security deposit <span>960 / 1,500</span></div><div class="track"><i style="width:64%"></i></div>
+            <div class="grow" style="border:none;padding:12px 0 2px">Lisbon trip <span>310 / 2,200</span></div><div class="track"><i style="width:14%"></i></div>
+          </div>
+        </div>
+        <span class="plus">Personal Plus</span>
+      </div>
+      <div class="gcell">
+        <div class="gt"><span class="msr">account_balance_wallet</span>Budget</div>
+        <div class="gd">Set a monthly ceiling per category. The app paces you through the month instead of telling you off on the 30th.</div>
+        <div class="gp">
+          <div class="gl">August · pace</div>
+          <div class="gv">62%</div>
+          <div style="margin-top:12px">
+            <div class="grow" style="border:none;padding-bottom:2px">Groceries <span>612 / 700</span></div><div class="track"><i style="width:87%;background:var(--amber)"></i></div>
+            <div class="grow" style="border:none;padding:11px 0 2px">Eating out <span>236 / 250</span></div><div class="track"><i style="width:94%;background:var(--clay)"></i></div>
+            <div class="grow" style="border:none;padding:11px 0 2px">Transport <span>98 / 220</span></div><div class="track"><i style="width:45%"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="gcell">
+        <div class="gt"><span class="msr">search</span>Find an entry</div>
+        <div class="gd">Search every past entry by name, amount or method. Totals for the matches, so "how much on coffee this year" takes one query.</div>
+        <div class="gp">
+          <div class="gl">"coffee" · 2026</div>
+          <div class="gv">$418</div>
+          <div style="margin-top:12px">
+            <div class="grow">Blue Bottle <span>CARD · JUL 3</span></div>
+            <div class="grow">Starbucks <span>GIFT · JUN 28</span></div>
+            <div class="grow">Local roaster <span>CASH · JUN 14</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="gcell">
+        <div class="gt"><span class="msr">description</span>Reports &amp; export</div>
+        <div class="gd">Money in against money out for any period, a cash-flow map of where it moved, and a CSV or PDF when you need to show someone.</div>
+        <div class="gp">
+          <div class="gl">August 2026</div>
+          <div style="margin-top:10px">
+            <div class="grow">Money in <span style="color:var(--income)">$4,180</span></div>
+            <div class="grow">Spending <span style="color:var(--clay)">$3,768</span></div>
+            <div class="grow" style="border-top:2px solid var(--ink);border-bottom:none;padding-top:11px;font-weight:700">Net <span style="color:var(--income);font-weight:700">$412</span></div>
+          </div>
+          <div style="display:flex;gap:7px;margin-top:14px"><span class="chip gh">↓ CSV</span><span class="chip gh">↓ PDF</span></div>
+        </div>
+        <span class="plus">Personal Plus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pfPricing">
+  <div class="wrap">
+    <div class="tag">Pricing</div>
+    <h2>Under five dollars <em>a month</em></h2>
+    <p class="slede">Keep a basic record for free, forever. Personal Plus adds the budget, insights, imports and money tools.</p>
+    <div class="plans">
+      <div class="plan">
+        <div class="pn">Free</div>
+        <div class="pp">$0<small> / forever</small></div>
+        <ul>
+          <li><span class="msr">check_circle</span>20 entries a month</li>
+          <li><span class="msr">check_circle</span>Cash, card, bank and wallet accounts</li>
+          <li><span class="msr">check_circle</span>Today's report</li>
+          <li><span class="msr">check_circle</span>Device-only privacy mode</li>
+          <li><span class="msr">check_circle</span>No card required</li>
+        </ul>
+        <a class="btn" style="background:var(--sageDark)" href="#">Start free</a>
+      </div>
+      <div class="plan hi">
+        <div class="pn">Personal Plus</div>
+        <div class="pp">$4.99<small> / month</small></div>
+        <div class="annual">OR $49.90 A YEAR — TWO MONTHS FREE</div>
+        <ul>
+          <li><span class="msr">check_circle</span>Unlimited entries</li>
+          <li><span class="msr">check_circle</span>Monthly budget with category pacing</li>
+          <li><span class="msr">check_circle</span>Insights, cash-flow map, CSV &amp; PDF export</li>
+          <li><span class="msr">check_circle</span>Statement import — CSV or OFX</li>
+          <li><span class="msr">check_circle</span>Pots, gift cards, debts, due bills</li>
+          <li><span class="msr">check_circle</span>Recurring bills, auto-log, receipt scan</li>
+        </ul>
+        <a class="btn" style="background:var(--accent);color:#182018;box-shadow:5px 5px 0 rgba(24,32,24,.5)" href="#">Get Personal Plus</a>
+      </div>
+    </div>
+    <p class="ppnote">US pricing shown. Europe pays €3.99 a month (€39.90 a year); Canada CA$5.99; UK and the eurozone share the same EUR band. Every market is priced locally rather than converted, and payment methods follow suit — Apple Pay, Venmo and Zelle in the US; SEPA, Bizum, TWINT and Google Pay across Europe.</p>
+  </div>
+</section>
+
+<footer><div class="wrap fin">
+  <a class="brand" href="#" style="font-size:15px"><img src="assets/logo-mark.png" alt="Qaavah Books" style="width:26px;height:26px">Qaavah <i>Books</i></a>
+  <span>© 2026</span>
+  <div class="fl"><a href="#flow">Workflow</a><a href="#screens">Screens</a><a href="#pfPricing">Pricing</a><a href="#">Support</a></div>
+</div></footer>
+</div><!-- /layoutPersonal -->
+
+<script src="js/site-i18n.js"></script>
 <script>
 (function(){
   // nav shadow
@@ -1547,87 +1859,87 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
     {cc:'UG', name:'Uganda', lane:'shop', group:'Africa'},
     {cc:'ZM', name:'Zambia', lane:'shop', group:'Africa'},
     {cc:'ZW', name:'Zimbabwe', lane:'shop', group:'Africa'},
-    {cc:'AR', name:'Argentina', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'BB', name:'Barbados', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'BZ', name:'Belize', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'BO', name:'Bolivia', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'BR', name:'Brazil', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'CL', name:'Chile', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'CO', name:'Colombia', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'CR', name:'Costa Rica', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'CU', name:'Cuba', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'DO', name:'Dominican Republic', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'EC', name:'Ecuador', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'SV', name:'El Salvador', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'GT', name:'Guatemala', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'GY', name:'Guyana', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'HT', name:'Haiti', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'HN', name:'Honduras', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'JM', name:'Jamaica', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'MX', name:'Mexico', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'NI', name:'Nicaragua', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'PA', name:'Panama', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'PY', name:'Paraguay', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'PE', name:'Peru', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'SR', name:'Suriname', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'TT', name:'Trinidad & Tobago', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'UY', name:'Uruguay', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'VE', name:'Venezuela', lane:'shop', group:'Latin America & Caribbean'},
-    {cc:'AF', name:'Afghanistan', lane:'shop', group:'Asia & Oceania'},
-    {cc:'AM', name:'Armenia', lane:'shop', group:'Asia & Oceania'},
-    {cc:'AU', name:'Australia', lane:'shop', group:'Asia & Oceania'},
-    {cc:'AZ', name:'Azerbaijan', lane:'shop', group:'Asia & Oceania'},
-    {cc:'BH', name:'Bahrain', lane:'shop', group:'Asia & Oceania'},
-    {cc:'BD', name:'Bangladesh', lane:'shop', group:'Asia & Oceania'},
-    {cc:'BT', name:'Bhutan', lane:'shop', group:'Asia & Oceania'},
-    {cc:'BN', name:'Brunei', lane:'shop', group:'Asia & Oceania'},
-    {cc:'KH', name:'Cambodia', lane:'shop', group:'Asia & Oceania'},
-    {cc:'CN', name:'China', lane:'shop', group:'Asia & Oceania'},
-    {cc:'FJ', name:'Fiji', lane:'shop', group:'Asia & Oceania'},
-    {cc:'GE', name:'Georgia', lane:'shop', group:'Asia & Oceania'},
-    {cc:'HK', name:'Hong Kong', lane:'shop', group:'Asia & Oceania'},
-    {cc:'IN', name:'India', lane:'shop', group:'Asia & Oceania'},
-    {cc:'ID', name:'Indonesia', lane:'shop', group:'Asia & Oceania'},
-    {cc:'IR', name:'Iran', lane:'shop', group:'Asia & Oceania'},
-    {cc:'IQ', name:'Iraq', lane:'shop', group:'Asia & Oceania'},
-    {cc:'IL', name:'Israel', lane:'shop', group:'Asia & Oceania'},
-    {cc:'JP', name:'Japan', lane:'shop', group:'Asia & Oceania'},
-    {cc:'JO', name:'Jordan', lane:'shop', group:'Asia & Oceania'},
-    {cc:'KZ', name:'Kazakhstan', lane:'shop', group:'Asia & Oceania'},
-    {cc:'KW', name:'Kuwait', lane:'shop', group:'Asia & Oceania'},
-    {cc:'KG', name:'Kyrgyzstan', lane:'shop', group:'Asia & Oceania'},
-    {cc:'LA', name:'Laos', lane:'shop', group:'Asia & Oceania'},
-    {cc:'LB', name:'Lebanon', lane:'shop', group:'Asia & Oceania'},
-    {cc:'MY', name:'Malaysia', lane:'shop', group:'Asia & Oceania'},
-    {cc:'MV', name:'Maldives', lane:'shop', group:'Asia & Oceania'},
-    {cc:'MN', name:'Mongolia', lane:'shop', group:'Asia & Oceania'},
-    {cc:'MM', name:'Myanmar', lane:'shop', group:'Asia & Oceania'},
-    {cc:'NP', name:'Nepal', lane:'shop', group:'Asia & Oceania'},
-    {cc:'NZ', name:'New Zealand', lane:'shop', group:'Asia & Oceania'},
-    {cc:'KP', name:'North Korea', lane:'shop', group:'Asia & Oceania'},
-    {cc:'OM', name:'Oman', lane:'shop', group:'Asia & Oceania'},
-    {cc:'PK', name:'Pakistan', lane:'shop', group:'Asia & Oceania'},
-    {cc:'PS', name:'Palestine', lane:'shop', group:'Asia & Oceania'},
-    {cc:'PG', name:'Papua New Guinea', lane:'shop', group:'Asia & Oceania'},
-    {cc:'PH', name:'Philippines', lane:'shop', group:'Asia & Oceania'},
-    {cc:'QA', name:'Qatar', lane:'shop', group:'Asia & Oceania'},
-    {cc:'WS', name:'Samoa', lane:'shop', group:'Asia & Oceania'},
-    {cc:'SA', name:'Saudi Arabia', lane:'shop', group:'Asia & Oceania'},
-    {cc:'SG', name:'Singapore', lane:'shop', group:'Asia & Oceania'},
-    {cc:'KR', name:'South Korea', lane:'shop', group:'Asia & Oceania'},
-    {cc:'LK', name:'Sri Lanka', lane:'shop', group:'Asia & Oceania'},
-    {cc:'SY', name:'Syria', lane:'shop', group:'Asia & Oceania'},
-    {cc:'TW', name:'Taiwan', lane:'shop', group:'Asia & Oceania'},
-    {cc:'TJ', name:'Tajikistan', lane:'shop', group:'Asia & Oceania'},
-    {cc:'TH', name:'Thailand', lane:'shop', group:'Asia & Oceania'},
-    {cc:'TL', name:'Timor-Leste', lane:'shop', group:'Asia & Oceania'},
-    {cc:'TO', name:'Tonga', lane:'shop', group:'Asia & Oceania'},
-    {cc:'TR', name:'Turkey', lane:'shop', group:'Asia & Oceania'},
-    {cc:'TM', name:'Turkmenistan', lane:'shop', group:'Asia & Oceania'},
-    {cc:'AE', name:'United Arab Emirates', lane:'shop', group:'Asia & Oceania'},
-    {cc:'UZ', name:'Uzbekistan', lane:'shop', group:'Asia & Oceania'},
-    {cc:'VN', name:'Vietnam', lane:'shop', group:'Asia & Oceania'},
-    {cc:'YE', name:'Yemen', lane:'shop', group:'Asia & Oceania'},
+    {cc:'AR', name:'Argentina', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'BB', name:'Barbados', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'BZ', name:'Belize', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'BO', name:'Bolivia', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'BR', name:'Brazil', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'CL', name:'Chile', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'CO', name:'Colombia', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'CR', name:'Costa Rica', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'CU', name:'Cuba', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'DO', name:'Dominican Republic', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'EC', name:'Ecuador', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'SV', name:'El Salvador', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'GT', name:'Guatemala', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'GY', name:'Guyana', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'HT', name:'Haiti', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'HN', name:'Honduras', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'JM', name:'Jamaica', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'MX', name:'Mexico', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'NI', name:'Nicaragua', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'PA', name:'Panama', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'PY', name:'Paraguay', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'PE', name:'Peru', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'SR', name:'Suriname', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'TT', name:'Trinidad & Tobago', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'UY', name:'Uruguay', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'VE', name:'Venezuela', lane:'personal', group:'Latin America & Caribbean'},
+    {cc:'AF', name:'Afghanistan', lane:'personal', group:'Asia & Oceania'},
+    {cc:'AM', name:'Armenia', lane:'personal', group:'Asia & Oceania'},
+    {cc:'AU', name:'Australia', lane:'personal', group:'Asia & Oceania'},
+    {cc:'AZ', name:'Azerbaijan', lane:'personal', group:'Asia & Oceania'},
+    {cc:'BH', name:'Bahrain', lane:'personal', group:'Asia & Oceania'},
+    {cc:'BD', name:'Bangladesh', lane:'personal', group:'Asia & Oceania'},
+    {cc:'BT', name:'Bhutan', lane:'personal', group:'Asia & Oceania'},
+    {cc:'BN', name:'Brunei', lane:'personal', group:'Asia & Oceania'},
+    {cc:'KH', name:'Cambodia', lane:'personal', group:'Asia & Oceania'},
+    {cc:'CN', name:'China', lane:'personal', group:'Asia & Oceania'},
+    {cc:'FJ', name:'Fiji', lane:'personal', group:'Asia & Oceania'},
+    {cc:'GE', name:'Georgia', lane:'personal', group:'Asia & Oceania'},
+    {cc:'HK', name:'Hong Kong', lane:'personal', group:'Asia & Oceania'},
+    {cc:'IN', name:'India', lane:'personal', group:'Asia & Oceania'},
+    {cc:'ID', name:'Indonesia', lane:'personal', group:'Asia & Oceania'},
+    {cc:'IR', name:'Iran', lane:'personal', group:'Asia & Oceania'},
+    {cc:'IQ', name:'Iraq', lane:'personal', group:'Asia & Oceania'},
+    {cc:'IL', name:'Israel', lane:'personal', group:'Asia & Oceania'},
+    {cc:'JP', name:'Japan', lane:'personal', group:'Asia & Oceania'},
+    {cc:'JO', name:'Jordan', lane:'personal', group:'Asia & Oceania'},
+    {cc:'KZ', name:'Kazakhstan', lane:'personal', group:'Asia & Oceania'},
+    {cc:'KW', name:'Kuwait', lane:'personal', group:'Asia & Oceania'},
+    {cc:'KG', name:'Kyrgyzstan', lane:'personal', group:'Asia & Oceania'},
+    {cc:'LA', name:'Laos', lane:'personal', group:'Asia & Oceania'},
+    {cc:'LB', name:'Lebanon', lane:'personal', group:'Asia & Oceania'},
+    {cc:'MY', name:'Malaysia', lane:'personal', group:'Asia & Oceania'},
+    {cc:'MV', name:'Maldives', lane:'personal', group:'Asia & Oceania'},
+    {cc:'MN', name:'Mongolia', lane:'personal', group:'Asia & Oceania'},
+    {cc:'MM', name:'Myanmar', lane:'personal', group:'Asia & Oceania'},
+    {cc:'NP', name:'Nepal', lane:'personal', group:'Asia & Oceania'},
+    {cc:'NZ', name:'New Zealand', lane:'personal', group:'Asia & Oceania'},
+    {cc:'KP', name:'North Korea', lane:'personal', group:'Asia & Oceania'},
+    {cc:'OM', name:'Oman', lane:'personal', group:'Asia & Oceania'},
+    {cc:'PK', name:'Pakistan', lane:'personal', group:'Asia & Oceania'},
+    {cc:'PS', name:'Palestine', lane:'personal', group:'Asia & Oceania'},
+    {cc:'PG', name:'Papua New Guinea', lane:'personal', group:'Asia & Oceania'},
+    {cc:'PH', name:'Philippines', lane:'personal', group:'Asia & Oceania'},
+    {cc:'QA', name:'Qatar', lane:'personal', group:'Asia & Oceania'},
+    {cc:'WS', name:'Samoa', lane:'personal', group:'Asia & Oceania'},
+    {cc:'SA', name:'Saudi Arabia', lane:'personal', group:'Asia & Oceania'},
+    {cc:'SG', name:'Singapore', lane:'personal', group:'Asia & Oceania'},
+    {cc:'KR', name:'South Korea', lane:'personal', group:'Asia & Oceania'},
+    {cc:'LK', name:'Sri Lanka', lane:'personal', group:'Asia & Oceania'},
+    {cc:'SY', name:'Syria', lane:'personal', group:'Asia & Oceania'},
+    {cc:'TW', name:'Taiwan', lane:'personal', group:'Asia & Oceania'},
+    {cc:'TJ', name:'Tajikistan', lane:'personal', group:'Asia & Oceania'},
+    {cc:'TH', name:'Thailand', lane:'personal', group:'Asia & Oceania'},
+    {cc:'TL', name:'Timor-Leste', lane:'personal', group:'Asia & Oceania'},
+    {cc:'TO', name:'Tonga', lane:'personal', group:'Asia & Oceania'},
+    {cc:'TR', name:'Turkey', lane:'personal', group:'Asia & Oceania'},
+    {cc:'TM', name:'Turkmenistan', lane:'personal', group:'Asia & Oceania'},
+    {cc:'AE', name:'United Arab Emirates', lane:'personal', group:'Asia & Oceania'},
+    {cc:'UZ', name:'Uzbekistan', lane:'personal', group:'Asia & Oceania'},
+    {cc:'VN', name:'Vietnam', lane:'personal', group:'Asia & Oceania'},
+    {cc:'YE', name:'Yemen', lane:'personal', group:'Asia & Oceania'},
     {cc:'AL', name:'Albania', lane:'personal', group:'Personal finance only (for now)'},
     {cc:'AD', name:'Andorra', lane:'personal', group:'Personal finance only (for now)'},
     {cc:'AT', name:'Austria', lane:'personal', group:'Personal finance only (for now)'},
@@ -1757,6 +2069,15 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
     if(copy.whoPersH3) setText('whoPersH3', copy.whoPersH3);
     if(copy.whoPersP) setText('whoPersP', copy.whoPersP);
     if(copy.whoPersGo) setText('whoPersGo', copy.whoPersGo);
+
+    var tag=document.getElementById('pfHeroTag');
+    if(tag){
+      tag.textContent = ((copy.pfHeroTag || 'Personal money') + ' · ' + c.name);
+    }
+    ['countrySel','countrySelPf'].forEach(function(id){
+      var el=document.getElementById(id); if(el && el.value!==c.cc) el.value=c.cc;
+    });
+
     try{ localStorage.setItem('qb_country', c.cc); }catch(e){}
     var csel=document.getElementById('countrySel');
     if(csel && csel.value!==c.cc) csel.value=c.cc;
@@ -1811,6 +2132,94 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
     sel.addEventListener('change', function(){ applyLane(sel.value); });
     applyLane(detectCc());
   }
+
+
+  // Dual country select (personal layout)
+  var selPf=document.getElementById('countrySelPf');
+  if(selPf){
+    var _rebuild=rebuildCountryGroups;
+    rebuildCountryGroups=function(){
+      _rebuild();
+      var src=document.getElementById('countrySel');
+      if(src && selPf){
+        selPf.innerHTML=src.innerHTML;
+        selPf.value=src.value;
+      }
+    };
+    rebuildCountryGroups();
+    selPf.addEventListener('change', function(){
+      var s=document.getElementById('countrySel');
+      if(s) s.value=selPf.value;
+      applyLane(selPf.value);
+    });
+  }
+  var langPf=document.getElementById('langSelPf');
+  if(langPf && window.QB_I18N){
+    QB_I18N.LANGS.forEach(function(L){
+      var o=document.createElement('option');
+      o.value=L.code; o.textContent=L.native;
+      langPf.appendChild(o);
+    });
+    langPf.value=QB_I18N.getLang();
+    langPf.addEventListener('change', function(){
+      var ls=document.getElementById('langSel');
+      if(ls){ ls.value=langPf.value; ls.dispatchEvent(new Event('change')); }
+      else {
+        QB_I18N.setLang(langPf.value,{manual:true});
+        QB_I18N.applyStatic(langPf.value);
+      }
+    });
+  }
+
+  // Personal product tour workflow player
+  (function(){
+    var root=document.getElementById('layoutPersonal');
+    if(!root) return;
+    var panes=[].slice.call(root.querySelectorAll('.pane'));
+    var steps=[].slice.call(root.querySelectorAll('.step'));
+    var cnt=document.getElementById('cnt');
+    var pp=document.getElementById('pp');
+    if(!panes.length || !steps.length || !pp) return;
+    var i=0, playing=true, timer=null, DUR=4000;
+    function go(n){
+      i=(n+panes.length)%panes.length;
+      panes.forEach(function(p,x){ p.classList.toggle('on', x===i); });
+      steps.forEach(function(s){ s.classList.remove('on'); });
+      void steps[i].offsetWidth;
+      steps[i].classList.add('on');
+      if(cnt) cnt.textContent='STEP 0'+(i+1)+' / 0'+panes.length;
+    }
+    function tick(){
+      clearTimeout(timer);
+      if(!playing) return;
+      timer=setTimeout(function(){ go(i+1); tick(); }, DUR);
+    }
+    steps.forEach(function(s){
+      s.addEventListener('click', function(){ go(+s.getAttribute('data-i')); tick(); });
+    });
+    pp.addEventListener('click', function(){
+      playing=!playing;
+      pp.textContent=playing?'Pause':'Play';
+      root.querySelectorAll('.step .bar').forEach(function(b){
+        b.style.animationPlayState=playing?'running':'paused';
+      });
+      tick();
+    });
+    var flow=document.getElementById('flow');
+    if(flow){
+      flow.addEventListener('mouseenter', function(){
+        clearTimeout(timer);
+        root.querySelectorAll('.step.on .bar').forEach(function(b){ b.style.animationPlayState='paused'; });
+      });
+      flow.addEventListener('mouseleave', function(){
+        root.querySelectorAll('.step.on .bar').forEach(function(b){ b.style.animationPlayState='running'; });
+        tick();
+      });
+    }
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) tick();
+    else { playing=false; pp.textContent='Play'; }
+  })();
+
 
   // pricing monthly / annual
   var pricing=document.getElementById('pricing');
