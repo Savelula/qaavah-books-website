@@ -524,6 +524,7 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
 
 </style>
 <link rel="stylesheet" href="css/personal-tour.css">
+<link rel="stylesheet" href="css/site-polish.css">
 </head>
 <body>
 
@@ -2299,6 +2300,33 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
     }
     if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) tick();
     else { playing=false; pp.textContent='Play'; }
+  })();
+
+
+
+  // Personal nav scroll polish
+  (function(){
+    var nav=document.querySelector('#layoutPersonal nav');
+    if(!nav) return;
+    function onScroll(){
+      nav.classList.toggle('is-scrolled', window.scrollY>12);
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+
+  // Soft reveal for personal gallery / plans (content unchanged)
+  (function(){
+    var root=document.getElementById('layoutPersonal');
+    if(!root || !('IntersectionObserver' in window)) return;
+    var els=[].slice.call(root.querySelectorAll('.gcell, .plan, .flowin > div:first-child, .flow .phone'));
+    els.forEach(function(el){ el.classList.add('pf-reveal'); });
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('pf-in'); io.unobserve(e.target); }
+      });
+    },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
   })();
 
 
