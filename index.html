@@ -2336,6 +2336,26 @@ body[data-lane="personal"] #features [data-lane="shop"]{display:none!important}
   })();
 
 
+
+  // Personal section hashes (#pfPricing, #flow, #screens) need personal lane
+  (function(){
+    function ensurePersonalForHash(){
+      var h=(location.hash||'').toLowerCase();
+      if(h!=='#pfpricing' && h!=='#flow' && h!=='#screens') return;
+      if(document.body.getAttribute('data-lane')==='personal') return;
+      var sel=document.getElementById('countrySel');
+      if(sel){
+        // Prefer US for personal preview of these anchors
+        if([].some.call(sel.options,function(o){return o.value==='US'})){
+          sel.value='US';
+        }
+        if(typeof applyLane==='function') applyLane(sel.value,{skipLangSuggest:true});
+      }
+    }
+    ensurePersonalForHash();
+    window.addEventListener('hashchange', ensurePersonalForHash);
+  })();
+
   // pricing monthly / annual
   var pricing=document.getElementById('pricing');
   if(pricing){
