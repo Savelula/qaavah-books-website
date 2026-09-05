@@ -37,18 +37,14 @@ nav{position:sticky;top:0;z-index:60;background:rgba(250,250,247,.9);backdrop-fi
 .brand i{font-style:normal;font-weight:800;color:var(--sage)}
 .nlinks{display:flex;gap:26px;margin-left:auto;font-size:14px;letter-spacing:-.1px}
 .nlinks a{color:var(--body)}.nlinks a:hover{color:var(--ink)}
-/* hero */
-.hero{padding:80px 0 92px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:120%;height:90%;background:radial-gradient(ellipse at center,rgba(40,53,147,.1),transparent 62%);pointer-events:none}
-.hero .in{position:relative;max-width:880px}
-.hlede{font-size:18.5px;line-height:1.55;color:var(--body);margin-top:24px;max-width:54ch}
-.hlede b{color:var(--ink);font-weight:600}
-.hctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
-.hnote{font-size:13.5px;color:var(--body);margin-top:20px}
+/* hero — replaced by Xero-style block below */
 .types{display:flex;gap:8px;flex-wrap:wrap;margin-top:34px}
 .type{background:#fff;border-radius:999px;padding:8px 15px;font-size:13.5px;font-weight:500;box-shadow:0 1px 2px rgba(21,22,34,.05),0 6px 18px -14px rgba(21,22,34,.3)}
 /* flow */
-.flowin{display:grid;grid-template-columns:1fr 372px;gap:60px;align-items:center}
+.flowin{display:grid;grid-template-columns:1fr 372px;grid-template-areas:"head phone" "body phone";gap:60px;align-items:start}
+.flow-head{grid-area:head}
+.flow-body{grid-area:body;min-width:0}
+.flowin > .phone{grid-area:phone;align-self:center}
 .steps{margin-top:36px;display:flex;flex-direction:column;gap:6px}
 .step{display:grid;grid-template-columns:38px 1fr;gap:16px;padding:16px 18px;border-radius:18px;cursor:pointer;position:relative;overflow:hidden;opacity:.5;transition:opacity .3s,background .3s}
 .step.on{opacity:1;background:#fff;box-shadow:0 1px 2px rgba(21,22,34,.05),0 14px 34px -22px rgba(21,22,34,.3)}
@@ -253,7 +249,7 @@ footer{background:#fff;color:var(--body);padding:56px 0 40px;border-top:1px soli
 .ln{padding:8px 16px;border-radius:999px;font-size:13.5px;font-weight:500;color:#585D63;white-space:nowrap}
 .ln:hover{color:#15161A}
 .ln.on{background:#fff;font-weight:600;box-shadow:0 2px 8px -4px rgba(21,22,34,.28)}
-.gate{display:flex;gap:14px;align-items:flex-start;background:#fff;border-left:3px solid #B07310;border-radius:6px 18px 18px 6px;padding:18px 22px;margin-bottom:34px;max-width:64ch;box-shadow:0 1px 2px rgba(21,22,34,.05),0 16px 40px -28px rgba(21,22,34,.3)}
+.gate{display:flex;gap:14px;align-items:flex-start;background:#fff;border-left:3px solid #B07310;border-radius:6px 18px 18px 6px;padding:14px 16px;margin-bottom:20px;max-width:100%;box-shadow:0 1px 2px rgba(21,22,34,.05),0 16px 40px -28px rgba(21,22,34,.3)}
 .gpill{font-family:"JetBrains Mono",monospace;font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:#FBF1DD;color:#8A5A0D;padding:5px 9px;border-radius:6px;flex:0 0 auto;margin-top:3px}
 .gate b{display:block;font-size:15.5px;font-weight:600;letter-spacing:-.2px;color:#15161A;line-height:1.35}
 .gate p{margin:7px 0 0;font-size:14px;line-height:1.6;color:#585D63}
@@ -308,6 +304,94 @@ footer{background:#fff;color:var(--body);padding:56px 0 40px;border-top:1px soli
 .navmenu a{display:flex;align-items:center;gap:10px;padding:11px;border-radius:11px;font-size:14px;color:#15161A}
 .navmenu a:hover{background:#F1F1EE;color:#15161A}
 .navmenu a .msr{font-size:17px;color:#585D63}
+
+
+
+/* —— Xero-style marketing layout —— */
+.hero{background:var(--paper);color:var(--ink);padding:64px 0 56px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-30%;left:35%;transform:translateX(-50%);width:90%;height:90%;background:radial-gradient(ellipse at center,rgba(40,53,147,.12),transparent 62%);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
+.hero-copy{min-width:0;max-width:560px}
+.hero .tag{margin:0}
+h1{font-size:clamp(36px,5.2vw,68px);font-weight:600;letter-spacing:-2.8px;line-height:1.02;margin:18px 0 0}
+h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px}
+.hlede{font-size:17.5px;line-height:1.55;color:#585D55;margin-top:20px;max-width:48ch}
+.hlede b{color:var(--ink);font-weight:600}
+.hctas{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.hnote{font-size:13.5px;color:#585D55;margin-top:18px}
+.hero-visual{position:relative;min-height:min(52vw,460px);display:grid;place-items:center}
+.hv-ring{width:min(100%,420px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:rgba(40,53,147,.1);box-shadow:0 28px 60px -32px rgba(24,32,24,.45)}
+.hv-ring img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.94) contrast(1.02)}
+.hv-inset{position:absolute;left:2%;bottom:6%;width:min(38%,168px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:5px solid var(--paper);box-shadow:0 16px 36px -18px rgba(24,32,24,.5);background:#fff}
+.hv-inset img{width:100%;height:100%;object-fit:cover;display:block}
+.hv-arrow{position:absolute;left:32%;bottom:22%;width:72px;height:48px;pointer-events:none;color:var(--brand);opacity:.75}
+.hv-arrow svg{width:100%;height:100%}
+
+.lets{background:#F0F2F7;padding:72px 0}
+.lets .slede{margin-top:12px;max-width:54ch}
+.lets-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:40px}
+.let h3{margin:0;font-size:18px;font-weight:600;letter-spacing:-.5px;line-height:1.25;color:var(--ink)}
+.let p{margin:10px 0 0;font-size:14.5px;line-height:1.55;color:#585D55}
+
+.zigs{padding:88px 0;background:var(--paper)}
+.zig{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:56px;align-items:center;padding:48px 40px;border-radius:28px;background:#EEF0F7;margin:0 0 28px}
+.zig.flip{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);background:#F4F5F9}
+.zig.flip .zig-vis{order:2}
+.zig.flip .zig-copy{order:1}
+.zig-vis{display:grid;place-items:center;position:relative;min-height:280px}
+.zig-circle{width:min(100%,340px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:#fff;box-shadow:0 22px 48px -28px rgba(24,32,24,.4)}
+.zig-circle img{width:100%;height:100%;object-fit:cover;display:block}
+.zig-copy h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-1.6px;margin:0;line-height:1.08}
+.zig-copy .slede{margin-top:14px;font-size:16px;max-width:46ch}
+.checks{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-size:15px;line-height:1.45;color:var(--ink)}
+.checks li .msr{font-size:20px;color:var(--income);margin-top:1px}
+.zig-link{display:inline-block;margin-top:22px;font-size:15px;font-weight:600;color:var(--brand);text-decoration:underline;text-underline-offset:3px}
+.zig-link:hover{color:var(--ink)}
+.credit{font-size:12px;color:#A8ABB3;margin-top:8px;line-height:1.5;text-align:center}
+.credit a{color:#7A7D85}
+
+@media(max-width:980px){
+  .hero{padding:40px 0 36px}
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .hero-copy{max-width:none;order:1}
+  .hero-visual{order:2;min-height:0;width:min(320px,78vw);margin:0 auto}
+  .hv-ring{width:100%}
+  .hv-inset{width:36%;left:0;bottom:4%}
+  .hv-arrow{display:none}
+  h1{font-size:clamp(32px,9vw,48px);letter-spacing:-2px}
+  .lets{padding:48px 0}
+  .lets-grid{grid-template-columns:1fr 1fr;gap:22px}
+  .zig{grid-template-columns:1fr;gap:24px;padding:28px 20px;margin-bottom:18px}
+  .zig.flip .zig-vis,.zig .zig-vis{order:1}
+  .zig.flip .zig-copy,.zig .zig-copy{order:2}
+  .zig-circle{width:min(100%,280px)}
+}
+@media(max-width:640px){
+  .lets-grid{grid-template-columns:1fr}
+  .hero-visual{width:min(280px,84vw)}
+}
+
+/* —— Mobile workflow —— */
+.flow-head{margin-bottom:0}
+.flow-body{min-width:0}
+@media(max-width:980px){
+  .flowin{display:flex;flex-direction:column;gap:22px;align-items:stretch}
+  .flow-head{order:1;grid-area:auto}
+  .flowin > .phone{order:2;grid-area:auto;margin:4px auto 8px;width:min(290px,82vw);height:auto;aspect-ratio:372/756;border-radius:36px;padding:8px;align-self:center}
+  .flowin > .phone .screen{border-radius:30px}
+  .flow-body{order:3;grid-area:auto}
+  .steps{margin-top:8px;gap:4px}
+  .step{padding:12px 14px;border-radius:14px;grid-template-columns:32px 1fr;gap:12px}
+  .step h4{font-size:16px;letter-spacing:-.4px}
+  .step:not(.on) p{display:none}
+  .step.on p{font-size:13.5px}
+  .flowctl{margin-top:14px;padding-left:8px;flex-wrap:wrap}
+}
+@media(max-width:640px){
+  .flowin > .phone{width:min(268px,78vw)}
+  .step .n{font-size:10.5px}
+}
 
 /* —— Mobile nav + overflow —— */
 .nav-tools{display:flex;align-items:center;gap:6px;flex:0 0 auto}
@@ -370,15 +454,15 @@ footer{background:#fff;color:var(--body);padding:56px 0 40px;border-top:1px soli
   <div class="navin">
     <a class="brand" href="/business.html"><img src="assets/logo-mark.png" alt="Qaavah Books"><span><b>Qaavah</b> <i>Books</i></span></a>
     <div class="lane"><a class="ln" href="/">Personal</a><a class="ln on" style="color:#283593" href="/business.html">Business</a></div>
-    <div class="nlinks"><a href="#flow" data-biz="nav_workflow">Workflow</a><a href="#team" data-biz="nav_staff">Staff</a><a href="#edge" data-biz="nav_why">Why us</a><a href="#more" data-biz="nav_features">Features</a><a href="#pricing" data-biz="nav_pricing">Pricing</a></div>
+    <div class="nlinks"><a href="#lets" data-biz="nav_features">Features</a><a href="#flow" data-biz="nav_workflow">Workflow</a><a href="#team" data-biz="nav_staff">Staff</a><a href="#edge" data-biz="nav_why">Why us</a><a href="#pricing" data-biz="nav_pricing">Pricing</a></div>
     <div class="nav-tools">
     <details class="lang navmenu">
       <summary><span class="msr">menu</span>Menu</summary>
       <div class="lmenu">
+        <a href="#lets"><span class="msr">apps</span><span data-biz="nav_features">Features</span></a>
         <a href="#flow"><span class="msr">play_circle</span><span data-biz="nav_workflow">Workflow</span></a>
         <a href="#team"><span class="msr">group</span><span data-biz="nav_staff">Staff</span></a>
         <a href="#edge"><span class="msr">compare_arrows</span><span data-biz="nav_why">Why us</span></a>
-        <a href="#more"><span class="msr">apps</span><span data-biz="nav_features">Features</span></a>
         <a href="#pricing"><span class="msr">sell</span><span data-biz="nav_pricing">Pricing</span></a>
         <a href="#pricing"><span class="msr">download</span><span data-biz="nav_start">Start free</span></a>
       </div>
@@ -395,7 +479,7 @@ footer{background:#fff;color:var(--body);padding:56px 0 40px;border-top:1px soli
     </details>
     <details class="lang country">
       <summary><span class="flag" style="font-size:15px">🇺🇸</span><span class="lbl">US</span><span class="msr chev">expand_more</span></summary>
-      <div class="lmenu cmenu" role="listbox"><!-- filled by tour-site.js?v=14 --></div>
+      <div class="lmenu cmenu" role="listbox"><!-- filled by tour-site.js?v=17 --></div>
     </details>
     <a class="btn sm" href="#pricing" data-biz="nav_start">Start free</a>
     </div>
@@ -403,37 +487,81 @@ footer{background:#fff;color:var(--body);padding:56px 0 40px;border-top:1px soli
 </nav>
 
 <header class="hero">
-  <div class="wrap in">
-    <div class="gate"><span class="gpill">Region</span><div><b data-biz="gate_title">Shop tools are open outside the US, Canada and Europe.</b><p data-biz="gate_body">In the US, Canada and Europe, Qaavah Books is personal money only for now — though staff can still join a shop based elsewhere.</p><a class="glink" href="/" data-biz="gate_link">See the personal side →</a></div></div>
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div class="tag" data-biz="hero_tag">For shops, services and trades</div><span class="shut" data-shop-open style="display:none">Open</span></div>
-    <h1 id="bizHeroH1" data-biz="hero_h1">Books your shop <em>can actually keep.</em></h1>
-    <p class="hlede" data-biz="hero_lede">Ring up a sale in four seconds, know what's low on the shelf, and see who still owes you — from the phone already in your apron. <b>No terminal to buy, no accountant to call, works when the internet doesn't.</b></p>
-    <div class="hctas">
-      <a class="btn" href="#pricing" data-biz="hero_cta_start">Start free</a>
-      <a class="btn line" href="#flow" data-biz="hero_cta_flow">Watch the workflow</a>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="gate"><span class="gpill">Region</span><div><b data-biz="gate_title">Shop tools are open outside the US, Canada and Europe.</b><p data-biz="gate_body">In the US, Canada and Europe, Qaavah Books is personal money only for now — though staff can still join a shop based elsewhere.</p><a class="glink" href="/" data-biz="gate_link">See the personal side →</a></div></div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div class="tag" data-biz="hero_tag">For shops, services and trades</div><span class="shut" data-shop-open style="display:none">Open</span></div>
+      <h1 id="bizHeroH1" data-biz="hero_h1">Books your shop <em>can actually keep.</em></h1>
+      <p class="hlede" data-biz="hero_lede">Ring up a sale in four seconds, know what's low on the shelf, and see who still owes you — from the phone already in your apron. <b>No terminal to buy, no accountant to call, works when the internet doesn't.</b></p>
+      <div class="hctas">
+        <a class="btn" href="#pricing" data-biz="hero_cta_start">Start free</a>
+        <a class="btn line" href="#flow" data-biz="hero_cta_flow">Watch the workflow</a>
+      </div>
+      <p class="hnote" data-biz="hero_note">Free forever for 20 entries a month. Shop plans from <span data-price="shopStarter">GH₵45</span>.</p>
+      <div class="types">
+        <span class="type">🛒 Retail</span><span class="type">🍲 Chop bar</span><span class="type">✂️ Salon</span><span class="type">🔧 Trades</span><span class="type">🍞 Bakery</span><span class="type">🚌 Transport</span><span class="type">💊 Chemist</span><span class="type">+13 more</span>
+      </div>
     </div>
-    <p class="hnote" data-biz="hero_note">Free forever for 20 entries a month. Shop plans from <span data-price="shopStarter">GH₵45</span>.</p>
-    <div class="types">
-      <span class="type">🛒 Retail</span><span class="type">🍲 Chop bar</span><span class="type">✂️ Salon</span><span class="type">🔧 Trades</span><span class="type">🍞 Bakery</span><span class="type">🚌 Transport</span><span class="type">💊 Chemist</span><span class="type">+13 more</span>
+    <div class="hero-visual" aria-label="Shop floor in context">
+      <div class="hv-ring"><img src="assets/photos/biz-shop.jpg" alt="Retail shop floor" width="840" height="840" loading="eager" decoding="async"></div>
+      <div class="hv-inset"><img src="assets/photos/biz-till.jpg" alt="Customer paying at the till" width="336" height="336" loading="eager" decoding="async"></div>
+      <div class="hv-arrow" aria-hidden="true"><svg viewBox="0 0 72 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 36C22 12 42 8 58 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M50 10l10 10-14 2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     </div>
   </div>
 </header>
 
+<section class="lets" id="lets" aria-label="What your shop can do">
+  <div class="wrap">
+    <h2 id="bizLetsH2" data-biz="lets_h2">Faster books, <em>wherever you trade</em></h2>
+    <p class="slede" data-biz="lets_lede">One place for the till, the shelf and who owes you — on the phone already in your apron. This bookkeeping app lets you:</p>
+    <div class="lets-grid">
+      <div class="let"><h3 data-biz="let1_h">Ring up a sale straight away</h3><p data-biz="let1_p">Tap catalogue, take cash, MoMo or credit. The line total does itself.</p></div>
+      <div class="let"><h3 data-biz="let2_h">See stock move with every sale</h3><p data-biz="let2_p">Reorder points flag amber before you run out mid-morning.</p></div>
+      <div class="let"><h3 data-biz="let3_h">Chase what’s owed</h3><p data-biz="let3_p">Credit sales become debtors with age and a one-tap mark paid.</p></div>
+      <div class="let"><h3 data-biz="let4_h">Cash up without a spreadsheet</h3><p data-biz="let4_p">Day net, grouped report, CSV or PDF when someone needs to see it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="zigs" id="features" aria-label="How it fits the shop floor">
+  <div class="wrap">
+    <article class="zig">
+      <div class="zig-vis"><div class="zig-circle"><img src="assets/photos/biz-till.jpg" alt="Paying at a shop till" width="680" height="680" loading="lazy" decoding="async"></div></div>
+      <div class="zig-copy">
+        <h2 data-biz="zig1_h">Ring it up on the phone you already carry</h2>
+        <p class="slede" data-biz="zig1_p">No terminal contract. Sale, stock and credit land in one place between customers — even when the connection drops.</p>
+        <ul class="checks">
+          <li><span class="msr">check_circle</span><span data-biz="zig1_c1">Cash, MoMo, card or on credit in one tap path</span></li>
+          <li><span class="msr">check_circle</span><span data-biz="zig1_c2">Credit sales become debtors without a second notebook</span></li>
+          <li><span class="msr">check_circle</span><span data-biz="zig1_c3">Works offline — queue syncs when you are back online</span></li>
+        </ul>
+        <a class="zig-link" href="#flow" data-biz="zig1_link">Watch a trading day →</a>
+      </div>
+    </article>
+    <article class="zig flip">
+      <div class="zig-vis"><div class="zig-circle"><img src="assets/photos/biz-market.jpg" alt="Browsing stock on a rack" width="680" height="680" loading="lazy" decoding="async"></div></div>
+      <div class="zig-copy">
+        <h2 data-biz="zig2_h">Watch the shelf, not the spreadsheet</h2>
+        <p class="slede" data-biz="zig2_p">Every sale moves the count. Low stock flags itself. Scan, label and restock without closing the shop.</p>
+        <ul class="checks">
+          <li><span class="msr">check_circle</span><span data-biz="zig2_c1">Reorder points turn amber before you sell the last unit</span></li>
+          <li><span class="msr">check_circle</span><span data-biz="zig2_c2">Barcode scan and shelf labels from the same catalogue</span></li>
+          <li><span class="msr">check_circle</span><span data-biz="zig2_c3">Staff get their own logins — not your password</span></li>
+        </ul>
+        <a class="zig-link" href="#edge" data-biz="zig2_link">What notebooks and POS miss →</a>
+      </div>
+    </article>
+    <p class="credit">Photos from <a href="https://unsplash.com" rel="noopener noreferrer" target="_blank">Unsplash</a> · <a href="https://unsplash.com/license" rel="noopener noreferrer" target="_blank">Unsplash License</a></p>
+  </div>
+</section>
+
+
 <section class="flow" id="flow">
   <div class="wrap flowin">
-    <div>
+    <div class="flow-head">
       <div class="tag" data-biz="flow_tag">The workflow</div>
       <h2 id="bizFlowH2" data-biz="flow_h2">A trading day, <em>start to close</em></h2>
       <p class="slede" data-biz="flow_lede">Not a demo of features — the actual sequence a shop owner taps through between opening and cashing up. It plays on its own, or click any step.</p>
-      <div class="steps" id="steps">
-        <div class="step on" data-i="0"><div class="n">01</div><div><h4 data-biz="flow_s1_h">Open the shutters</h4><p data-biz="flow_s1_p">Today's net, revenue against expenses, and the week beside the month. Anything that needs you — low stock, unpaid credit — is already at the top.</p></div><div class="bar"></div></div>
-        <div class="step" data-i="1"><div class="n">02</div><div><h4 data-biz="flow_s2_h">Ring up a sale</h4><p data-biz="flow_s2_p">Tap a catalogue item, confirm the quantity, take the money. The line total does itself and the stock count drops by one.</p></div><div class="bar"></div></div>
-        <div class="step" data-i="2"><div class="n">03</div><div><h4 data-biz="flow_s3_h">Take it however they pay</h4><p data-biz="flow_s3_p">Cash, MoMo, card, or on credit. Credit sales become a debtor automatically — nobody has to remember to write it down.</p></div><div class="bar"></div></div>
-        <div class="step" data-i="3"><div class="n">04</div><div><h4 data-biz="flow_s4_h">Watch the shelf, not the spreadsheet</h4><p data-biz="flow_s4_p">Every sale moves the count. Items that drop below their reorder point flag themselves in amber before you run out mid-morning.</p></div><div class="bar"></div></div>
-        <div class="step" data-i="4"><div class="n">05</div><div><h4 data-biz="flow_s5_h">Chase what you're owed</h4><p data-biz="flow_s5_p">Everyone who owes you, sorted by how long it's been. Past thirty days it turns red. One tap marks it paid and squares the books.</p></div><div class="bar"></div></div>
-        <div class="step" data-i="5"><div class="n">06</div><div><h4 data-biz="flow_s6_h">Cash up and close</h4><p data-biz="flow_s6_p">Money in, money out, net for the day — grouped by category or listed newest first, and out as a CSV or PDF when someone needs to see it.</p></div><div class="bar"></div></div>
-      </div>
-      <div class="flowctl"><button id="pp" data-pause="Pause" data-play="Play">Pause</button><span id="cnt" class="mono" data-step="STEP">STEP 01 / 06</span></div>
     </div>
 
     <div class="phone"><div class="screen" id="screen">
@@ -579,8 +707,21 @@ footer{background:#fff;color:var(--body);padding:56px 0 40px;border-top:1px soli
         <div class="ptab"><div class="pt"><span class="msr">home</span>Today</div><div class="pt"><span class="msr">inventory_2</span>Stock</div><div class="pt"><div class="pfab"><span class="msr">add</span></div><div class="pfl">Record</div></div><div class="pt"><span class="msr">group</span>Debtors</div><div class="pt on"><span class="msr">more_horiz</span>More</div></div>
       </div>
     </div></div>
+
+    <div class="flow-body">
+      <div class="steps" id="steps">
+        <div class="step on" data-i="0"><div class="n">01</div><div><h4 data-biz="flow_s1_h">Open the shutters</h4><p data-biz="flow_s1_p">Today's net, revenue against expenses, and the week beside the month. Anything that needs you — low stock, unpaid credit — is already at the top.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="1"><div class="n">02</div><div><h4 data-biz="flow_s2_h">Ring up a sale</h4><p data-biz="flow_s2_p">Tap a catalogue item, confirm the quantity, take the money. The line total does itself and the stock count drops by one.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="2"><div class="n">03</div><div><h4 data-biz="flow_s3_h">Take it however they pay</h4><p data-biz="flow_s3_p">Cash, MoMo, card, or on credit. Credit sales become a debtor automatically — nobody has to remember to write it down.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="3"><div class="n">04</div><div><h4 data-biz="flow_s4_h">Watch the shelf, not the spreadsheet</h4><p data-biz="flow_s4_p">Every sale moves the count. Items that drop below their reorder point flag themselves in amber before you run out mid-morning.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="4"><div class="n">05</div><div><h4 data-biz="flow_s5_h">Chase what you're owed</h4><p data-biz="flow_s5_p">Everyone who owes you, sorted by how long it's been. Past thirty days it turns red. One tap marks it paid and squares the books.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="5"><div class="n">06</div><div><h4 data-biz="flow_s6_h">Cash up and close</h4><p data-biz="flow_s6_p">Money in, money out, net for the day — grouped by category or listed newest first, and out as a CSV or PDF when someone needs to see it.</p></div><div class="bar"></div></div>
+      </div>
+      <div class="flowctl"><button id="pp" data-pause="Pause" data-play="Play">Pause</button><span id="cnt" class="mono" data-step="STEP">STEP 01 / 06</span></div>
+    </div>
   </div>
 </section>
+
 
 <section id="edge">
   <div class="wrap">
@@ -1025,12 +1166,12 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)tick();else{pl
 })();
 </script>
 
-<script src="js/site-countries.js?v=14"></script>
-<script src="js/pf-localize.js?v=14"></script>
-<script src="js/site-i18n.js?v=14"></script>
-<script src="js/pf-i18n.js?v=14"></script>
-<script src="js/biz-i18n.js?v=14"></script>
-<script src="js/tour-site.js?v=14"></script>
+<script src="js/site-countries.js?v=17"></script>
+<script src="js/pf-localize.js?v=17"></script>
+<script src="js/site-i18n.js?v=17"></script>
+<script src="js/pf-i18n.js?v=17"></script>
+<script src="js/biz-i18n.js?v=17"></script>
+<script src="js/tour-site.js?v=17"></script>
 
 </body>
 </html>
