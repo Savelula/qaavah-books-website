@@ -82,10 +82,18 @@
 
   /* —— Language —— */
   (function wireLang() {
-    var box = document.querySelector('details.lang:not(.country)');
+    // Prefer the translate chip (has data-lang options). Never bind the hamburger
+    // `.navmenu` which also uses class `lang` and would steal querySelector.
+    var box =
+      document.querySelector('details.lang:not(.country):not(.navmenu)') ||
+      (function () {
+        var opt = document.querySelector('details.lang .lopt[data-lang]');
+        return opt ? opt.closest('details') : null;
+      })();
     if (!box) return;
     var lbl = box.querySelector('.lbl');
-    var opts = Array.prototype.slice.call(box.querySelectorAll('.lopt'));
+    var opts = Array.prototype.slice.call(box.querySelectorAll('.lopt[data-lang]'));
+    if (!opts.length) return;
 
     function currentCountryName() {
       var cc = getSaved('qb_site_country', '');
@@ -127,7 +135,9 @@
     var match = opts.find(function (o) { return o.dataset.lang === saved; });
     if (match) apply(match.dataset.lang, match.dataset.label);
     opts.forEach(function (o) {
-      o.addEventListener('click', function () {
+      o.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
         apply(o.dataset.lang, o.dataset.label);
         setSaved('qb_site_lang', o.dataset.lang);
         box.removeAttribute('open');
