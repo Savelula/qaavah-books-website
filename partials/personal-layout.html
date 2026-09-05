@@ -1,45 +1,72 @@
 <nav>
   <div class="navin">
-    <a class="brand" href="#"><img src="assets/logo-mark.png" alt="Qaavah Books">Qaavah <i>Books</i></a>
-    <div class="nlinks"><a href="#flow">Workflow</a><a href="#screens">Screens</a><a href="#pfPricing">Pricing</a></div>
-    <div class="pf-picks">
-      <label class="pf-lab" for="langSelPf">Language</label>
-      <select id="langSelPf" aria-label="Language"></select>
-      <label class="pf-lab" for="countrySelPf">Country</label>
-      <select id="countrySelPf" aria-label="Your country"></select>
+    <a class="brand" href="#"><img src="assets/logo-mark.png" alt="Qaavah Books"><b>Qaavah</b> <i>Books</i></a>
+    <div class="lane" role="group" aria-label="Product lane">
+      <button type="button" class="ln on" id="lanePersonal" data-force-lane="personal">Personal</button>
+      <button type="button" class="ln" id="laneBusiness" data-force-lane="shop">Business</button>
     </div>
-    <a class="btn sm" href="#pfPricing">Get the app</a>
+    <div class="nlinks"><a href="#flow" data-pf="nav_workflow">Workflow</a><a href="#edge" data-pf="nav_why">Why us</a><a href="#screens" data-pf="nav_screens">Screens</a><a href="#pfPricing" data-pf="nav_pricing">Pricing</a></div>
+    <details class="lang navmenu">
+      <summary><span class="msr">menu</span>Menu</summary>
+      <div class="lmenu">
+        <a href="#flow"><span class="msr">play_circle</span><span data-pf="nav_workflow">Workflow</span></a>
+        <a href="#edge"><span class="msr">compare_arrows</span><span data-pf="nav_why">Why us</span></a>
+        <a href="#screens"><span class="msr">apps</span><span data-pf="nav_screens">Screens</span></a>
+        <a href="#pfPricing"><span class="msr">sell</span><span data-pf="nav_pricing">Pricing</span></a>
+      </div>
+    </details>
+    <div class="pf-picks">
+      <select id="langSelPf" class="pf-sr-only" aria-label="Language" tabindex="-1"></select>
+      <select id="countrySelPf" class="pf-sr-only" aria-label="Your country" tabindex="-1"></select>
+      <details class="lang" id="pfLangMenu">
+        <summary><span class="msr">translate</span><span class="lbl" id="pfLangLbl">EN</span><span class="msr chev">expand_more</span></summary>
+        <div class="lmenu" role="listbox" id="pfLangOpts">
+          <button type="button" class="lopt" role="option" data-lang="en" data-label="EN" aria-selected="true"><span class="code">EN</span><span class="nat">English</span><span class="msr">check</span></button>
+          <button type="button" class="lopt" role="option" data-lang="fr" data-label="FR" aria-selected="false"><span class="code">FR</span><span class="nat">Français<small>French</small></span><span class="msr">check</span></button>
+          <button type="button" class="lopt" role="option" data-lang="es" data-label="ES" aria-selected="false"><span class="code">ES</span><span class="nat">Español<small>Spanish</small></span><span class="msr">check</span></button>
+          <button type="button" class="lopt" role="option" data-lang="pt" data-label="PT" aria-selected="false"><span class="code">PT</span><span class="nat">Português<small>Portuguese</small></span><span class="msr">check</span></button>
+          <p class="lnote" data-pf="pf_lang_note">The app ships in these four. Currency and payment methods follow your country, not your language.</p>
+        </div>
+      </details>
+      <details class="lang country" id="pfCountryMenu">
+        <summary><span class="flag" id="pfCountryFlag">🇺🇸</span><span class="lbl" id="pfCountryLbl">US</span><span class="msr chev">expand_more</span></summary>
+        <div class="lmenu cmenu" role="listbox" id="pfCountryOpts"></div>
+      </details>
+    </div>
+    <a class="btn sm" href="#pfGet" data-pf="nav_get">Get the app</a>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap in">
-    <div class="tag" style="color:var(--accent)" id="pfHeroTag">Personal money</div>
-    <h1>Every account. <em>One honest number.</em></h1>
-    <p class="hlede">Checking, credit card, Apple Pay, Venmo, Zelle, cash in your pocket. Qaavah Books puts them in one place in four seconds a time — <b>without ever asking for a bank login.</b></p>
+    <div class="tag" id="pfHeroTag">Personal money</div>
+    <h1 id="pfHeroH1" data-pf="hero_h1">Know where it went. <em>Without linking a bank.</em></h1>
+    <p class="hlede" data-pf="hero_lede">Four seconds to log a coffee, a Venmo split, or cash out of your pocket. You get one honest number across every account you actually use — and <b>we never ask for a bank password, because we never need one.</b></p>
     <div class="hctas">
-      <a class="btn" href="#pfPricing">Start free</a>
-      <a class="btn line" href="#flow">Watch the workflow</a>
+      <a class="btn" href="#pfPricing" data-pf="hero_cta_start">Start free</a>
+      <a class="btn line" href="#flow" data-pf="hero_cta_flow">Watch the workflow</a>
     </div>
-    <p class="hnote">No Plaid. No open banking. No credentials. 20 entries a month, free.</p>
+    <p class="hnote" data-pf="hero_note">No Plaid. No open banking. Cash counts. Works in 182 countries, 4 languages.</p>
   </div>
 </header>
 
 <section class="flow" id="flow">
   <div class="wrap flowin">
     <div>
-      <div class="tag">The workflow</div>
-      <h2>Coffee to <em>closed books</em> in six steps</h2>
-      <p class="slede">This is the actual sequence, running live. It plays on its own — or click any step to jump.</p>
+      <div class="tag" data-pf="flow_tag">The workflow</div>
+      <h2 id="pfFlowH2" data-pf="flow_h2">From a coffee to <em>a month you can explain</em></h2>
+      <p class="slede" data-pf="flow_lede">Most apps start by asking for your bank password, then guess what your transactions were and tell you three days late. This starts from how you actually spend, and asks you almost nothing. It plays on its own — or click any step to jump.</p>
       <div class="steps" id="steps">
-        <div class="step on" data-i="0"><div class="n">01</div><div><h4>Open to today</h4><p>Net for the month, money in against spending, and the week beside it. No login screen, no sync spinner.</p></div><div class="bar"></div></div>
-        <div class="step" data-i="1"><div class="n">02</div><div><h4>Tap the amount</h4><p>One field, big keypad, quick amounts for the numbers you type most. Groceries, gas, a $6 latte.</p></div><div class="bar"></div></div>
-        <div class="step" data-i="2"><div class="n">03</div><div><h4>Say how you paid</h4><p>Card, Apple Pay, Venmo, Zelle, cash — the real methods for your country, not a generic list.</p></div><div class="bar"></div></div>
-        <div class="step" data-i="3"><div class="n">04</div><div><h4>Saved, and the total moves</h4><p>The entry lands and your remaining budget updates on the spot. Four seconds, start to finish.</p></div><div class="bar"></div></div>
-        <div class="step" data-i="4"><div class="n">05</div><div><h4>Bills come to you</h4><p>Rent, utilities, subscriptions — each on its own schedule. One tap confirms, or edit if the amount changed.</p></div><div class="bar"></div></div>
-        <div class="step" data-i="5"><div class="n">06</div><div><h4>Know what's left</h4><p>Left to spend before payday, where it went, and the categories quietly eating the month.</p></div><div class="bar"></div></div>
+        <div class="step on" data-i="0"><div class="n">01</div><div><h4 data-pf="flow_s1_h">Open to today</h4><p data-pf="flow_s1_p">Net for the month, money in against spending, and the week beside it. No login screen, no sync spinner.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="1"><div class="n">02</div><div><h4 data-pf="flow_s2_h">Pin what you buy every week</h4><p data-pf="flow_s2_p">Your quick list keeps starred shortcuts, ones you added, and suggestions for your profile — each with its usual amount. Income, expense and asset picks get their own tab.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="2"><div class="n">03</div><div><h4 data-pf="flow_s3_h">Tap the amount</h4><p>One field, big keypad, quick amounts for the numbers you type most. Groceries, gas, a latte.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="3"><div class="n">04</div><div><h4 data-pf="flow_s4_h">Say how you paid</h4><p data-pf="flow_s4_p">Card, Apple Pay, Venmo, Zelle, cash — the real methods for your country, not a generic list.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="4"><div class="n">05</div><div><h4 data-pf="flow_s5_h">Saved, and the total moves</h4><p data-pf="flow_s5_p">The entry lands and your remaining budget updates on the spot. Four seconds, start to finish.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="5"><div class="n">06</div><div><h4 data-pf="flow_s6_h">Set it once, it repeats</h4><p data-pf="flow_s6_p">Rent, utilities, subscriptions and your paycheck live on the Recurring tab, grouped into this week and later this month. Remind or auto-log, skip one, or pause it.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="6"><div class="n">07</div><div><h4 data-pf="flow_s7_h">Bills come to you</h4><p data-pf="flow_s7_p">On the day something is due it shows up on top. One tap confirms, or edit if the amount changed.</p></div><div class="bar"></div></div>
+        <div class="step" data-i="7"><div class="n">08</div><div><h4 data-pf="flow_s8_h">Know what's left</h4><p data-pf="flow_s8_p">Left to spend before payday, where it went, and the categories quietly eating the month.</p></div><div class="bar"></div></div>
       </div>
-      <div class="flowctl"><button id="pp">Pause</button><span id="cnt" class="mono">STEP 01 / 06</span></div>
+      <div class="flowctl"><button id="pp">Pause</button><span id="cnt" class="mono">STEP 01 / 08</span></div>
     </div>
 
     <div class="phone"><div class="screen" id="screen">
@@ -50,19 +77,19 @@
         <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
         <div class="pb">
           <div class="pkick">FRIDAY · AUGUST 15</div>
-          <div class="pgreet">Good morning, Maya.</div>
+          <div class="pgreet" data-pf-mock="mock_good_morning">Good morning, Maya.</div>
           <div class="phero">
-            <div class="phl">Saved this month</div>
+            <div class="phl" data-pf-mock="mock_saved_month">Saved this month</div>
             <div class="phv"><span class="c">$</span>412</div>
             <div class="phc">$180 more than last month</div>
             <div class="psub">
-              <div><div class="psl">Money in</div><div class="psv in">$4,180</div></div>
-              <div><div class="psl">Spent</div><div class="psv out">$3,768</div></div>
+              <div><div class="psl" data-pf-mock="mock_money_in">Money in</div><div class="psv in">$4,180</div></div>
+              <div><div class="psl" data-pf-mock="mock_spent">Spent</div><div class="psv out">$3,768</div></div>
             </div>
           </div>
           <div class="prow">
-            <div class="pcard"><div class="pcl">This week</div><div class="pcv">$284</div><div class="pbars"><i style="height:40%"></i><i style="height:56%"></i><i style="height:44%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:84%"></i><i style="height:100%"></i></div></div>
-            <div class="pcard" style="background:var(--sageTint);border-color:rgba(74,114,89,.35)"><div class="pcl">This month</div><div class="pcv">$412</div><div class="pbars em"><i style="height:38%"></i><i style="height:52%"></i><i style="height:66%"></i><i style="height:48%"></i><i style="height:78%"></i><i style="height:90%"></i><i style="height:100%"></i></div></div>
+            <div class="pcard"><div class="pcl" data-pf-mock="mock_this_week">This week</div><div class="pcv">$284</div><div class="pbars"><i style="height:40%"></i><i style="height:56%"></i><i style="height:44%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:84%"></i><i style="height:100%"></i></div></div>
+            <div class="pcard" style="background:var(--sageTint);border-color:rgba(74,114,89,.35)"><div class="pcl" data-pf-mock="mock_this_month">This month</div><div class="pcv">$412</div><div class="pbars em"><i style="height:38%"></i><i style="height:52%"></i><i style="height:66%"></i><i style="height:48%"></i><i style="height:78%"></i><i style="height:90%"></i><i style="height:100%"></i></div></div>
           </div>
           <div class="plist">
             <div class="pent"><div class="pei" style="background:var(--incomeTint)"><span class="msr" style="font-size:16px;color:var(--income)">payments</span></div><div style="flex:1"><div class="pen">Paycheck · Northwind Inc</div><div class="pes">CHECKING · AUG 1</div></div><span class="pea" style="color:var(--income)">+2,090</span></div>
@@ -70,26 +97,51 @@
             <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">group</span></div><div style="flex:1"><div class="pen">Dinner · split with Sam</div><div class="pes">VENMO · AUG 13</div></div><span class="pea" style="color:var(--clay)">−34</span></div>
           </div>
         </div>
-        <div class="ptab"><div class="pt on"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>List</div><div class="pt"><div class="pfab"><span class="msr">add</span></div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
+        <div class="ptab"><div class="pt on"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>Quick list</div><div class="pt"><div class="pfab"><span class="msr">add</span></div><div class="pfl">Record</div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
       </div>
 
-      <!-- 2 RECORD -->
+      <!-- 2 QUICK LIST -->
       <div class="pane" data-p="1">
+        <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="pb">
+          <div class="ph"><div class="bk"><span class="msr" style="font-size:14px">arrow_back_ios_new</span></div><div style="flex:1;min-width:0"><div class="pkick">My book</div><div class="tt" style="font-size:17px;margin-top:1px">Quick list</div></div><span class="ppriv"><span class="msr">lock</span>PRIVATE</span><span class="pcta"><span class="msr">add</span>Add</span></div>
+          <div class="segs" style="gap:3px"><span style="font-size:11px">Income</span><span class="on" style="font-size:11px">Expense</span><span style="font-size:11px">Recurring</span><span style="font-size:11px">Assets</span></div>
+          <div class="psearch"><span class="msr" style="font-size:15px">search</span>Search expense shortcuts…</div>
+          <div class="pkick" style="margin-top:14px">STARRED</div>
+          <div class="plist" style="margin-top:9px">
+            <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">shopping_basket</span></div><div style="flex:1"><div class="pen">Groceries</div><div class="pes">FOOD · STARRED</div></div><span class="pea">$86</span></div>
+            <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">local_cafe</span></div><div style="flex:1"><div class="pen">Coffee</div><div class="pes">FOOD · STARRED</div></div><span class="pea">$6</span></div>
+            <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">local_gas_station</span></div><div style="flex:1"><div class="pen">Gas</div><div class="pes">TRANSPORT · REMIND</div></div><span class="pea">$54</span></div>
+          </div>
+          <div class="pkick" style="margin-top:14px">ADDED</div>
+          <div class="plist" style="margin-top:9px">
+            <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">local_parking</span></div><div style="flex:1"><div class="pen">Parking</div><div class="pes">TRANSPORT · ADDED SHORTCUT</div></div><span class="pea">$12</span></div>
+          </div>
+          <div class="pkick" style="margin-top:14px">SUGGESTED</div>
+          <div class="plist" style="margin-top:9px">
+            <div class="pent" style="opacity:.62"><div class="pei"><span class="msr" style="font-size:16px;color:var(--muted)">lunch_dining</span></div><div style="flex:1"><div class="pen">Lunch out</div><div class="pes">FOOD</div></div><span class="pea">$18</span></div>
+          </div>
+        </div>
+        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt on"><span class="msr">list_alt</span>Quick list</div><div class="pt"><div class="pfab"><span class="msr">add</span></div><div class="pfl">Record</div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
+      </div>
+
+      <!-- 3 RECORD -->
+      <div class="pane" data-p="2">
         <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
         <div class="pb">
           <div class="ph"><div class="bk"><span class="msr" style="font-size:16px">close</span></div><div class="tt">Record</div></div>
           <div class="segs"><span>Money in</span><span class="on">Spending</span><span>Transfer</span></div>
-          <div class="amt"><div class="amtc">Amount</div><div class="amtv"><span class="c">$</span>86<span class="caret"></span></div></div>
+          <div class="amt"><div class="amtc" data-pf-mock="mock_amount">Amount</div><div class="amtv"><span class="c">$</span>86<span class="caret"></span></div></div>
           <div class="chips"><span class="chip">+5</span><span class="chip">+20</span><span class="chip">+50</span><span class="chip gh">Clear</span></div>
           <div class="mini">What was it</div>
           <div class="field">Groceries · Trader Joe's <span class="msr" style="font-size:17px;color:var(--muted)">expand_more</span></div>
           <div class="field" style="color:var(--muted)">Add a note <span class="msr" style="font-size:17px;color:var(--muted)">edit</span></div>
         </div>
-        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>List</div><div class="pt"><div class="pfab"><span class="msr">add</span></div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
+        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>Quick list</div><div class="pt"><div class="pfab"><span class="msr">add</span></div><div class="pfl">Record</div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
       </div>
 
-      <!-- 3 PAYMENT -->
-      <div class="pane" data-p="2">
+      <!-- 4 PAYMENT -->
+      <div class="pane" data-p="3">
         <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
         <div class="pb">
           <div class="ph"><div class="bk"><span class="msr" style="font-size:15px">arrow_back_ios_new</span></div><div class="tt">How did you pay?</div></div>
@@ -105,11 +157,11 @@
           <div class="cta">Save entry</div>
           <p class="pes" style="text-align:center;margin-top:12px">METHODS MATCH YOUR COUNTRY</p>
         </div>
-        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>List</div><div class="pt"><div class="pfab"><span class="msr">add</span></div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
+        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>Quick list</div><div class="pt"><div class="pfab"><span class="msr">add</span></div><div class="pfl">Record</div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
       </div>
 
-      <!-- 4 SAVED -->
-      <div class="pane" data-p="3">
+      <!-- 5 SAVED -->
+      <div class="pane" data-p="4">
         <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
         <div class="done">
           <div class="tick"><span class="msr">check</span></div>
@@ -122,11 +174,38 @@
             <div class="rl" style="margin-top:11px">62% OF AUGUST BUDGET USED</div>
           </div>
         </div>
-        <div class="ptab"><div class="pt on"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>List</div><div class="pt"><div class="pfab"><span class="msr">add</span></div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
+        <div class="ptab"><div class="pt on"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>Quick list</div><div class="pt"><div class="pfab"><span class="msr">add</span></div><div class="pfl">Record</div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
       </div>
 
-      <!-- 5 BILLS -->
-      <div class="pane" data-p="4">
+      <!-- 6 RECURRING -->
+      <div class="pane" data-p="5">
+        <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
+        <div class="pb">
+          <div class="ph"><div class="bk"><span class="msr" style="font-size:14px">arrow_back_ios_new</span></div><div style="flex:1;min-width:0"><div class="pkick">My book</div><div class="tt" style="font-size:17px;margin-top:1px">Quick list</div></div><span class="ppriv"><span class="msr">lock</span>PRIVATE</span><span class="pcta"><span class="msr">add</span>Add</span></div>
+          <div class="segs" style="gap:3px"><span style="font-size:11px">Income</span><span style="font-size:11px">Expense</span><span class="on" style="font-size:11px">Recurring</span><span style="font-size:11px">Assets</span></div>
+          <div class="psearch"><span class="msr" style="font-size:15px">search</span>Search recurring…</div>
+          <div class="pkick" style="margin-top:14px">THIS WEEK</div>
+          <div class="bill" style="margin-top:9px">
+            <div class="bi"><span class="msr" style="font-size:17px;color:var(--amber)">bolt</span></div>
+            <div style="flex:1"><div class="bt">Con Edison · <span style="color:#96690D">$142</span></div><div class="bs">EXPENSE · MONTHLY · DUE TODAY</div></div>
+            <div class="logbtn">LOG</div>
+          </div>
+          <div class="plist" style="margin-top:10px">
+            <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">home</span></div><div style="flex:1"><div class="pen">Rent</div><div class="pes">EXPENSE · MONTHLY</div></div><div style="text-align:right"><div class="pea">$1,850</div><div class="pes">DUE IN 2 DAYS</div></div></div>
+          </div>
+          <div class="pkick" style="margin-top:14px">LATER THIS MONTH</div>
+          <div class="plist" style="margin-top:9px">
+            <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">subscriptions</span></div><div style="flex:1"><div class="pen">Netflix</div><div class="pes">EXPENSE · MONTHLY</div></div><div style="text-align:right"><div class="pea">$15</div><div class="pes">24 AUG</div></div></div>
+            <div class="pent"><div class="pei" style="background:var(--incomeTint)"><span class="msr" style="font-size:16px;color:var(--income)">payments</span></div><div style="flex:1"><div class="pen">Paycheck</div><div class="pes">INCOME · MONTHLY</div></div><div style="text-align:right"><div class="pea" style="color:var(--income)">$4,180</div><div class="pes">1 SEP</div></div></div>
+            <div class="pent" style="opacity:.5"><div class="pei"><span class="msr" style="font-size:16px;color:var(--muted)">fitness_center</span></div><div style="flex:1"><div class="pen">Gym membership</div><div class="pes">EXPENSE · MONTHLY</div></div><div style="text-align:right"><div class="pea">$45</div><div class="pes">PAUSED</div></div></div>
+          </div>
+          <div class="chips" style="margin-top:14px;justify-content:flex-start"><span class="chip" style="padding:8px 13px;font-size:11px">Log</span><span class="chip gh" style="padding:8px 13px;font-size:11px">Skip</span><span class="chip gh" style="padding:8px 13px;font-size:11px">Turn off</span></div>
+        </div>
+        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt on"><span class="msr">list_alt</span>Quick list</div><div class="pt"><div class="pfab"><span class="msr">add</span></div><div class="pfl">Record</div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
+      </div>
+
+      <!-- 7 BILLS -->
+      <div class="pane" data-p="6">
         <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
         <div class="pb">
           <div class="ph"><div class="bk"><span class="msr" style="font-size:15px">arrow_back_ios_new</span></div><div class="tt">Due bills</div></div>
@@ -148,11 +227,11 @@
             <div class="pent"><div class="pei"><span class="msr" style="font-size:16px;color:var(--sageDeep)">fitness_center</span></div><div style="flex:1"><div class="pen">Gym membership</div><div class="pes">AUG 28 · CARD</div></div><span class="pea">$45</span></div>
           </div>
         </div>
-        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>List</div><div class="pt"><div class="pfab"><span class="msr">add</span></div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt on"><span class="msr">account_balance_wallet</span>Budget</div></div>
+        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>Quick list</div><div class="pt"><div class="pfab"><span class="msr">add</span></div><div class="pfl">Record</div></div><div class="pt"><span class="msr">insights</span>Insights</div><div class="pt on"><span class="msr">account_balance_wallet</span>Budget</div></div>
       </div>
 
-      <!-- 6 INSIGHTS -->
-      <div class="pane" data-p="5">
+      <!-- 8 INSIGHTS -->
+      <div class="pane" data-p="7">
         <div class="sb"><span>9:41</span><span>●●● ▮</span></div>
         <div class="pb">
           <div class="ph"><div class="tt">Insights</div><div class="bk"><span class="msr" style="font-size:16px">calendar_today</span></div></div>
@@ -169,98 +248,172 @@
             <div class="rank"><div class="rn">3</div><div style="flex:1"><div class="pen">Eating out</div><div class="rb" style="width:38%"></div></div><span class="pea">$236</span></div>
           </div>
         </div>
-        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>List</div><div class="pt"><div class="pfab"><span class="msr">add</span></div></div><div class="pt on"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
+        <div class="ptab"><div class="pt"><span class="msr">home</span>Home</div><div class="pt"><span class="msr">list_alt</span>Quick list</div><div class="pt"><div class="pfab"><span class="msr">add</span></div><div class="pfl">Record</div></div><div class="pt on"><span class="msr">insights</span>Insights</div><div class="pt"><span class="msr">account_balance_wallet</span>Budget</div></div>
       </div>
     </div></div>
   </div>
 </section>
 
-<section id="screens">
+<section id="edge">
   <div class="wrap">
-    <div class="screens-head">
-      <div class="tag">More of the app</div>
-      <h2>Six more screens <em>you'll actually use</em></h2>
-      <p class="slede">The parts that stop money leaking — statement imports instead of typing, gift cards that expire, goals that don't get raided.</p>
+    <div class="tag" data-pf="edge_tag">Why not just link your bank</div>
+    <h2 id="pfEdgeH2" data-pf="edge_h2">Four things aggregators <em>can't do for you</em></h2>
+    <p class="slede" data-pf="edge_lede">Bank-linking apps solved data entry and created four new problems. Each of these is a deliberate choice here, not a missing feature.</p>
+    <div class="edge">
+      <div class="ecard">
+        <div class="ethem" data-pf="edge_c1_them"><span class="msr">lock_open</span>They need your bank login</div>
+        <div class="eus" data-pf="edge_c1_us"><span class="msr">check_circle</span>You log it, or import a file yourself</div>
+        <p class="ewhy" data-pf="edge_c1_why">Nothing to breach, nothing to revoke, no re-authenticating every 90 days. Switch on device-only mode and every entry stays off our servers entirely.</p>
+      </div>
+      <div class="ecard">
+        <div class="ethem" data-pf="edge_c2_them"><span class="msr">money_off</span>They can't see cash</div>
+        <div class="eus" data-pf="edge_c2_us"><span class="msr">check_circle</span>Cash is a wallet like any other</div>
+        <p class="ewhy" data-pf="edge_c2_why">Set an opening balance and every entry moves the right wallet — cash, card, checking, Venmo, even a gift card. Aggregators leave a hole where your cash spending was.</p>
+      </div>
+      <div class="ecard">
+        <div class="ethem" data-pf="edge_c3_them"><span class="msr">event_busy</span>They tell you on the 30th</div>
+        <div class="eus" data-pf="edge_c3_us"><span class="msr">check_circle</span>A pace mark tells you on the 12th</div>
+        <p class="ewhy" data-pf="edge_c3_why">Every budget category carries a tick showing where you should be today, and says ahead, behind, or over by how much — while you can still do something about it.</p>
+      </div>
+      <div class="ecard">
+        <div class="ethem" data-pf="edge_c4_them"><span class="msr">card_giftcard</span>They ignore money you prepaid</div>
+        <div class="eus" data-pf="edge_c4_us"><span class="msr">check_circle</span>Gift cards you can spend from</div>
+        <p class="ewhy" data-pf="edge_c4_why">A gift card is a real balance that counts down as you use it, warns you 30 days before expiry, and flags a low balance. Most apps never knew it existed.</p>
+      </div>
     </div>
   </div>
-  <p class="film-hint">Drag or scroll sideways →</p>
-  <div class="gal-rail" tabindex="0" aria-label="App screen gallery">
+</section>
+
+
+<section id="storeShots" class="store-shots">
+  <div class="wrap">
+    <div class="tag" data-pf="store_tag">Store frames</div>
+    <h2 id="pfStoreH2" data-pf="store_h2">The same shots <em>as App Store &amp; Play</em></h2>
+    <p class="slede" data-pf="store_lede">What personal markets see on the product page — home, record, privacy, Money Tools, budget, insights.</p>
+  </div>
+  <p class="film-hint"><span data-pf="store_hint">Drag or scroll sideways →</span></p>
+  <div class="gal-rail" tabindex="0" aria-label="Store screenshot gallery">
+    <div class="gal gal-film">
+      <div class="gcell gcell-shot">
+        <div class="gt" data-pf="store_t1"><span class="msr">home</span>Home</div>
+        <div class="gd" data-pf="store_d1">Every account in one net for the month.</div>
+        <img class="shot-art" src="assets/shots/personal/p1-personal-home.jpg" width="720" height="1560" alt="Personal home" loading="lazy" decoding="async">
+      </div>
+      <div class="gcell gcell-shot">
+        <div class="gt" data-pf="store_t2"><span class="msr">add</span>Record</div>
+        <div class="gd" data-pf="store_d2">Amount, how you paid, done — even offline.</div>
+        <img class="shot-art" src="assets/shots/personal/p2-record.jpg" width="720" height="1560" alt="Record entry" loading="lazy" decoding="async">
+      </div>
+      <div class="gcell gcell-shot">
+        <div class="gt" data-pf="store_t3"><span class="msr">lock</span>No bank login</div>
+        <div class="gd" data-pf="store_d3">No Plaid, optional on-device-only ledger.</div>
+        <img class="shot-art" src="assets/shots/personal/p3-no-bank-login.jpg" width="720" height="1560" alt="Privacy" loading="lazy" decoding="async">
+      </div>
+      <div class="gcell gcell-shot">
+        <div class="gt" data-pf="store_t4"><span class="msr">account_balance_wallet</span>Money Tools</div>
+        <div class="gd" data-pf="store_d4">Wallets, pots, debts, gift cards.</div>
+        <img class="shot-art" src="assets/shots/personal/p4-money-tools.jpg" width="720" height="1560" alt="Money Tools" loading="lazy" decoding="async">
+        <span class="plus" data-pf="badge_plus">Personal Plus</span>
+      </div>
+      <div class="gcell gcell-shot">
+        <div class="gt" data-pf="store_t5"><span class="msr">savings</span>Budget</div>
+        <div class="gd" data-pf="store_d5">Category limits and month pace.</div>
+        <img class="shot-art" src="assets/shots/personal/p5-budget.jpg" width="720" height="1560" alt="Budget" loading="lazy" decoding="async">
+        <span class="plus" data-pf="badge_plus">Personal Plus</span>
+      </div>
+      <div class="gcell gcell-shot">
+        <div class="gt" data-pf="store_t6"><span class="msr">insights</span>Insights</div>
+        <div class="gd" data-pf="store_d6">Savings rate and where it went.</div>
+        <img class="shot-art" src="assets/shots/personal/p6-insights.jpg" width="720" height="1560" alt="Insights" loading="lazy" decoding="async">
+        <span class="plus" data-pf="badge_plus">Personal Plus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="screens">
+  <div class="wrap">
+    <div class="tag" data-pf="screens_tag">More of the app</div>
+    <h2 id="pfScreensH2" data-pf="screens_h2">Six more screens <em>that stop money leaking</em></h2>
+    <p class="slede" data-pf="screens_lede">A gift card you forgot expires. A goal you raid because it sits in the same account. A statement you'd have to retype. These are the screens that get that money back.</p>
     <div class="gal">
       <div class="gcell">
-        <div class="gt"><span class="msr">upload_file</span>Statement import</div>
-        <div class="gd">Export a CSV or OFX from your bank and drop it in. Review the rows, keep what's yours, skip the rest. No credentials, ever.</div>
+        <div class="gt" data-pf="gal_t1"><span class="msr">upload_file</span>Statement import</div>
+        <div class="gd" data-pf="gal_d1">Export a CSV, OFX or PDF from your bank and drop it in. Rows that already exist in your ledger are auto-matched instead of posted twice — no credentials, ever.</div>
         <div class="gp"><div class="gsc">
           <div class="mnotch"></div>
           <div class="mst"><span>9:41</span><span>●●● ▮</span></div>
-          <div class="mhd"><div class="mb"><span class="msr">arrow_back_ios_new</span></div><div class="mt">Import a statement</div><div class="ma"><span class="msr">help_outline</span></div></div>
+          <div class="mhd"><div class="mb"><span class="msr">arrow_back_ios_new</span></div><div class="mt">Review statement</div><div class="ma"><span class="msr">help_outline</span></div></div>
           <div class="gpin">
-            <div class="gl">Chase_Aug.csv · 84 rows · review</div>
-            <div class="grow" style="margin-top:10px">Trader Joe's <span>$86.20</span></div>
-            <div class="grow">Con Edison <span>$142.00</span></div>
-            <div class="grow">Shell gas <span>$54.80</span></div>
-            <div class="grow">Whole Foods <span>$112.40</span></div>
-            <div class="grow">Verizon Fios <span>$79.00</span></div>
-            <div class="grow">Uber · 2 rides <span>$38.60</span></div>
-            <div class="grow" style="color:var(--muted)">Transfer to savings <span>skipped</span></div>
-            <div class="grow" style="color:var(--muted)">Credit card payment <span>skipped</span></div>
-            <div style="background:var(--amberTint);border-radius:9px;padding:9px 11px;margin-top:12px;font-size:11px;line-height:1.4;color:#7A4F09">2 rows look like duplicates of entries you already logged — they're unticked.</div>
-            <div class="gl" style="margin-top:14px">81 to import · 3 skipped</div>
-            <div class="cta" style="padding:10px;font-size:12px;border-radius:9px;margin-top:8px">Import 81 entries</div>
+            <div class="mblurb">Tap a row to change what happens to it. Matched rows already exist in your ledger.</div>
+            <div class="mdrift"><b>Your ledger and this statement don't agree</b><span>Ledger bank: $2,140 · statement closing: $2,318. 3 rows are still unmatched.</span></div>
+            <div class="mrow"><div class="mrd"><div class="mrt">TRADER JOE'S #412</div><div class="mrs">2026-08-12 · EXPENSE</div></div><span class="mra" style="color:var(--clay)">−$86.20</span><span class="mbadge add">ADD</span></div>
+            <div class="mrow match"><div class="mrd"><div class="mrt">CON EDISON</div><div class="mrs">2026-08-09 · MATCHED TO ECG PREPAID</div></div><span class="mra" style="color:var(--clay)">−$142.00</span><span class="mbadge match">MATCH</span></div>
+            <div class="mrow match"><div class="mrd"><div class="mrt">NORTHWIND INC PAYROLL</div><div class="mrs">2026-08-01 · MATCHED TO PAYCHECK</div></div><span class="mra" style="color:var(--income)">+$2,090.00</span><span class="mbadge match">MATCH</span></div>
+            <div class="mrow ign"><div class="mrd"><div class="mrt">TRANSFER TO SAVINGS ••••4417</div><div class="mrs">2026-08-05 · EXPENSE</div></div><span class="mra">−$400.00</span><span class="mbadge ign">IGNORE</span></div>
+            <div class="cta" style="padding:12px;font-size:12.5px;border-radius:12px;margin-top:12px">Add 79 · match 2</div>
           </div>
-          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2 on"><span class="msr">list_alt</span>List</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2"><span class="msr">account_balance_wallet</span>Budget</div></div>
+          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2 on"><span class="msr">list_alt</span>Quick list</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div><div style="font-size:6.5px;font-weight:600;color:var(--sageDeep);margin-top:2px">Record</div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2"><span class="msr">account_balance_wallet</span>Budget</div></div>
         </div></div>
-        <span class="plus">Personal Plus</span>
+        <span class="plus" data-pf="badge_plus">Personal Plus</span>
       </div>
       <div class="gcell">
-        <div class="gt"><span class="msr">card_giftcard</span>Gift cards</div>
-        <div class="gd">The average American household sits on unspent gift cards. Track the balance, spend from it like a wallet, get warned 30 days before it expires.</div>
+        <div class="gt" data-pf="gal_t2"><span class="msr">card_giftcard</span>Gift cards</div>
+        <div class="gd" data-pf="gal_d2">Track the balance, spend from it like a wallet, and get warned while it still has value — the app flags cards expiring within 30 days and low balances. Photos stay on your device.</div>
         <div class="gp"><div class="gsc">
           <div class="mnotch"></div>
           <div class="mst"><span>9:41</span><span>●●● ▮</span></div>
           <div class="mhd"><div class="mb"><span class="msr">arrow_back_ios_new</span></div><div class="mt">Gift cards</div><div class="ma"><span class="msr">add</span></div></div>
           <div class="gpin">
-            <div class="gl">$132 left · 3 active · 1 expiring</div>
+            <div class="gl">$132 left · 3 active · 1 expiring soon</div>
             <div style="margin-top:10px">
-              <div class="gcx" style="background:#0E7C4A"><div class="gcxb">AMAZON</div><div class="gcxv">$74</div><div class="gcf" style="display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:8.5px;opacity:.9"><span>$26 OF $100 SPENT</span><span>EXP 12 MAR</span></div></div>
-              <div class="gcx" style="background:#283593"><div class="gcxb">TARGET · EXPIRES IN 6 DAYS</div><div class="gcxv">$40</div><div class="gcf" style="display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:8.5px;opacity:.9"><span>$10 OF $50 SPENT</span><span style="color:var(--accent)">USE IT SOON</span></div></div>
-              <div class="gcx" style="background:#E8A200;color:#241A00"><div class="gcxb">STARBUCKS</div><div class="gcxv">$18</div><div class="gcf" style="display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:8.5px;opacity:.85"><span>$32 OF $50 SPENT</span><span>NO EXPIRY</span></div></div>
+              <div class="gcx" style="background:#0E7C4A"><div style="display:flex;align-items:center;gap:8px"><span class="mmono" style="background:rgba(255,255,255,.22)">AM</span><span class="gcxb">Amazon</span></div><div class="gcxv">$74</div><div style="display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:8px;opacity:.9"><span>$26 OF $100 SPENT</span><span>EXP 2027-03-12</span></div></div>
+              <div class="gcx" style="background:#283593"><div style="display:flex;align-items:center;gap:8px"><span class="mmono" style="background:rgba(255,255,255,.22)">TA</span><span class="gcxb">Target</span><span class="mbadge" style="background:rgba(255,255,255,.2);color:#fff;margin-left:auto">EXPIRES IN 6 DAYS</span></div><div class="gcxv">$40</div><div style="display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:8px;opacity:.9"><span>$10 OF $50 SPENT</span><span>EXP 2026-09-10</span></div></div>
+              <div class="gcx" style="background:#E8A200;color:#241A00"><div style="display:flex;align-items:center;gap:8px"><span class="mmono" style="background:rgba(0,0,0,.18);color:#241A00">ST</span><span class="gcxb">Starbucks</span><span class="mbadge" style="background:rgba(0,0,0,.14);color:#241A00;margin-left:auto">LOW BALANCE</span></div><div class="gcxv">$18</div><div style="display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:8px;opacity:.85"><span>$32 OF $50 SPENT</span><span>NO EXPIRY</span></div></div>
             </div>
-            <div class="gl" style="margin-top:14px">Archived · 2</div>
-            <div class="grow" style="margin-top:6px;color:var(--muted)">Best Buy <span>spent out</span></div>
-            <div class="grow" style="color:var(--muted)">REI · expired <span>$12 lost</span></div>
+            <div class="gl" style="margin-top:16px">Archived · 2</div>
+            <div class="mrow ign" style="margin-top:8px"><span class="mmono" style="background:#64748B">BP</span><div class="mrd"><div class="mrt">Bass Pro Shops</div><div class="mrs">USED UP · $75 OF $75 SPENT</div></div><span class="mra">$0</span></div>
           </div>
-          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2"><span class="msr">list_alt</span>List</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2 on"><span class="msr">account_balance_wallet</span>Budget</div></div>
+          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2"><span class="msr">list_alt</span>Quick list</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div><div style="font-size:6.5px;font-weight:600;color:var(--sageDeep);margin-top:2px">Record</div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2 on"><span class="msr">account_balance_wallet</span>Budget</div></div>
         </div></div>
-        <span class="plus">Personal Plus</span>
+        <span class="plus" data-pf="badge_plus">Personal Plus</span>
       </div>
       <div class="gcell">
-        <div class="gt"><span class="msr">savings</span>Pots</div>
-        <div class="gd">A goal with money in it — emergency fund, security deposit, a trip. Move money in from any account; transfers never count as spending.</div>
+        <div class="gt" data-pf="gal_t3"><span class="msr">savings</span>Pots</div>
+        <div class="gd" data-pf="gal_d3">A goal with money in it — emergency fund, security deposit, a trip. Pick the amount, pick which account it leaves, and the bar shows where you'll land before you commit.</div>
         <div class="gp"><div class="gsc">
           <div class="mnotch"></div>
           <div class="mst"><span>9:41</span><span>●●● ▮</span></div>
-          <div class="mhd"><div class="mb"><span class="msr">arrow_back_ios_new</span></div><div class="mt">Pots</div><div class="ma"><span class="msr">add</span></div></div>
+          <div class="mhd"><div class="mb"><span class="msr">arrow_back_ios_new</span></div><div class="mt">Add to a pot</div><div class="ma"><span class="msr">add</span></div></div>
           <div class="gpin">
-          <div class="gl">3 goals · $3,670 saved</div>
-          <div style="margin-top:10px">
-            <div class="grow" style="border:none;padding-bottom:2px">Emergency fund <span>2,400 / 3,000</span></div><div class="track"><i style="width:80%"></i></div>
-            <div class="grow" style="border:none;padding:12px 0 2px">Security deposit <span>960 / 1,500</span></div><div class="track"><i style="width:64%"></i></div>
-            <div class="grow" style="border:none;padding:12px 0 2px">Lisbon trip <span>310 / 2,200</span></div><div class="track"><i style="width:14%"></i></div>
-            <div class="grow" style="border:none;padding:12px 0 2px">New laptop <span>140 / 1,400</span></div><div class="track"><i style="width:10%"></i></div>
+          <div class="mgoal">
+            <svg width="46" height="46" viewBox="0 0 46 46" style="flex:0 0 46px"><circle cx="23" cy="23" r="19" fill="none" stroke="var(--rule)" stroke-width="7"/><circle cx="23" cy="23" r="19" fill="none" stroke="#4A7259" stroke-width="7" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="23.9" transform="rotate(-90 23 23)"/></svg>
+            <div style="flex:1"><div style="font-size:13px;font-weight:600;letter-spacing:-.2px">Emergency fund</div><div class="mrs">$2,400 OF $3,000</div></div>
+            <div style="text-align:right"><div class="mrs" style="margin:0">TO GO</div><div style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:var(--sageDeep)">$600</div></div>
           </div>
-          <div class="cta" style="padding:10px;font-size:12px;border-radius:9px;margin-top:14px">Add to a pot</div>
-          <div class="gl" style="margin-top:14px">Recent transfers</div>
-          <div class="grow" style="margin-top:6px">Emergency fund <span>+$200 · AUG 1</span></div>
-          <div class="grow">Security deposit <span>+$120 · AUG 8</span></div>
-          <div class="grow">Lisbon trip <span>+$60 · AUG 14</span></div>
+          <div style="text-align:center;padding:14px 0 8px"><div class="gl">Amount</div><div style="font-family:'JetBrains Mono',monospace;font-size:36px;font-weight:600;letter-spacing:-1.8px;margin-top:5px"><span style="font-size:17px;color:var(--muted)">$</span>200<span style="display:inline-block;width:2px;height:26px;background:var(--sageDeep);vertical-align:-3px;margin-left:2px"></span></div></div>
+          <div style="display:flex;gap:6px;justify-content:center"><span class="chip" style="padding:6px 11px;font-size:10px">50</span><span class="chip" style="padding:6px 11px;font-size:10px;background:var(--sageDeep);color:#fff">200</span><span class="chip" style="padding:6px 11px;font-size:10px">500</span><span class="chip gh" style="padding:6px 11px;font-size:10px">Max</span></div>
+          <div style="background:#fff;border-radius:16px;padding:12px;margin-top:12px;box-shadow:0 4px 14px -8px rgba(20,22,45,.22)">
+            <div style="display:flex;align-items:center"><span class="gl" style="flex:1">After this deposit</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--sageDeep)">87%</span></div>
+            <div style="display:flex;height:8px;border-radius:5px;overflow:hidden;background:var(--rule);margin-top:9px"><i style="width:80%;background:var(--sageDeep)"></i><i class="mhatch" style="width:7%"></i></div>
+            <div class="mpace"><span style="color:var(--ink);font-weight:600">$2,600 OF $3,000</span><span>$400 TO GO</span></div>
           </div>
-          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2"><span class="msr">list_alt</span>List</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2 on"><span class="msr">account_balance_wallet</span>Budget</div></div>
+          <div style="display:flex;align-items:baseline;margin-top:14px"><span class="gl" style="flex:1">Pay from</span><span class="mrs" style="margin:0">CASH ON HAND $1,840</span></div>
+          <div class="mwal">
+            <div><div class="wi" style="background:var(--incomeTint)"><span class="msr" style="font-size:13px;color:var(--income)">payments</span></div><div class="wl">Cash</div><div class="wv">$420</div></div>
+            <div class="on"><div class="wi" style="background:var(--sageTint)"><span class="msr" style="font-size:13px;color:var(--sageDeep)">credit_card</span></div><div class="wl">Card</div><div class="wv">$980</div></div>
+            <div><div class="wi" style="background:var(--sageTint)"><span class="msr" style="font-size:13px;color:var(--sageDeep)">account_balance</span></div><div class="wl">Bank</div><div class="wv">$380</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:14px;padding:11px;margin-top:10px;font-size:10.5px;color:var(--faint);box-shadow:0 4px 14px -8px rgba(20,22,45,.22)"><span class="msr" style="font-size:13px">notes</span>Add a note (optional)</div>
+          <div class="cta" style="padding:11px;font-size:12px;border-radius:12px;margin-top:10px">Add $200 to Emergency fund</div>
+          </div>
+          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2"><span class="msr">list_alt</span>Quick list</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div><div style="font-size:6.5px;font-weight:600;color:var(--sageDeep);margin-top:2px">Record</div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2 on"><span class="msr">account_balance_wallet</span>Budget</div></div>
         </div></div>
-        <span class="plus">Personal Plus</span>
+        <span class="plus" data-pf="badge_plus">Personal Plus</span>
       </div>
       <div class="gcell">
-        <div class="gt"><span class="msr">account_balance_wallet</span>Budget</div>
-        <div class="gd">Set a monthly ceiling per category. The app paces you through the month instead of telling you off on the 30th.</div>
+        <div class="gt" data-pf="gal_t4"><span class="msr">account_balance_wallet</span>Budget</div>
+        <div class="gd" data-pf="gal_d4">Set a monthly ceiling per category. A pace mark shows where you should be today, so you learn you're drifting on the 12th rather than the 30th.</div>
         <div class="gp"><div class="gsc">
           <div class="mnotch"></div>
           <div class="mst"><span>9:41</span><span>●●● ▮</span></div>
@@ -269,26 +422,34 @@
           <div class="mseg"><span>Week</span><span class="on">Month</span><span>Year</span></div>
           <div class="gl">August · pace</div>
           <div class="gv">62%</div>
+          <div class="mrs" style="margin-top:2px">ON TRACK · THE TICK IS WHERE YOU SHOULD BE TODAY</div>
           <div style="margin-top:12px">
-            <div class="grow" style="border:none;padding-bottom:2px">Groceries <span>612 / 700</span></div><div class="track"><i style="width:87%;background:var(--amber)"></i></div>
-            <div class="grow" style="border:none;padding:11px 0 2px">Eating out <span>236 / 250</span></div><div class="track"><i style="width:94%;background:var(--clay)"></i></div>
-            <div class="grow" style="border:none;padding:11px 0 2px">Transport <span>98 / 220</span></div><div class="track"><i style="width:45%"></i></div>
-            <div class="grow" style="border:none;padding:11px 0 2px">Subscriptions <span>107 / 120</span></div><div class="track"><i style="width:89%;background:var(--amber)"></i></div>
-            <div class="grow" style="border:none;padding:11px 0 2px">Health <span>64 / 200</span></div><div class="track"><i style="width:32%"></i></div>
-            <div class="grow" style="border:none;padding:11px 0 2px">Household <span>212 / 300</span></div><div class="track"><i style="width:71%"></i></div>
+            <div class="grow" style="border:none;padding-bottom:0">Groceries <span>612 / 700</span></div>
+            <div class="mtick"><i style="width:87%;background:var(--amber)"></i><u style="left:52%"></u></div>
+            <div class="mpace"><span>PACE MARK AT $364</span><span style="color:var(--amberText)">BEHIND</span></div>
+            <div class="grow" style="border:none;padding:11px 0 0">Eating out <span>236 / 250</span></div>
+            <div class="mtick"><i style="width:94%;background:var(--clay)"></i><u style="left:52%"></u></div>
+            <div class="mpace"><span>PACE MARK AT $130</span><span style="color:var(--clay)">OVER BY $106</span></div>
+            <div class="grow" style="border:none;padding:11px 0 0">Transport <span>98 / 220</span></div>
+            <div class="mtick"><i style="width:45%"></i><u style="left:52%"></u></div>
+            <div class="mpace"><span>PACE MARK AT $114</span><span style="color:var(--income)">AHEAD</span></div>
+            <div class="grow" style="border:none;padding:11px 0 0">Subscriptions <span>107 / 120</span></div>
+            <div class="mtick"><i style="width:89%;background:var(--amber)"></i><u style="left:52%"></u></div>
+            <div class="mpace"><span>PACE MARK AT $62</span><span style="color:var(--amberText)">BEHIND</span></div>
+            <div class="grow" style="border:none;padding:11px 0 0">Health <span>64 / 200</span></div>
+            <div class="mtick"><i style="width:32%"></i><u style="left:52%"></u></div>
+            <div class="mpace"><span>PACE MARK AT $104</span><span style="color:var(--income)">AHEAD</span></div>
+            <div class="grow" style="border:none;padding:11px 0 0">Household <span>212 / 300</span></div>
+            <div class="mtick"><i style="width:71%"></i><u style="left:52%"></u></div>
+            <div class="mpace"><span>PACE MARK AT $156</span><span>ON TRACK</span></div>
           </div>
-          <div style="background:#fff;border:1px solid var(--rule);border-radius:11px;padding:12px;margin-top:14px">
-            <div class="gl">Left to spend · 16 days</div>
-            <div class="gv" style="font-size:22px">$734</div>
-            <div class="gl" style="margin-top:6px">≈ $45 A DAY TO STAY ON PACE</div>
           </div>
-          </div>
-          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2"><span class="msr">list_alt</span>List</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2 on"><span class="msr">account_balance_wallet</span>Budget</div></div>
+          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2"><span class="msr">list_alt</span>Quick list</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div><div style="font-size:6.5px;font-weight:600;color:var(--sageDeep);margin-top:2px">Record</div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2 on"><span class="msr">account_balance_wallet</span>Budget</div></div>
         </div></div>
       </div>
       <div class="gcell">
-        <div class="gt"><span class="msr">search</span>Find an entry</div>
-        <div class="gd">Search every past entry by name, amount or method. Totals for the matches, so "how much on coffee this year" takes one query.</div>
+        <div class="gt" data-pf="gal_t5"><span class="msr">search</span>Find an entry</div>
+        <div class="gd" data-pf="gal_d5">Search every past entry by name, amount or method. Totals for the matches, so "how much on coffee this year" takes one query.</div>
         <div class="gp"><div class="gsc">
           <div class="mnotch"></div>
           <div class="mst"><span>9:41</span><span>●●● ▮</span></div>
@@ -309,12 +470,12 @@
               <div class="grow" style="border-top:2px solid var(--ink);border-bottom:none;padding-top:10px;font-weight:700">Monthly average <span style="font-weight:700">$52</span></div>
             </div>
           </div>
-          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2 on"><span class="msr">list_alt</span>List</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2"><span class="msr">account_balance_wallet</span>Budget</div></div>
+          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2 on"><span class="msr">list_alt</span>Quick list</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div><div style="font-size:6.5px;font-weight:600;color:var(--sageDeep);margin-top:2px">Record</div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2"><span class="msr">account_balance_wallet</span>Budget</div></div>
         </div></div>
       </div>
       <div class="gcell">
-        <div class="gt"><span class="msr">description</span>Reports &amp; export</div>
-        <div class="gd">Money in against money out for any period, a cash-flow map of where it moved, and a CSV or PDF when you need to show someone.</div>
+        <div class="gt" data-pf="gal_t6"><span class="msr">description</span>Reports &amp; export</div>
+        <div class="gd" data-pf="gal_d6">Money in against money out for any period. Group by category or list the latest entries, then export a CSV or PDF when you need to show someone.</div>
         <div class="gp"><div class="gsc">
           <div class="mnotch"></div>
           <div class="mst"><span>9:41</span><span>●●● ▮</span></div>
@@ -324,23 +485,20 @@
             <div class="gl">August 2026</div>
             <div style="margin-top:10px">
               <div class="grow">Money in <span style="color:var(--income)">$4,180</span></div>
-              <div class="grow" style="color:var(--muted);font-weight:500">Paycheck <span>$4,180</span></div>
               <div class="grow">Spending <span style="color:var(--clay)">$3,768</span></div>
-              <div class="grow" style="color:var(--muted);font-weight:500">Rent &amp; utilities <span>$1,992</span></div>
-              <div class="grow" style="color:var(--muted);font-weight:500">Groceries <span>$612</span></div>
-              <div class="grow" style="color:var(--muted);font-weight:500">Eating out <span>$236</span></div>
-              <div class="grow" style="color:var(--muted);font-weight:500">Transport <span>$98</span></div>
-              <div class="grow" style="color:var(--muted);font-weight:500">Everything else <span>$830</span></div>
               <div class="grow" style="border-top:2px solid var(--ink);border-bottom:none;padding-top:11px;font-weight:700">Net <span style="color:var(--income);font-weight:700">$412</span></div>
             </div>
-            <div class="gl" style="margin-top:14px">Vs July</div>
-            <div class="grow" style="margin-top:6px">Net saved <span style="color:var(--income)">▲ $180</span></div>
-            <div class="grow">Spending <span style="color:var(--income)">▼ $94</span></div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:16px"><span class="gl" style="flex:1">View</span><span class="chip" style="padding:5px 10px;font-size:9px;background:var(--sageDeep);color:#fff">Grouped</span><span class="chip gh" style="padding:5px 10px;font-size:9px">Latest</span></div>
+            <div class="gl" style="margin-top:16px">Money in · 1 entry</div>
+            <div class="mrow match" style="margin-top:8px"><div class="mrd"><div class="mrt">Paycheck · Northwind Inc</div><div class="mrs">CHECKING · AUG 1</div></div><span class="mra" style="color:var(--income)">+$4,180</span></div>
+            <div class="gl" style="margin-top:14px">Spending · 34 entries</div>
+            <div class="mrow" style="margin-top:8px"><div class="mrd"><div class="mrt">Rent &amp; utilities</div><div class="mrs">4 ENTRIES</div></div><span class="mra" style="color:var(--clay)">−$1,992</span></div>
+            <div class="mrow"><div class="mrd"><div class="mrt">Groceries</div><div class="mrs">11 ENTRIES</div></div><span class="mra" style="color:var(--clay)">−$612</span></div>
             <div style="display:flex;gap:7px;margin-top:14px"><span class="chip gh">↓ CSV</span><span class="chip gh">↓ PDF</span></div>
           </div>
-          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2"><span class="msr">list_alt</span>List</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div></div><div class="mt2 on"><span class="msr">insights</span>Insights</div><div class="mt2"><span class="msr">account_balance_wallet</span>Budget</div></div>
+          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2"><span class="msr">list_alt</span>Quick list</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div><div style="font-size:6.5px;font-weight:600;color:var(--sageDeep);margin-top:2px">Record</div></div><div class="mt2 on"><span class="msr">insights</span>Insights</div><div class="mt2"><span class="msr">account_balance_wallet</span>Budget</div></div>
         </div></div>
-        <span class="plus">Personal Plus</span>
+        <span class="plus" data-pf="badge_plus">Personal Plus</span>
       </div>
     </div>
   </div>
@@ -348,43 +506,84 @@
 
 <section class="pricing" id="pfPricing">
   <div class="wrap">
-    <div class="tag">Pricing</div>
-    <h2>Under five dollars <em>a month</em></h2>
-    <p class="slede">Keep a basic record for free, forever. Personal Plus adds the budget, insights, imports and money tools.</p>
+    <div class="tag" data-pf="price_tag">Pricing</div>
+    <h2 id="pfPriceH2" data-pf="price_h2">Less than one <em>forgotten gift card</em></h2>
+    <p class="slede" data-pf="price_lede">Keep a basic record free forever. Personal Plus is $4.99 a month — about what one unspent gift card costs you, and it pays for itself the first time one doesn't expire.</p>
     <div class="plans">
       <div class="plan">
-        <div class="pn">Free</div>
-        <div class="pp">$0<small> / forever</small></div>
+        <div class="pn" data-pf="plan_free">Free</div>
+        <div class="pp"><span data-price="free">$0</span><small data-pf="price_forever"> / forever</small></div>
         <ul>
-          <li><span class="msr">check_circle</span>20 entries a month</li>
-          <li><span class="msr">check_circle</span>Cash, card, bank and wallet accounts</li>
-          <li><span class="msr">check_circle</span>Today's report</li>
-          <li><span class="msr">check_circle</span>Device-only privacy mode</li>
-          <li><span class="msr">check_circle</span>No card required</li>
+          <li><span class="msr">check_circle</span><span data-pf="plan_free_li1">20 entries a month</span></li>
+          <li><span class="msr">check_circle</span><span data-pf="plan_free_li2">Cash, card, bank and wallet accounts</span></li>
+          <li><span class="msr">check_circle</span><span data-pf="plan_free_li3">Today's report</span></li>
+          <li><span class="msr">check_circle</span><span data-pf="plan_free_li4">Device-only privacy mode</span></li>
+          <li><span class="msr">check_circle</span><span data-pf="plan_free_li5">No card required</span></li>
         </ul>
-        <a class="btn" style="background:var(--sageDark)" href="#">Start free</a>
+        <a class="btn" href="#"><span data-pf="plan_cta_free">Start free</span></a>
       </div>
       <div class="plan hi">
-        <div class="pn">Personal Plus</div>
-        <div class="pp">$4.99<small> / month</small></div>
-        <div class="annual">OR $49.90 A YEAR — TWO MONTHS FREE</div>
+        <div class="pn" data-pf="plan_plus">Personal Plus</div>
+        <div class="pp"><span data-price="personalPlus">$4.99</span><small data-pf="price_month"> / month</small></div>
+        <div class="annual" data-pf="price_annual">OR <span data-annual="personalPlus">$49.90</span> A YEAR — TWO MONTHS FREE</div>
         <ul>
-          <li><span class="msr">check_circle</span>Unlimited entries</li>
-          <li><span class="msr">check_circle</span>Monthly budget with category pacing</li>
-          <li><span class="msr">check_circle</span>Insights, cash-flow map, CSV &amp; PDF export</li>
-          <li><span class="msr">check_circle</span>Statement import — CSV or OFX</li>
-          <li><span class="msr">check_circle</span>Pots, gift cards, debts, due bills</li>
-          <li><span class="msr">check_circle</span>Recurring bills, auto-log, receipt scan</li>
+          <li><span class="msr">check_circle</span><span data-pf="plan_plus_li1">Unlimited entries</span></li>
+          <li><span class="msr">check_circle</span><span data-pf="plan_plus_li2">Monthly budget with category pacing</span></li>
+          <li><span class="msr">check_circle</span><span data-pf="plan_plus_li3">Insights, cash-flow map, CSV &amp; PDF export</span></li>
+          <li><span class="msr">check_circle</span><span data-pf="plan_plus_li4">Statement import — CSV or OFX</span></li>
+          <li><span class="msr">check_circle</span><span data-pf="plan_plus_li5">Pots, gift cards, debts, due bills</span></li>
+          <li><span class="msr">check_circle</span><span data-pf="plan_plus_li6">Recurring bills, auto-log, receipt scan</span></li>
         </ul>
-        <a class="btn" style="background:var(--accent);color:#182018;box-shadow:5px 5px 0 rgba(24,32,24,.5)" href="#">Get Personal Plus</a>
+        <a class="btn" style="background:var(--accent);color:#182018;box-shadow:0 1px 2px rgba(24,32,24,.12),0 12px 28px -14px rgba(0,0,0,.5)" href="#"><span data-pf="plan_cta_plus">Get Personal Plus</span></a>
       </div>
     </div>
-    <p class="ppnote">US pricing shown. Europe pays €3.99 a month (€39.90 a year); Canada CA$5.99; UK and the eurozone share the same EUR band. Every market is priced locally rather than converted, and payment methods follow suit — Apple Pay, Venmo and Zelle in the US; SEPA, Bizum, TWINT and Google Pay across Europe.</p>
+    <p class="ppnote" data-pf="price_note">Showing prices for <b data-country-name>United States</b>. Every market is priced locally rather than converted — never a converted foreign price. Payment methods follow your country: Apple Pay and Venmo in the US, SEPA and Bizum in Europe, MoMo in West Africa, Pix in Brazil.</p>
   </div>
 </section>
 
-<footer><div class="wrap fin">
-  <a class="brand" href="#" style="font-size:15px"><img src="assets/logo-mark.png" alt="Qaavah Books" style="width:26px;height:26px">Qaavah <i>Books</i></a>
-  <span>© 2026</span>
-  <div class="fl"><a href="#flow">Workflow</a><a href="#screens">Screens</a><a href="#pfPricing">Pricing</a><a href="#">Support</a></div>
-</div></footer>
+
+<section class="pf-end" id="pfGet">
+  <div class="wrap">
+    <div class="tag" data-pf="end_tag">Get the app</div>
+    <h2 id="pfEndH2" data-pf="end_h2">Start free. <em>No bank login.</em></h2>
+    <p class="slede" id="pfEndLede">Free to start, no card required. Shop bookkeeping is not available in your country yet.</p>
+    <div class="pf-end-actions">
+      <a href="#pfGet" class="btn" aria-disabled="true"><span data-pf="end_play">Google Play — coming soon</span></a>
+      <a href="#pfGet" class="btn line" aria-disabled="true"><span data-pf="end_appstore">App Store — coming soon</span></a>
+    </div>
+    <p class="hnote" id="pfEndNote">Android first · iOS next · Personal finance here · Works offline</p>
+  </div>
+</section>
+<footer class="pf-foot">
+  <div class="wrap">
+    <div class="pf-foot-top">
+      <div class="pf-foot-brand">
+        <a class="brand" href="#"><img src="assets/logo-mark.png" alt="">Qaavah <i>Books</i></a>
+        <p id="pfFootAbout">Personal bookkeeping made simple. Shop tools open in Africa &amp; Latin America. A product of Qavaah Platforms LLC.</p>
+      </div>
+      <div class="pf-foot-cols">
+        <div>
+          <h4>Product</h4>
+          <a href="#flow" data-pf="nav_workflow">Workflow</a>
+          <a href="#edge" data-pf="nav_why">Why us</a>
+          <a href="#screens" data-pf="nav_screens">Screens</a>
+          <a href="#pfPricing" data-pf="nav_pricing">Pricing</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="mailto:hello@qaavah.com">Contact</a>
+          <a href="/privacy/">Privacy</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="/privacy/">Privacy policy</a>
+          <a href="mailto:privacy@qaavah.com">privacy@qaavah.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="pf-foot-btm">
+      <span><span data-pf="foot_copy">© 2026 Qavaah Platforms LLC. All rights reserved.</span></span>
+      <a href="mailto:hello@qaavah.com">hello@qaavah.com</a>
+    </div>
+  </div>
+</footer>

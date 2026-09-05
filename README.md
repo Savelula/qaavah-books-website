@@ -16,9 +16,11 @@ The landing page has a **country picker** (nav). Marketing lanes (website):
 | Lane | Regions | Site shows |
 |------|---------|------------|
 | **Shop + personal** | **Africa** only | Existing shop landing (till, staff, catalogue, shop plans) |
-| **Personal money** | Everywhere except Africa (US, Canada, Europe, LatAm, Asia & Oceania) | Product Tour US-EU layout (`css/personal-tour.css`): night hero, 6-step workflow phone, screens gallery, Free + Personal Plus |
+| **Personal money** | Everywhere except Africa (US, Canada, Europe, LatAm, Asia & Oceania) | Product Tour US-EU(4): light Geist tour, 8-step workflow (Quick list + Recurring), **Why us** (`#edge`), CSS screens grid, store JPG filmstrip, Free + Personal Plus |
 
 > App gate still opens shop tools in Africa **and** LatAm (`BillingConfig.shopBusinessOpenFor`). This marketing page uses Africa-only for the shop story; LatAm visitors see the personal tour until product decides otherwise.
+
+**Store art on the site:** web JPEGs in `assets/shots/{personal,shop,feature}/` (from Flutter `docs/store-shots/`). Personal `#storeShots`; shop `#shopScreens`. Reference tour: `docs/product-tour-us-eu.html`.
 
 The picker lists **181** countries from the app registry. Choice is stored in `localStorage` (`qb_country`).
 

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="design_doc_mode" content="canvas">
+<title>Qaavah Books — Store screenshots</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet">
+<style>
+:root{--night:#3E614C;--night2:#33513F;--bone:#F4F1E9;--paper:#FAFAF7;--ink:#182018;--sage:#5F8A6E;--sageDeep:#4A7259;--sageDark:#3E614C;--sageTint:#E7EFE9;--accent:#E7EFE9;--amber:#B07310;--amberText:#B45309;--amberTint:#FBF1DD;--clay:#B33A2A;--income:#16834A;--incomeTint:#E7F3EC;--muted:#7C8079;--faint:#A8ABB3;--rule:rgba(24,32,24,.1);--hair:rgba(24,32,24,.06)}
+*{box-sizing:border-box}
+body{margin:0;background:#d7d5cf;font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:var(--sageDeep);text-decoration:none}
+.msr{font-family:'Material Symbols Rounded';font-weight:300;line-height:1;vertical-align:middle;display:inline-block;-webkit-font-feature-settings:'liga';font-feature-settings:'liga'}
+.flabel{position:absolute;width:440px;font:600 26px/1.3 "Plus Jakarta Sans",sans-serif;color:#22242a}
+.flabel small{display:block;font-weight:400;font-size:20px;color:#6d6f75;margin-top:6px;font-family:"JetBrains Mono",monospace}
+.banner{position:absolute;background:#fff;border-radius:20px;padding:30px 36px;box-shadow:0 10px 30px -18px rgba(20,22,45,.35)}
+.banner h1{margin:0;font-size:34px;font-weight:600;letter-spacing:-1px}
+.banner p{margin:12px 0 0;font-size:20px;color:#4a4c54;line-height:1.6;max-width:1500px}
+/* ---- shot frame ---- */
+.shot{position:absolute;overflow:hidden;display:flex;flex-direction:column;align-items:center;background:var(--night)}
+.shot.alt{background:var(--paper)}
+.shot .cap{width:100%;text-align:center;flex:0 0 auto}
+.shot .h{font-weight:600;letter-spacing:-.03em;line-height:1.02;color:var(--bone)}
+.shot .s{font-weight:400;line-height:1.4;color:rgba(244,241,233,.8)}
+.shot.alt .h{color:var(--ink)}
+.shot.alt .s{color:#585D55}
+.shot .glow{position:absolute;top:-14%;left:50%;transform:translateX(-50%);width:130%;height:56%;background:radial-gradient(ellipse at center,rgba(168,205,182,.2),transparent 62%);pointer-events:none}
+.shot.alt .glow{background:radial-gradient(ellipse at center,rgba(95,138,110,.13),transparent 62%)}
+.dev{transform-origin:top center;flex:0 0 auto}
+/* app-store sizing */
+.as{width:1290px;height:2796px;padding:150px 90px 0}
+.as .h{font-size:96px}
+.as .s{font-size:44px;margin-top:26px}
+.as .dev{transform:scale(2.34);margin-top:150px}
+.as .cap{height:345px}
+/* play sizing */
+.gp{width:1080px;height:1920px;padding:104px 70px 0}
+.gp .h{font-size:74px}
+.gp .s{font-size:34px;margin-top:20px}
+.gp .dev{transform:scale(1.6);margin-top:104px}
+.gp .cap{height:266px}
+/* ---- device ---- */
+.phone{width:390px;height:844px;border-radius:52px;padding:11px;background:#0B120D;box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
+.screen{position:relative;width:100%;height:100%;background:var(--paper);border-radius:42px;overflow:hidden;display:flex;flex-direction:column}
+.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:30px;background:#0B120D;border-bottom-left-radius:18px;border-bottom-right-radius:18px;z-index:20}
+.sb{height:50px;flex:0 0 50px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 6px;font-size:14px;font-weight:600}
+.sb .r{display:flex;gap:6px;align-items:center}
+.batt{width:22px;height:11px;border:1.2px solid currentColor;border-radius:3px;position:relative;opacity:.9}
+.batt::after{content:"";position:absolute;left:1.5px;top:1.5px;bottom:1.5px;right:5px;background:currentColor;border-radius:1px}
+.pb{flex:1;padding:16px 16px 0;overflow:hidden}
+.ph{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.ph .bk{width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--rule);display:grid;place-items:center;flex:0 0 34px}
+.ph .bk .msr{font-size:16px;color:var(--muted)}
+.ph .tt{flex:1;font-size:19px;font-weight:600;letter-spacing:-.4px}
+.ph .ma .msr{font-size:20px;color:var(--sageDeep)}
+.kick{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.greet{font-size:24px;font-weight:600;letter-spacing:-.7px;margin-top:3px}
+.hero{background:var(--night);color:var(--bone);border-radius:20px;padding:20px;margin-top:14px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.06)}
+.hl{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,241,233,.75)}
+.hv{font-family:"JetBrains Mono",monospace;font-size:40px;font-weight:600;letter-spacing:-2px;margin-top:8px}
+.hv .c{font-size:19px;color:var(--accent);margin-right:2px}
+.hc{font-size:12.5px;color:rgba(244,241,233,.78);margin-top:7px}
+.hsub{display:flex;margin-top:16px;padding-top:14px;border-top:1px solid rgba(244,241,233,.18)}
+.hsub div{flex:1}
+.hsub div+div{border-left:1px solid rgba(244,241,233,.18);padding-left:14px}
+.hsl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,241,233,.72)}
+.hsv{display:inline-block;margin-top:5px;font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:600}
+.hsv.in{color:var(--accent)}.hsv.out{color:#F6D9D2}
+.duo{display:flex;gap:11px;margin-top:12px}
+.card{flex:1;background:#fff;border:1px solid var(--rule);border-radius:16px;padding:14px}
+.cl{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cv{font-family:"JetBrains Mono",monospace;font-size:19px;font-weight:600;letter-spacing:-.7px;margin-top:5px}
+.bars{display:flex;align-items:flex-end;gap:3px;height:22px;margin-top:9px}
+.bars i{flex:1;border-radius:2px;background:rgba(124,128,121,.26)}
+.bars.em i{background:var(--sage)}
+.list{background:#fff;border:1px solid var(--rule);border-radius:18px;margin-top:12px;overflow:hidden}
+.ent{display:flex;align-items:center;gap:12px;padding:12px 14px;border-top:1px solid var(--hair)}
+.ent:first-child{border-top:none}
+.ei{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;flex:0 0 36px;background:var(--sageTint)}
+.ei.in{background:var(--incomeTint)}
+.en{font-size:14px;font-weight:600}
+.es{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--muted);margin-top:2px}
+.ea{font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:600}
+.gl{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tabbar{flex:0 0 76px;background:#fff;border-top:1px solid var(--rule);display:flex;align-items:flex-start;padding:9px 8px 0}
+.tb{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:9.5px;font-weight:500;color:var(--muted)}
+.tb.on{color:var(--sageDeep)}
+.tb .msr{font-size:23px}
+.fab{width:52px;height:52px;border-radius:17px;background:var(--night);display:grid;place-items:center;margin-top:-15px}
+.fab .msr{font-size:25px;color:var(--accent)}
+/* record */
+.segs{display:flex;gap:4px;background:var(--sageTint);border-radius:999px;padding:4px}
+.segs span{flex:1;text-align:center;padding:9px 0;border-radius:999px;font-size:12.5px;font-weight:500;color:var(--sageDeep)}
+.segs span.on{background:#fff;color:var(--ink);font-weight:600}
+.amt{text-align:center;padding:24px 0 14px}
+.amtv{font-family:"JetBrains Mono",monospace;font-size:58px;font-weight:600;letter-spacing:-3px;margin-top:6px}
+.amtv .c{font-size:26px;color:var(--muted);margin-right:3px}
+.caret{display:inline-block;width:3px;height:42px;background:var(--sageDeep);vertical-align:-5px;margin-left:3px;border-radius:2px}
+.chips{display:flex;gap:8px;justify-content:center}
+.chip{background:var(--sageTint);color:var(--sageDeep);font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:500;padding:9px 15px;border-radius:999px}
+.chip.gh{background:#fff;border:1px solid var(--rule);color:var(--muted)}
+.field{background:#fff;border:1px solid var(--rule);border-radius:13px;padding:13px 14px;font-size:14.5px;margin-top:10px;display:flex;align-items:center;justify-content:space-between}
+.mini{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
+.pays{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.pay{background:#fff;border:1px solid var(--rule);border-radius:13px;padding:13px;display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:500}
+.pay.on{border:1.5px solid var(--sageDeep);background:var(--sageTint);font-weight:600}
+.pay .msr{font-size:19px;color:var(--sageDeep)}
+.cta{background:var(--sageDeep);color:#fff;text-align:center;padding:15px;border-radius:14px;font-size:15px;font-weight:600;margin-top:14px}
+/* budget pace */
+.brow{display:flex;align-items:baseline;justify-content:space-between;font-size:14px;font-weight:600;padding-top:14px}
+.brow span{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted)}
+.tick{position:relative;height:8px;background:var(--rule);border-radius:5px;margin-top:8px}
+.tick i{display:block;height:100%;border-radius:5px;background:var(--sage)}
+.tick u{position:absolute;top:-3px;width:2px;height:14px;background:var(--ink);opacity:.5}
+.pace{display:flex;justify-content:space-between;font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--muted);margin-top:6px}
+/* bills */
+.bill{background:#fff;border:1px solid rgba(176,115,16,.45);border-radius:15px;padding:13px;display:flex;align-items:center;gap:11px;margin-top:11px}
+.bi{width:36px;height:36px;border-radius:12px;background:var(--amberTint);display:grid;place-items:center;flex:0 0 36px}
+.bt{font-size:14px;font-weight:600}
+.bs{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--muted);margin-top:2px}
+.logb{background:var(--amber);color:#fff;font-size:11.5px;font-weight:600;padding:9px 14px;border-radius:10px}
+/* statement */
+.blurb{font-size:11.5px;line-height:1.45;color:var(--muted);margin-bottom:11px}
+.drift{background:#FFF8E8;border:1px solid rgba(176,115,16,.35);border-radius:13px;padding:11px 13px;margin-bottom:11px}
+.drift b{font-size:12px;font-weight:600;display:block}
+.drift span{font-size:10.5px;color:#4A4F46;line-height:1.4;display:block;margin-top:4px}
+.srow{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid rgba(95,138,110,.3);border-radius:13px;padding:12px 11px;margin-bottom:9px}
+.srow.match{border-color:rgba(22,131,74,.35)}
+.srow.ign{border-color:var(--rule);opacity:.45}
+.sd{flex:1;min-width:0}
+.st2{font-size:12.5px;font-weight:600;line-height:1.25}
+.ss{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--muted);margin-top:3px}
+.sa{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:600}
+.badge{font-size:9px;font-weight:600;padding:4px 7px;border-radius:7px;letter-spacing:.04em;flex:0 0 auto}
+.badge.add{background:rgba(95,138,110,.14);color:var(--sageDeep)}
+.badge.match{background:rgba(22,131,74,.12);color:var(--income)}
+.badge.ign{background:var(--rule);color:var(--muted)}
+/* gift cards */
+.gc{border-radius:16px;padding:15px;color:#fff;margin-bottom:10px;position:relative}
+.mono{width:27px;height:27px;border-radius:8px;display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;color:#fff;flex:0 0 27px;background:rgba(255,255,255,.22)}
+.gcb{font-size:13px;font-weight:600}
+.gcv{font-family:"JetBrains Mono",monospace;font-size:26px;font-weight:600;margin-top:10px;letter-spacing:-1px}
+.gcf{display:flex;justify-content:space-between;margin-top:10px;font-family:"JetBrains Mono",monospace;font-size:9.5px;opacity:.92}
+.strip{display:flex;background:#fff;border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:13px}
+.sc{flex:1;text-align:center;padding:13px 0}
+.sc+.sc{border-left:1px solid var(--hair)}
+.scv{font-family:"JetBrains Mono",monospace;font-size:18px;font-weight:600}
+.scl{font-size:10.5px;color:var(--muted);margin-top:3px}
+/* privacy */
+.plock{width:96px;height:96px;border-radius:32px;background:rgba(244,241,233,.14);display:grid;place-items:center;margin:0 auto}
+.plock .msr{font-size:46px;color:var(--accent)}
+.pcell{background:#fff;border:1px solid var(--rule);border-radius:16px;padding:15px;margin-top:11px;display:flex;gap:12px;align-items:flex-start}
+.pcell .msr{font-size:21px;color:var(--sageDeep);flex:0 0 auto}
+.pt2{font-size:14px;font-weight:600}
+.ps2{font-size:12px;color:#585D55;line-height:1.45;margin-top:3px}
+</style>
+</head>
+<body>
+<p style="padding:12px 24px;font-family:system-ui"><a href="/">← Qaavah Books</a> · Store screenshot canvases</p>
+
+
+<div class="banner" style="left:60px;top:40px;width:1580px">
+  <h1>Store screenshots — App Store &amp; Google Play</h1>
+  <p>Six screenshots per platform at exact export sizes: <b>App Store 1290×2796</b> (6.7", iPhone 15/16 Pro Max class) and <b>Google Play 1080×1920</b> (phone). Each frame is a real export canvas — capture it 1:1, no resizing. Caption first, device below, alternating dark sage and paper backgrounds so the set reads as a sequence in the store carousel. Screens are the grounded personal-money app: US data, real payment methods, real pace/import/gift-card behaviour.</p>
+</div>
+
+<div class="flabel" style="left:60px;top:270px">App Store — 6.7"<small>1290 × 2796 · PNG · sRGB</small></div>
+<div class="flabel" style="left:60px;top:3330px">Google Play — phone<small>1080 × 1920 · PNG · sRGB</small></div>
+
+<script>
+const screens = [
+  {
+    cap:'Every account.<br>One honest number.',
+    sub:'Checking, credit card, Apple Pay, Venmo, cash — in one place.',
+    dark:true,
+    html:`
+      <div class="pb">
+        <div class="kick">Friday · August 15</div>
+        <div class="greet">Good morning, Maya.</div>
+        <div class="hero">
+          <div class="hl">Saved this month</div>
+          <div class="hv"><span class="c">$</span>412</div>
+          <div class="hc">$180 more than last month</div>
+          <div class="hsub">
+            <div><div class="hsl">Money in</div><div class="hsv in">$4,180</div></div>
+            <div><div class="hsl">Spent</div><div class="hsv out">$3,768</div></div>
+          </div>
+        </div>
+        <div class="duo">
+          <div class="card"><div class="cl">This week</div><div class="cv">$284</div><div class="bars"><i style="height:40%"></i><i style="height:56%"></i><i style="height:44%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:84%"></i><i style="height:100%"></i></div></div>
+          <div class="card" style="background:var(--sageTint);border-color:rgba(74,114,89,.3)"><div class="cl">This month</div><div class="cv">$412</div><div class="bars em"><i style="height:38%"></i><i style="height:52%"></i><i style="height:66%"></i><i style="height:48%"></i><i style="height:78%"></i><i style="height:90%"></i><i style="height:100%"></i></div></div>
+        </div>
+        <div class="list">
+          <div class="ent"><div class="ei in"><span class="msr" style="font-size:18px;color:var(--income)">payments</span></div><div style="flex:1"><div class="en">Paycheck · Northwind Inc</div><div class="es">CHECKING · AUG 1</div></div><span class="ea" style="color:var(--income)">+2,090</span></div>
+          <div class="ent"><div class="ei"><span class="msr" style="font-size:18px;color:var(--sageDeep)">shopping_basket</span></div><div style="flex:1"><div class="en">Trader Joe's</div><div class="es">CARD · AUG 12</div></div><span class="ea" style="color:var(--clay)">−86</span></div>
+          <div class="ent"><div class="ei"><span class="msr" style="font-size:18px;color:var(--sageDeep)">group</span></div><div style="flex:1"><div class="en">Dinner · split with Sam</div><div class="es">VENMO · AUG 13</div></div><span class="ea" style="color:var(--clay)">−34</span></div>
+        </div>
+      </div>
+      <div class="tabbar"><div class="tb on"><span class="msr">home</span>Home</div><div class="tb"><span class="msr">list_alt</span>List</div><div class="tb"><div class="fab"><span class="msr">add</span></div></div><div class="tb"><span class="msr">insights</span>Insights</div><div class="tb"><span class="msr">account_balance_wallet</span>Budget</div></div>`
+  },
+  {
+    cap:'Log it in<br>four seconds.',
+    sub:'Real payment methods for your country — not a generic list.',
+    dark:false,
+    html:`
+      <div class="pb">
+        <div class="ph"><div class="bk"><span class="msr">close</span></div><div class="tt">Record</div></div>
+        <div class="segs"><span>Money in</span><span class="on">Spending</span><span>Transfer</span></div>
+        <div class="amt"><div class="gl">Amount</div><div class="amtv"><span class="c">$</span>86<span class="caret"></span></div></div>
+        <div class="chips"><span class="chip">+5</span><span class="chip">+20</span><span class="chip">+50</span><span class="chip gh">Clear</span></div>
+        <div class="mini">What was it</div>
+        <div class="field" style="margin-top:0">Groceries · Trader Joe's <span class="msr" style="font-size:18px;color:var(--muted)">expand_more</span></div>
+        <div class="mini">How did you pay</div>
+        <div class="pays">
+          <div class="pay on"><span class="msr">credit_card</span>Card</div>
+          <div class="pay"><span class="msr">contactless</span>Apple Pay</div>
+          <div class="pay"><span class="msr">group</span>Venmo</div>
+          <div class="pay"><span class="msr">swap_horiz</span>Zelle</div>
+          <div class="pay"><span class="msr">payments</span>Cash</div>
+          <div class="pay"><span class="msr">account_balance</span>PayPal</div>
+        </div>
+        <div class="cta">Save entry</div>
+      </div>`
+  },
+  {
+    cap:'Know what\u2019s left<br>before payday.',
+    sub:'A pace mark shows where you should be today, per category.',
+    dark:true,
+    html:`
+      <div class="pb">
+        <div class="ph"><div class="tt">Budget</div><div class="ma"><span class="msr">tune</span></div></div>
+        <div class="segs"><span>Week</span><span class="on">Month</span><span>Year</span></div>
+        <div class="hero" style="margin-top:14px">
+          <div class="hl">Left to spend · 16 days</div>
+          <div class="hv"><span class="c">$</span>734</div>
+          <div class="hc">62% of your August budget used · on track</div>
+        </div>
+        <div class="gl" style="margin-top:18px">By category</div>
+        <div class="brow">Groceries <span>612 / 700</span></div>
+        <div class="tick"><i style="width:87%;background:var(--amber)"></i><u style="left:52%"></u></div>
+        <div class="pace"><span>PACE MARK AT $364</span><span style="color:var(--amberText)">BEHIND</span></div>
+        <div class="brow">Eating out <span>236 / 250</span></div>
+        <div class="tick"><i style="width:94%;background:var(--clay)"></i><u style="left:52%"></u></div>
+        <div class="pace"><span>PACE MARK AT $130</span><span style="color:var(--clay)">OVER BY $106</span></div>
+        <div class="brow">Transport <span>98 / 220</span></div>
+        <div class="tick"><i style="width:45%"></i><u style="left:52%"></u></div>
+        <div class="pace"><span>PACE MARK AT $114</span><span style="color:var(--income)">AHEAD</span></div>
+        <div class="brow">Health <span>64 / 200</span></div>
+        <div class="tick"><i style="width:32%"></i><u style="left:52%"></u></div>
+        <div class="pace"><span>PACE MARK AT $104</span><span style="color:var(--income)">AHEAD</span></div>
+      </div>
+      <div class="tabbar"><div class="tb"><span class="msr">home</span>Home</div><div class="tb"><span class="msr">list_alt</span>List</div><div class="tb"><div class="fab"><span class="msr">add</span></div></div><div class="tb"><span class="msr">insights</span>Insights</div><div class="tb on"><span class="msr">account_balance_wallet</span>Budget</div></div>`
+  },
+  {
+    cap:'The bills<br>come to you.',
+    sub:'Rent, utilities, subscriptions — one tap confirms on the day.',
+    dark:false,
+    html:`
+      <div class="pb">
+        <div class="ph"><div class="bk"><span class="msr">arrow_back_ios_new</span></div><div class="tt">Due bills</div></div>
+        <div class="gl">Today</div>
+        <div class="bill">
+          <div class="bi"><span class="msr" style="font-size:19px;color:var(--amber)">bolt</span></div>
+          <div style="flex:1"><div class="bt">Con Edison · <span style="color:var(--amberText)">$142</span></div><div class="bs">REPEATS MONTHLY · CHECKING</div></div>
+          <div class="logb">Log</div>
+        </div>
+        <div class="bill">
+          <div class="bi"><span class="msr" style="font-size:19px;color:var(--amber)">home</span></div>
+          <div style="flex:1"><div class="bt">Rent · <span style="color:var(--amberText)">$1,850</span></div><div class="bs">DUE IN 2 DAYS · TRANSFER</div></div>
+          <div class="logb">Log</div>
+        </div>
+        <div class="gl" style="margin-top:18px">Later this month</div>
+        <div class="list">
+          <div class="ent"><div class="ei"><span class="msr" style="font-size:18px;color:var(--sageDeep)">wifi</span></div><div style="flex:1"><div class="en">Verizon Fios</div><div class="es">AUG 22 · CARD</div></div><span class="ea">$79</span></div>
+          <div class="ent"><div class="ei"><span class="msr" style="font-size:18px;color:var(--sageDeep)">subscriptions</span></div><div style="flex:1"><div class="en">Netflix + Spotify</div><div class="es">AUG 24 · CARD</div></div><span class="ea">$28</span></div>
+          <div class="ent"><div class="ei"><span class="msr" style="font-size:18px;color:var(--sageDeep)">fitness_center</span></div><div style="flex:1"><div class="en">Gym membership</div><div class="es">AUG 28 · CARD</div></div><span class="ea">$45</span></div>
+          <div class="ent"><div class="ei"><span class="msr" style="font-size:18px;color:var(--sageDeep)">shield</span></div><div style="flex:1"><div class="en">Car insurance</div><div class="es">AUG 30 · CHECKING</div></div><span class="ea">$118</span></div>
+        </div>
+      </div>
+      <div class="tabbar"><div class="tb"><span class="msr">home</span>Home</div><div class="tb"><span class="msr">list_alt</span>List</div><div class="tb"><div class="fab"><span class="msr">add</span></div></div><div class="tb"><span class="msr">insights</span>Insights</div><div class="tb on"><span class="msr">account_balance_wallet</span>Budget</div></div>`
+  },
+  {
+    cap:'Import a statement.<br>No bank login.',
+    sub:'Rows already in your ledger are matched, never posted twice.',
+    dark:true,
+    html:`
+      <div class="pb">
+        <div class="ph"><div class="bk"><span class="msr">arrow_back_ios_new</span></div><div class="tt">Review statement</div><div class="ma"><span class="msr">help_outline</span></div></div>
+        <div class="blurb">Tap a row to change what happens to it. Matched rows already exist in your ledger.</div>
+        <div class="drift"><b>Your ledger and this statement don't agree</b><span>Ledger bank: $2,140 · statement closing: $2,318. 3 rows are still unmatched.</span></div>
+        <div class="srow"><div class="sd"><div class="st2">TRADER JOE'S #412</div><div class="ss">2026-08-12 · EXPENSE</div></div><span class="sa" style="color:var(--clay)">−$86.20</span><span class="badge add">ADD</span></div>
+        <div class="srow match"><div class="sd"><div class="st2">CON EDISON</div><div class="ss">2026-08-09 · MATCHED TO ELECTRIC</div></div><span class="sa" style="color:var(--clay)">−$142.00</span><span class="badge match">MATCH</span></div>
+        <div class="srow match"><div class="sd"><div class="st2">NORTHWIND INC PAYROLL</div><div class="ss">2026-08-01 · MATCHED TO PAYCHECK</div></div><span class="sa" style="color:var(--income)">+$2,090</span><span class="badge match">MATCH</span></div>
+        <div class="srow ign"><div class="sd"><div class="st2">TRANSFER TO SAVINGS ••••4417</div><div class="ss">2026-08-05 · EXPENSE</div></div><span class="sa">−$400.00</span><span class="badge ign">IGNORE</span></div>
+        <div class="cta">Add 79 · match 2</div>
+      </div>`
+  },
+  {
+    cap:'Never lose a gift<br>card balance again.',
+    sub:'Warned while it still has value — 30 days before it expires.',
+    dark:false,
+    html:`
+      <div class="pb">
+        <div class="ph"><div class="bk"><span class="msr">arrow_back_ios_new</span></div><div class="tt">Gift cards</div><div class="ma"><span class="msr">add</span></div></div>
+        <div class="strip"><div class="sc"><div class="scv">$132</div><div class="scl">Left in total</div></div><div class="sc"><div class="scv">3</div><div class="scl">Active</div></div><div class="sc"><div class="scv" style="color:var(--amberText)">1</div><div class="scl">Expiring</div></div></div>
+        <div class="gc" style="background:#0E7C4A"><div style="display:flex;align-items:center;gap:9px"><span class="mono">AM</span><span class="gcb">Amazon</span></div><div class="gcv">$74</div><div class="gcf"><span>$26 OF $100 SPENT</span><span>EXP 2027-03-12</span></div></div>
+        <div class="gc" style="background:#283593"><div style="display:flex;align-items:center;gap:9px"><span class="mono">TA</span><span class="gcb">Target</span><span class="badge" style="background:rgba(255,255,255,.2);color:#fff;margin-left:auto">EXPIRES IN 6 DAYS</span></div><div class="gcv">$40</div><div class="gcf"><span>$10 OF $50 SPENT</span><span>EXP 2026-09-10</span></div></div>
+        <div class="gc" style="background:#E8A200;color:#241A00"><div style="display:flex;align-items:center;gap:9px"><span class="mono" style="background:rgba(0,0,0,.18);color:#241A00">ST</span><span class="gcb">Starbucks</span><span class="badge" style="background:rgba(0,0,0,.14);color:#241A00;margin-left:auto">LOW BALANCE</span></div><div class="gcv">$18</div><div class="gcf"><span>$32 OF $50 SPENT</span><span>NO EXPIRY</span></div></div>
+        <div class="gl" style="margin-top:16px">Archived · 1</div>
+        <div class="srow ign" style="margin-top:9px"><span class="mono" style="background:#64748B">BP</span><div class="sd"><div class="st2">Bass Pro Shops</div><div class="ss">USED UP · $75 OF $75 SPENT</div></div><span class="sa">$0</span></div>
+      </div>`
+  }
+];
+
+const stores = [
+  {cls:'as', w:1290, h:2796, top:450, name:'AppStore'},
+  {cls:'gp', w:1080, h:1920, top:3510, name:'Play'}
+];
+
+let out = '';
+stores.forEach(st=>{
+  screens.forEach((sc,i)=>{
+    const left = 60 + i*(st.w+70);
+    out += `<div class="shot ${st.cls}${sc.dark?'':' alt'}" id="${st.name}-${i+1}" style="left:${left}px;top:${st.top}px">
+      <div class="glow"></div>
+      <div class="cap"><div class="h">${sc.cap}</div><div class="s">${sc.sub}</div></div>
+      <div class="dev"><div class="phone"><div class="screen">
+        <div class="notch"></div>
+        <div class="sb"><span>9:41</span><span class="r"><svg width="17" height="11" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="4" width="3" height="8" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><span class="batt"></span></span></div>
+        ${sc.html}
+      </div></div></div>
+    </div>`;
+    out += `<div class="flabel" style="left:${left}px;top:${st.top-96}px;font-size:22px">${i+1}. ${sc.cap.replace(/<br>/g,' ')}<small>${st.w} × ${st.h}</small></div>`;
+  });
+});
+document.body.insertAdjacentHTML('beforeend', out);
+</script>
+</body>
+</html>
