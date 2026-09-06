@@ -111,7 +111,21 @@
   }
 
   function fmt(v) {
-    return v >= 1000 ? v.toLocaleString('en-US') : (Number.isInteger(v) ? String(v) : v.toFixed(2));
+    // Compact so CFA/₦/etc. fit the phone mock (avoid CFA2,508,000 overflow).
+    var n = Number(v);
+    if (!isFinite(n)) return String(v);
+    var abs = Math.abs(n);
+    var sign = n < 0 ? '-' : '';
+    if (abs >= 1000000) {
+      var m = abs / 1000000;
+      return sign + (m >= 10 ? Math.round(m) : Math.round(m * 10) / 10) + 'M';
+    }
+    if (abs >= 10000) {
+      var k = abs / 1000;
+      return sign + (k >= 100 ? Math.round(k) : Math.round(k * 10) / 10) + 'k';
+    }
+    if (abs >= 1000) return sign + abs.toLocaleString('en-US');
+    return sign + (Number.isInteger(n) ? String(abs) : abs.toFixed(2));
   }
 
   function conv(m, num) {

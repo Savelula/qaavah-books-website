@@ -157,14 +157,11 @@
 
   /* —— Country menu + prices + gate —— */
   (function wireCountry() {
-    var box = document.querySelector('details.country');
-    if (!box) return;
-    var menu = box.querySelector('.cmenu');
-    var lbl = box.querySelector('.lbl');
-    var flagEl = box.querySelector('summary .flag');
-    if (!menu) return;
+    var menus = Array.prototype.slice.call(document.querySelectorAll('details.country .cmenu'));
+    if (!menus.length) return;
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('details.country'));
+    var accent = page === 'business' ? '#283593' : '#4A7259';
 
-    // Grouped list
     var groups = {};
     QC.list.forEach(function (c) {
       var g = c.group || 'Other';
@@ -177,26 +174,30 @@
       return a.localeCompare(b);
     });
 
-    menu.innerHTML = '';
-    order.forEach(function (g) {
-      var head = document.createElement('div');
-      head.className = 'cgroup';
-      head.textContent = g;
-      head.style.cssText = 'padding:10px 12px 4px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#7A7D85';
-      menu.appendChild(head);
-      groups[g].forEach(function (c) {
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'lopt copt';
-        btn.setAttribute('role', 'option');
-        btn.setAttribute('data-cc', c.cc);
-        btn.innerHTML =
-          '<span class="flag" style="font-size:16px">' + (c.f || QC.flagEmoji(c.cc)) + '</span>' +
-          '<span class="nat">' + c.name + '<small>' + c.cc + (c.shopOpen ? '' : ' · personal only') + '</small></span>' +
-          '<span class="msr" style="color:' + accent + '">check</span>';
-        menu.appendChild(btn);
+    function buildMenu(menu) {
+      menu.innerHTML = '';
+      order.forEach(function (g) {
+        var head = document.createElement('div');
+        head.className = 'cgroup';
+        head.textContent = g;
+        head.style.cssText = 'padding:10px 12px 4px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#7A7D85';
+        menu.appendChild(head);
+        groups[g].forEach(function (c) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'lopt copt';
+          btn.setAttribute('role', 'option');
+          btn.setAttribute('data-cc', c.cc);
+          btn.innerHTML =
+            '<span class="flag" style="font-size:16px">' + (c.f || QC.flagEmoji(c.cc)) + '</span>' +
+            '<span class="nat">' + c.name + '<small>' + c.cc + (c.shopOpen ? '' : ' · personal only') + '</small></span>' +
+            '<span class="msr" style="color:' + accent + '">check</span>';
+          menu.appendChild(btn);
+        });
       });
-    });
+    }
+
+    menus.forEach(buildMenu);
 
     function apply(cc) {
       var c = QC.byCc[(cc || '').toUpperCase()];
@@ -206,9 +207,13 @@
       var p = row.p;
       var open = !!c.shopOpen;
 
-      if (lbl) lbl.textContent = c.cc;
-      if (flagEl) flagEl.textContent = c.f || QC.flagEmoji(c.cc);
-      menu.querySelectorAll('.copt').forEach(function (o) {
+      document.querySelectorAll('details.country summary .lbl').forEach(function (e) {
+        e.textContent = c.cc;
+      });
+      document.querySelectorAll('details.country summary .flag').forEach(function (e) {
+        e.textContent = c.f || QC.flagEmoji(c.cc);
+      });
+      document.querySelectorAll('.copt').forEach(function (o) {
         o.setAttribute('aria-selected', String(o.dataset.cc === c.cc));
       });
 
@@ -278,7 +283,6 @@
       setSaved('qb_site_country', c.cc);
       setSaved('qb_view_lane', page === 'business' ? 'shop' : 'personal');
 
-      // Refresh translated strings that include the country name
       try {
         var lang = getSaved('qb_site_lang', 'en');
         if (page === 'personal' && window.QB_PF_I18N && window.QB_PF_I18N.applyPersonal) {
@@ -288,24 +292,76 @@
         }
       } catch (err2) { /* ignore */ }
 
-      box.removeAttribute('open');
+      boxes.forEach(function (box) { box.removeAttribute('open'); });
     }
 
-    menu.querySelectorAll('.copt').forEach(function (o) {
+    document.querySelectorAll('.copt').forEach(function (o) {
       o.addEventListener('click', function () { apply(o.dataset.cc); });
     });
 
-    document.addEventListener('click', function (e) {
-      if (!box.contains(e.target)) box.removeAttribute('open');
+    boxes.forEach(function (box) {
+      document.addEventListener('click', function (e) {
+        if (!box.contains(e.target)) box.removeAttribute('open');
+      });
+      box.addEventListener('toggle', function () {
+        if (box.open) {
+          document.querySelectorAll('details.lang').forEach(function (d) {
+            if (d !== box) d.removeAttribute('open');
+          });
+        }
+      });
     });
-    box.addEventListener('toggle', function () {
-      if (box.open) {
-        document.querySelectorAll('details.lang').forEach(function (d) {
-          if (d !== box) d.removeAttribute('open');
+
+    var navMenu = document.querySelector('details.navmenu');
+    if (navMenu) {
+      function setDrawerOpen(open) {
+        document.body.classList.toggle('drawer-open', !!open);
+      }
+      setDrawerOpen(navMenu.open);
+      navMenu.addEventListener('toggle', function () {
+        setDrawerOpen(navMenu.open);
+        if (navMenu.open) {
+          boxes.forEach(function (box) { box.removeAttribute('open'); });
+          document.querySelectorAll('details.lang:not(.navmenu)').forEach(function (d) {
+            d.removeAttribute('open');
+          });
+        }
+      });
+      var closeBtn = navMenu.querySelector('.drawer-x');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          navMenu.removeAttribute('open');
         });
       }
-    });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && navMenu.open) navMenu.removeAttribute('open');
+      });
+      // In-page links inside <details> often fail on mobile (menu stays open /
+      // hash jump is cancelled). Close + scroll ourselves.
+      navMenu.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var href = link.getAttribute('href') || '';
+          var id = href.slice(1);
+          if (!id) return;
+          var target = document.getElementById(id);
+          if (!target) return;
+          e.preventDefault();
+          e.stopPropagation();
+          navMenu.removeAttribute('open');
+          // Defer until details closes so fixed panel doesn't steal layout.
+          requestAnimationFrame(function () {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            try {
+              history.pushState(null, '', '#' + id);
+            } catch (err) { /* ignore */ }
+          });
+        });
+      });
+    }
 
     apply(defaultCountry());
   })();
+
 })();
