@@ -16,6 +16,12 @@
       gate_title: 'Shop tools are open outside the US, Canada and Europe.',
       gate_body: 'In the US, Canada and Europe, Qaavah Books is personal money only for now — though staff can still join a shop based elsewhere.',
       gate_link: 'See the personal side →',
+      unavail_tag: 'Not available yet',
+      unavail_h1: 'Shop tools aren\'t available in <em>{country}</em> yet',
+      unavail_lede: 'Qaavah Books for shops isn\'t open here for now. Personal money tracking is ready today — same app, same four languages.',
+      unavail_cta: 'Go to personal money',
+      unavail_wait: 'Join the waitlist',
+      unavail_note: 'Staff can still join a shop based in a country where shop tools are open. Pick another country above to preview the business tour.',
       hero_tag: 'For shops, services and trades',
       hero_h1_a: 'Books your shop ',
       hero_h1_b: 'can actually keep.',
@@ -106,6 +112,12 @@
       gate_title: 'Les outils boutique sont ouverts hors États-Unis, Canada et Europe.',
       gate_body: 'Aux États-Unis, au Canada et en Europe, Qaavah Books est pour l’instant l’argent perso seulement — le personnel peut toujours rejoindre une boutique basée ailleurs.',
       gate_link: 'Voir le côté personnel →',
+      unavail_tag: 'Pas encore disponible',
+      unavail_h1: 'Les outils boutique ne sont pas encore disponibles en <em>{country}</em>',
+      unavail_lede: 'Qaavah Books pour les boutiques n\'est pas ouvert ici pour l\'instant. Le suivi d\'argent perso est prêt dès aujourd\'hui — même app, mêmes quatre langues.',
+      unavail_cta: 'Aller à l\'argent perso',
+      unavail_wait: 'Rejoindre la liste d\'attente',
+      unavail_note: 'Le personnel peut toujours rejoindre une boutique basée dans un pays où les outils boutique sont ouverts. Choisissez un autre pays ci-dessus pour voir la visite business.',
       hero_tag: 'Pour boutiques, services et métiers',
       hero_h1_a: 'Des livres que votre boutique ',
       hero_h1_b: 'peut vraiment tenir.',
@@ -196,6 +208,12 @@
       gate_title: 'Las herramientas de tienda están abiertas fuera de EE. UU., Canadá y Europa.',
       gate_body: 'En EE. UU., Canadá y Europa, Qaavah Books es solo dinero personal por ahora — el personal aún puede unirse a una tienda en otro país.',
       gate_link: 'Ver el lado personal →',
+      unavail_tag: 'Aún no disponible',
+      unavail_h1: 'Las herramientas de tienda aún no están disponibles en <em>{country}</em>',
+      unavail_lede: 'Qaavah Books para tiendas no está abierto aquí por ahora. El seguimiento de dinero personal ya está listo — misma app, mismos cuatro idiomas.',
+      unavail_cta: 'Ir al dinero personal',
+      unavail_wait: 'Unirse a la lista de espera',
+      unavail_note: 'El personal aún puede unirse a una tienda en un país donde las herramientas de tienda estén abiertas. Elige otro país arriba para ver el tour de negocio.',
       hero_tag: 'Para tiendas, servicios y oficios',
       hero_h1_a: 'Libros que tu tienda ',
       hero_h1_b: 'sí puede llevar.',
@@ -286,6 +304,12 @@
       gate_title: 'As ferramentas de loja estão abertas fora dos EUA, Canadá e Europa.',
       gate_body: 'Nos EUA, Canadá e Europa, o Qaavah Books é só dinheiro pessoal por agora — a equipa ainda pode juntar-se a uma loja noutro país.',
       gate_link: 'Ver o lado pessoal →',
+      unavail_tag: 'Ainda não disponível',
+      unavail_h1: 'As ferramentas de loja ainda não estão disponíveis em <em>{country}</em>',
+      unavail_lede: 'O Qaavah Books para lojas ainda não está aberto aqui. O acompanhamento de dinheiro pessoal já está pronto — mesma app, mesmos quatro idiomas.',
+      unavail_cta: 'Ir para o dinheiro pessoal',
+      unavail_wait: 'Juntar-se à lista de espera',
+      unavail_note: 'A equipa ainda pode juntar-se a uma loja num país onde as ferramentas de loja estejam abertas. Escolha outro país acima para ver o tour de negócio.',
       hero_tag: 'Para lojas, serviços e ofícios',
       hero_h1_a: 'Livros que a sua loja ',
       hero_h1_b: 'consegue mesmo manter.',
@@ -419,6 +443,10 @@
       }
       if (key === 'closed_note') {
         el.textContent = String(val).replace(/\{country\}/g, countryName || '');
+        return;
+      }
+      if (key === 'unavail_h1') {
+        el.innerHTML = String(val).replace(/\{country\}/g, countryName || '');
         return;
       }
       if (HTML_KEYS[key] || /<[a-z][\s\S]*>/i.test(String(val))) {

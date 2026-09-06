@@ -234,9 +234,13 @@
       });
 
       if (page === 'business') {
-        document.querySelectorAll('.gate').forEach(function (e) {
-          e.style.display = open ? 'none' : 'flex';
-        });
+        document.body.classList.toggle('is-shop-closed', !open);
+        document.documentElement.classList.toggle('qb-shop-closed-boot', !open);
+        var tour = document.getElementById('shopTour');
+        var unavail = document.getElementById('shopUnavailable');
+        if (tour) tour.hidden = !open;
+        if (unavail) unavail.hidden = open;
+
         document.querySelectorAll('[data-closed-note]').forEach(function (e) {
           e.style.display = open ? 'none' : 'flex';
         });
@@ -248,7 +252,14 @@
         });
         document.querySelectorAll('[data-shop-open]').forEach(function (e) {
           e.textContent = open ? ('Open in ' + c.name) : ('Not yet in ' + c.name);
-          e.style.display = 'inline-flex';
+          e.style.display = open ? 'inline-flex' : 'none';
+        });
+        document.querySelectorAll('[data-shop-cta]').forEach(function (e) {
+          if (open) {
+            e.setAttribute('href', e.getAttribute('data-open-href') || '#pricing');
+          } else {
+            e.setAttribute('href', '/');
+          }
         });
       }
 

@@ -337,7 +337,7 @@ h1 em{font-style:normal;font-weight:600;color:var(--sageDeep);letter-spacing:-2.
 .hctas{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
 .hnote{font-size:13.5px;color:#585D55;margin-top:18px}
 .hero-visual{position:relative;min-height:min(52vw,460px);display:grid;place-items:center}
-.hv-ring{width:min(100%,420px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--sageTint);box-shadow:0 28px 60px -32px rgba(24,32,24,.45)}
+.hv-ring{width:min(100%,420px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--sageTint);border:3px solid var(--sage);box-shadow:0 28px 60px -32px rgba(24,32,24,.45)}
 .hv-ring img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.94) contrast(1.02)}
 .hv-inset{position:absolute;left:2%;bottom:6%;width:min(38%,168px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:5px solid var(--paper);box-shadow:0 16px 36px -18px rgba(24,32,24,.5);background:#fff}
 .hv-inset img{width:100%;height:100%;object-fit:cover;display:block}
@@ -356,7 +356,7 @@ h1 em{font-style:normal;font-weight:600;color:var(--sageDeep);letter-spacing:-2.
 .zig.flip .zig-vis{order:2}
 .zig.flip .zig-copy{order:1}
 .zig-vis{display:grid;place-items:center;position:relative;min-height:280px}
-.zig-circle{width:min(100%,340px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:#fff;box-shadow:0 22px 48px -28px rgba(24,32,24,.4)}
+.zig-circle{width:min(100%,340px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:#fff;border:3px solid var(--sage);box-shadow:0 22px 48px -28px rgba(24,32,24,.4)}
 .zig-circle img{width:100%;height:100%;object-fit:cover;display:block}
 .zig-copy h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-1.6px;margin:0;line-height:1.08}
 .zig-copy .slede{margin-top:14px;font-size:16px;max-width:46ch}
@@ -387,6 +387,33 @@ h1 em{font-style:normal;font-weight:600;color:var(--sageDeep);letter-spacing:-2.
 @media(max-width:640px){
   .lets-grid{grid-template-columns:1fr}
   .hero-visual{width:min(280px,84vw)}
+}
+
+
+/* —— Collapsed “more” strip (was six-phone gallery) —— */
+.more{background:#F1F3F0;padding:72px 0}
+.more-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:36px}
+.more-card{background:#fff;border-radius:20px;padding:20px 18px 18px;box-shadow:0 1px 2px rgba(24,32,24,.05),0 14px 34px -24px rgba(24,32,24,.28);display:flex;flex-direction:column;min-height:0}
+.more-card > .msr{font-size:26px;color:var(--sageDeep);margin-bottom:2px}
+.more-card h3{margin:0;font-size:18px;font-weight:600;letter-spacing:-.4px}
+.more-card p{margin:0;font-size:14.5px;line-height:1.55;color:#585D55;flex:1}
+.more-card .plus{align-self:flex-start;margin-top:8px}
+
+.more-card .gt{font-size:17px;font-weight:600;letter-spacing:-.4px;display:flex;align-items:center;gap:8px;margin:0}
+.more-card .gt .msr{font-size:20px;color:var(--sageDeep)}
+.more-card .gd{font-size:13.5px;line-height:1.5;color:#585D55;margin:8px 0 0}
+.more-card .more-pic{margin:16px 0 0;padding:0;border-radius:50%;overflow:hidden;aspect-ratio:1;width:min(100%,220px);align-self:center;background:#0B120D;border:3px solid var(--sage);box-shadow:0 14px 32px -20px rgba(24,32,24,.4)}
+.more-card .more-pic img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.94) contrast(1.02)}
+.more-card .plus{margin-top:14px;align-self:flex-start}
+.more-card > .msr{display:none}
+@media(max-width:980px){
+  .more-card .more-pic{width:min(200px,56%)}
+}
+
+
+@media(max-width:980px){
+  .more{padding:48px 0}
+  .more-grid{grid-template-columns:1fr;gap:12px;margin-top:24px}
 }
 
 /* —— Mobile workflow —— */
@@ -495,7 +522,7 @@ h1 em{font-style:normal;font-weight:600;color:var(--sageDeep);letter-spacing:-2.
     </details>
     <details class="lang country">
       <summary><span class="flag" style="font-size:15px">🇺🇸</span><span class="lbl">US</span><span class="msr chev">expand_more</span></summary>
-      <div class="lmenu cmenu" role="listbox"><!-- filled by tour-site.js?v=17 --></div>
+      <div class="lmenu cmenu" role="listbox"><!-- filled by tour-site.js?v=24 --></div>
     </details>
     <a class="btn sm" href="#pricing" data-pf="nav_get">Get the app</a>
     </div>
@@ -515,8 +542,8 @@ h1 em{font-style:normal;font-weight:600;color:var(--sageDeep);letter-spacing:-2.
       <p class="hnote" data-chrome="note" data-pf="hero_note">No Plaid. No open banking. Cash counts. Works in 182 countries, 4 languages.</p>
     </div>
     <div class="hero-visual" aria-label="Everyday money in context">
-      <div class="hv-ring"><img src="assets/photos/pf-coffee.jpg" alt="Friends toasting coffee — an everyday spend" width="840" height="840" loading="eager" decoding="async"></div>
-      <div class="hv-inset"><img src="assets/photos/pf-phone.jpg" alt="Paying how you actually pay" width="336" height="336" loading="eager" decoding="async"></div>
+      <div class="hv-ring"><img src="assets/photos/pf-coins.jpg" alt="Stacking coins — money you can see and count" width="840" height="840" loading="eager" decoding="async"></div>
+      <div class="hv-inset"><img src="assets/photos/pf-growth.jpg" alt="Growing balances — money moving in the right direction" width="336" height="336" loading="eager" decoding="async"></div>
       <div class="hv-arrow" aria-hidden="true"><svg viewBox="0 0 72 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 36C22 12 42 8 58 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M50 10l10 10-14 2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     </div>
   </div>
@@ -806,173 +833,34 @@ h1 em{font-style:normal;font-weight:600;color:var(--sageDeep);letter-spacing:-2.
   </div>
 </section>
 
-<section id="screens">
+<section id="screens" class="more">
   <div class="wrap">
-    <div class="tag" data-pf="screens_tag">More of the app</div>
-    <h2 id="pfScreensH2" data-pf="screens_h2">Six more screens <em>that stop money leaking</em></h2>
-    <p class="slede" data-pf="screens_lede">A gift card you forgot expires. A goal you raid because it sits in the same account. A statement you'd have to retype. These are the screens that get that money back.</p>
-    <div class="gal">
-      <div class="gcell">
+    <div class="tag" data-pf="screens_tag">Also in the app</div>
+    <h2 id="pfScreensH2" data-pf="screens_h2">Three extras <em>that close the gaps</em></h2>
+    <p class="slede" data-pf="screens_lede">Past the daily record — import without a bank login, prepaid cards that expire, and pots you can actually fill.</p>
+    <div class="more-grid">
+      <div class="more-card">
         <div class="gt" data-pf="gal_t1"><span class="msr">upload_file</span>Statement import</div>
-        <div class="gd" data-pf="gal_d1">Export a CSV, OFX or PDF from your bank and drop it in. Rows that already exist in your ledger are auto-matched instead of posted twice — no credentials, ever.</div>
-        <div class="gp"><div class="gsc">
-          <div class="mnotch"></div>
-          <div class="mst"><span>9:41</span><span>●●● ▮</span></div>
-          <div class="mhd"><div class="mb"><span class="msr">arrow_back_ios_new</span></div><div class="mt" data-pf-mock="mock_review">Review statement</div><div class="ma"><span class="msr">help_outline</span></div></div>
-          <div class="gpin">
-            <div class="mblurb">Tap a row to change what happens to it. Matched rows already exist in your ledger.</div>
-            <div class="mdrift"><b>Your ledger and this statement don't agree</b><span>Ledger bank: $2,140 · statement closing: $2,318. 3 rows are still unmatched.</span></div>
-            <div class="mrow"><div class="mrd"><div class="mrt">TRADER JOE'S #412</div><div class="mrs">2026-08-12 · EXPENSE</div></div><span class="mra" style="color:var(--clay)">−$86.20</span><span class="mbadge add">ADD</span></div>
-            <div class="mrow match"><div class="mrd"><div class="mrt">CON EDISON</div><div class="mrs">2026-08-09 · MATCHED TO CON EDISON</div></div><span class="mra" style="color:var(--clay)">−$142.00</span><span class="mbadge match">MATCH</span></div>
-            <div class="mrow match"><div class="mrd"><div class="mrt">NORTHWIND INC PAYROLL</div><div class="mrs">2026-08-01 · MATCHED TO PAYCHECK</div></div><span class="mra" style="color:var(--income)">+$2,090.00</span><span class="mbadge match">MATCH</span></div>
-            <div class="mrow ign"><div class="mrd"><div class="mrt">TRANSFER TO SAVINGS ••••4417</div><div class="mrs">2026-08-05 · EXPENSE</div></div><span class="mra">−$400.00</span><span class="mbadge ign">IGNORE</span></div>
-            <div class="cta" style="padding:12px;font-size:12.5px;border-radius:12px;margin-top:12px">Add 79 · match 2</div>
-          </div>
-          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2 on"><span class="msr">list_alt</span>Quick list</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div><div style="font-size:6.5px;font-weight:600;color:var(--sageDeep);margin-top:2px">Record</div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2"><span class="msr">account_balance_wallet</span>Budget</div></div>
-        </div></div>
+        <div class="gd" data-pf="gal_d1">Drop in a CSV, OFX or PDF. Match or add rows — no bank password, ever.</div>
+        <figure class="more-pic">
+          <img src="assets/photos/pf-budget.jpg" alt="Papers and a phone for reviewing money" width="720" height="720" loading="lazy" decoding="async">
+        </figure>
         <span class="plus" data-pf="badge_plus">Personal Plus</span>
       </div>
-      <div class="gcell">
+      <div class="more-card">
         <div class="gt" data-pf="gal_t2"><span class="msr">card_giftcard</span>Gift cards</div>
-        <div class="gd" data-pf="gal_d2">Track the balance, spend from it like a wallet, and get warned while it still has value — the app flags cards expiring within 30 days and low balances. Photos stay on your device.</div>
-        <div class="gp"><div class="gsc">
-          <div class="mnotch"></div>
-          <div class="mst"><span>9:41</span><span>●●● ▮</span></div>
-          <div class="mhd"><div class="mb"><span class="msr">arrow_back_ios_new</span></div><div class="mt">Gift cards</div><div class="ma"><span class="msr">add</span></div></div>
-          <div class="gpin">
-            <div class="gl">$132 left · 3 active · 1 expiring soon</div>
-            <div style="margin-top:10px">
-              <div class="gcx" style="background:#0E7C4A"><div style="display:flex;align-items:center;gap:8px"><span class="mmono" style="background:rgba(255,255,255,.22)">AM</span><span class="gcxb">Amazon</span></div><div class="gcxv">$74</div><div style="display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:8px;opacity:.9"><span>$26 OF $100 SPENT</span><span>EXP 2027-03-12</span></div></div>
-              <div class="gcx" style="background:#283593"><div style="display:flex;align-items:center;gap:8px"><span class="mmono" style="background:rgba(255,255,255,.22)">TA</span><span class="gcxb">Target</span><span class="mbadge" style="background:rgba(255,255,255,.2);color:#fff;margin-left:auto">EXPIRES IN 6 DAYS</span></div><div class="gcxv">$40</div><div style="display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:8px;opacity:.9"><span>$10 OF $50 SPENT</span><span>EXP 2026-09-10</span></div></div>
-              <div class="gcx" style="background:#E8A200;color:#241A00"><div style="display:flex;align-items:center;gap:8px"><span class="mmono" style="background:rgba(0,0,0,.18);color:#241A00">ST</span><span class="gcxb">Starbucks</span><span class="mbadge" style="background:rgba(0,0,0,.14);color:#241A00;margin-left:auto">LOW BALANCE</span></div><div class="gcxv">$18</div><div style="display:flex;justify-content:space-between;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:8px;opacity:.85"><span>$32 OF $50 SPENT</span><span>NO EXPIRY</span></div></div>
-            </div>
-            <div class="gl" style="margin-top:16px">Archived · 2</div>
-            <div class="mrow ign" style="margin-top:8px"><span class="mmono" style="background:#64748B">BP</span><div class="mrd"><div class="mrt">Bass Pro Shops</div><div class="mrs">USED UP · $75 OF $75 SPENT</div></div><span class="mra">$0</span></div>
-          </div>
-          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2"><span class="msr">list_alt</span>Quick list</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div><div style="font-size:6.5px;font-weight:600;color:var(--sageDeep);margin-top:2px">Record</div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2 on"><span class="msr">account_balance_wallet</span>Budget</div></div>
-        </div></div>
+        <div class="gd" data-pf="gal_d2">Spend from the balance and get warned before it expires unused.</div>
+        <figure class="more-pic">
+          <img src="assets/photos/pf-giftcards.jpg" alt="Entering a card on a phone — gift cards" width="720" height="720" loading="lazy" decoding="async">
+        </figure>
         <span class="plus" data-pf="badge_plus">Personal Plus</span>
       </div>
-      <div class="gcell">
+      <div class="more-card">
         <div class="gt" data-pf="gal_t3"><span class="msr">savings</span>Pots</div>
-        <div class="gd" data-pf="gal_d3">A goal with money in it — emergency fund, security deposit, a trip. Pick the amount, pick which account it leaves, and the bar shows where you'll land before you commit.</div>
-        <div class="gp"><div class="gsc">
-          <div class="mnotch"></div>
-          <div class="mst"><span>9:41</span><span>●●● ▮</span></div>
-          <div class="mhd"><div class="mb"><span class="msr">arrow_back_ios_new</span></div><div class="mt">Add to a pot</div><div class="ma"><span class="msr">add</span></div></div>
-          <div class="gpin">
-          <div class="mgoal">
-            <svg width="46" height="46" viewBox="0 0 46 46" style="flex:0 0 46px"><circle cx="23" cy="23" r="19" fill="none" stroke="var(--rule)" stroke-width="7"/><circle cx="23" cy="23" r="19" fill="none" stroke="#4A7259" stroke-width="7" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="23.9" transform="rotate(-90 23 23)"/></svg>
-            <div style="flex:1"><div style="font-size:13px;font-weight:600;letter-spacing:-.2px">Emergency fund</div><div class="mrs">$2,400 OF $3,000</div></div>
-            <div style="text-align:right"><div class="mrs" style="margin:0">TO GO</div><div style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:var(--sageDeep)">$600</div></div>
-          </div>
-            <div style="text-align:center;padding:14px 0 8px"><div class="gl">Amount</div><div class="amtv" data-pot-amount data-mbase="200" style="font-size:36px;letter-spacing:-1.8px;margin-top:5px"><span class="c" data-currency-sym>$</span><span data-pot-num>200</span><span style="display:inline-block;width:2px;height:26px;background:var(--sageDeep);vertical-align:-3px;margin-left:2px"></span></div></div>
-          <div style="display:flex;gap:6px;justify-content:center"><span class="chip" style="padding:6px 11px;font-size:10px">50</span><span class="chip" style="padding:6px 11px;font-size:10px;background:var(--sageDeep);color:#fff">200</span><span class="chip" style="padding:6px 11px;font-size:10px">500</span><span class="chip gh" style="padding:6px 11px;font-size:10px">Max</span></div>
-          <div style="background:#fff;border-radius:16px;padding:12px;margin-top:12px;box-shadow:0 4px 14px -8px rgba(20,22,45,.22)">
-            <div style="display:flex;align-items:center"><span class="gl" style="flex:1">After this deposit</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--sageDeep)">87%</span></div>
-            <div style="display:flex;height:8px;border-radius:5px;overflow:hidden;background:var(--rule);margin-top:9px"><i style="width:80%;background:var(--sageDeep)"></i><i class="mhatch" style="width:7%"></i></div>
-            <div class="mpace"><span style="color:var(--ink);font-weight:600">$2,600 OF $3,000</span><span>$400 TO GO</span></div>
-          </div>
-          <div style="display:flex;align-items:baseline;margin-top:14px"><span class="gl" style="flex:1">Pay from</span><span class="mrs" style="margin:0">CASH ON HAND $1,840</span></div>
-          <div class="mwal">
-            <div><div class="wi" style="background:var(--incomeTint)"><span class="msr" style="font-size:13px;color:var(--income)">payments</span></div><div class="wl">Cash</div><div class="wv">$420</div></div>
-            <div class="on"><div class="wi" style="background:var(--sageTint)"><span class="msr" style="font-size:13px;color:var(--sageDeep)">credit_card</span></div><div class="wl">Card</div><div class="wv">$980</div></div>
-            <div><div class="wi" style="background:var(--sageTint)"><span class="msr" style="font-size:13px;color:var(--sageDeep)">account_balance</span></div><div class="wl">Bank</div><div class="wv">$380</div></div>
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:14px;padding:11px;margin-top:10px;font-size:10.5px;color:var(--faint);box-shadow:0 4px 14px -8px rgba(20,22,45,.22)"><span class="msr" style="font-size:13px">notes</span>Add a note (optional)</div>
-          <div class="cta" style="padding:11px;font-size:12px;border-radius:12px;margin-top:10px">Add $200 to Emergency fund</div>
-          </div>
-          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2"><span class="msr">list_alt</span>Quick list</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div><div style="font-size:6.5px;font-weight:600;color:var(--sageDeep);margin-top:2px">Record</div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2 on"><span class="msr">account_balance_wallet</span>Budget</div></div>
-        </div></div>
-        <span class="plus" data-pf="badge_plus">Personal Plus</span>
-      </div>
-      <div class="gcell">
-        <div class="gt" data-pf="gal_t4"><span class="msr">account_balance_wallet</span>Budget</div>
-        <div class="gd" data-pf="gal_d4">Set a monthly ceiling per category. A pace mark shows where you should be today, so you learn you're drifting on the 12th rather than the 30th.</div>
-        <div class="gp"><div class="gsc">
-          <div class="mnotch"></div>
-          <div class="mst"><span>9:41</span><span>●●● ▮</span></div>
-          <div class="mhd"><div class="mt">Budget</div><div class="ma"><span class="msr">tune</span></div></div>
-          <div class="gpin">
-          <div class="mseg"><span>Week</span><span class="on">Month</span><span>Year</span></div>
-          <div class="gl">August · pace</div>
-          <div class="gv">62%</div>
-          <div class="mrs" style="margin-top:2px">ON TRACK · THE TICK IS WHERE YOU SHOULD BE TODAY</div>
-          <div style="margin-top:12px">
-            <div class="grow" style="border:none;padding-bottom:0">Groceries <span>612 / 700</span></div>
-            <div class="mtick"><i style="width:87%;background:var(--amber)"></i><u style="left:52%"></u></div>
-            <div class="mpace"><span>PACE MARK AT $364</span><span style="color:var(--amberText)">BEHIND</span></div>
-            <div class="grow" style="border:none;padding:11px 0 0">Eating out <span>236 / 250</span></div>
-            <div class="mtick"><i style="width:94%;background:var(--clay)"></i><u style="left:52%"></u></div>
-            <div class="mpace"><span>PACE MARK AT $130</span><span style="color:var(--clay)">OVER BY $106</span></div>
-            <div class="grow" style="border:none;padding:11px 0 0">Transport <span>98 / 220</span></div>
-            <div class="mtick"><i style="width:45%"></i><u style="left:52%"></u></div>
-            <div class="mpace"><span>PACE MARK AT $114</span><span style="color:var(--income)">AHEAD</span></div>
-            <div class="grow" style="border:none;padding:11px 0 0">Subscriptions <span>107 / 120</span></div>
-            <div class="mtick"><i style="width:89%;background:var(--amber)"></i><u style="left:52%"></u></div>
-            <div class="mpace"><span>PACE MARK AT $62</span><span style="color:var(--amberText)">BEHIND</span></div>
-            <div class="grow" style="border:none;padding:11px 0 0">Health <span>64 / 200</span></div>
-            <div class="mtick"><i style="width:32%"></i><u style="left:52%"></u></div>
-            <div class="mpace"><span>PACE MARK AT $104</span><span style="color:var(--income)">AHEAD</span></div>
-            <div class="grow" style="border:none;padding:11px 0 0">Household <span>212 / 300</span></div>
-            <div class="mtick"><i style="width:71%"></i><u style="left:52%"></u></div>
-            <div class="mpace"><span>PACE MARK AT $156</span><span>ON TRACK</span></div>
-          </div>
-          </div>
-          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2"><span class="msr">list_alt</span>Quick list</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div><div style="font-size:6.5px;font-weight:600;color:var(--sageDeep);margin-top:2px">Record</div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2 on"><span class="msr">account_balance_wallet</span>Budget</div></div>
-        </div></div>
-      </div>
-      <div class="gcell">
-        <div class="gt" data-pf="gal_t5"><span class="msr">search</span>Find an entry</div>
-        <div class="gd" data-pf="gal_d5">Search every past entry by name, amount or method. Totals for the matches, so "how much on coffee this year" takes one query.</div>
-        <div class="gp"><div class="gsc">
-          <div class="mnotch"></div>
-          <div class="mst"><span>9:41</span><span>●●● ▮</span></div>
-          <div class="mhd"><div class="mb"><span class="msr">arrow_back_ios_new</span></div><div class="mt" data-pf-mock="mock_find">Find an entry</div></div>
-          <div class="gpin">
-            <div class="msearch"><span class="msr" style="font-size:13px">search</span>coffee</div>
-            <div class="mseg"><span class="on">All</span><span>Money in</span><span>Spending</span></div>
-            <div class="gl">14 matches · 2026</div>
-            <div class="gv">$418</div>
-            <div style="margin-top:12px">
-              <div class="grow">Blue Bottle <span>CARD · JUL 3</span></div>
-              <div class="grow">Starbucks <span>GIFT · JUN 28</span></div>
-              <div class="grow">Local roaster <span>CASH · JUN 14</span></div>
-              <div class="grow">Blue Bottle <span>CARD · JUN 2</span></div>
-              <div class="grow">Office coffee run <span>VENMO · MAY 22</span></div>
-              <div class="grow">Starbucks <span>APPLE PAY · MAY 9</span></div>
-              <div class="grow">Beans · subscription <span>CARD · APR 30</span></div>
-              <div class="grow" style="border-top:2px solid var(--ink);border-bottom:none;padding-top:10px;font-weight:700">Monthly average <span style="font-weight:700">$52</span></div>
-            </div>
-          </div>
-          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2 on"><span class="msr">list_alt</span>Quick list</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div><div style="font-size:6.5px;font-weight:600;color:var(--sageDeep);margin-top:2px">Record</div></div><div class="mt2"><span class="msr">insights</span>Insights</div><div class="mt2"><span class="msr">account_balance_wallet</span>Budget</div></div>
-        </div></div>
-      </div>
-      <div class="gcell">
-        <div class="gt" data-pf="gal_t6"><span class="msr">description</span>Reports &amp; export</div>
-        <div class="gd" data-pf="gal_d6">Money in against money out for any period. Group by category or list the latest entries, then export a CSV or PDF when you need to show someone.</div>
-        <div class="gp"><div class="gsc">
-          <div class="mnotch"></div>
-          <div class="mst"><span>9:41</span><span>●●● ▮</span></div>
-          <div class="mhd"><div class="mb"><span class="msr">arrow_back_ios_new</span></div><div class="mt" data-pf-mock="mock_report">Report</div><div class="ma"><span class="msr">calendar_today</span></div></div>
-          <div class="gpin">
-            <div class="mseg"><span>Week</span><span class="on">Month</span><span>Year</span></div>
-            <div class="gl">August 2026</div>
-            <div style="margin-top:10px">
-              <div class="grow">Money in <span style="color:var(--income)">$4,180</span></div>
-              <div class="grow">Spending <span style="color:var(--clay)">$3,768</span></div>
-              <div class="grow" style="border-top:2px solid var(--ink);border-bottom:none;padding-top:11px;font-weight:700">Net <span style="color:var(--income);font-weight:700">$412</span></div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px;margin-top:16px"><span class="gl" style="flex:1">View</span><span class="chip" style="padding:5px 10px;font-size:9px;background:var(--sageDeep);color:#fff">Grouped</span><span class="chip gh" style="padding:5px 10px;font-size:9px">Latest</span></div>
-            <div class="gl" style="margin-top:16px">Money in · 1 entry</div>
-            <div class="mrow match" style="margin-top:8px"><div class="mrd"><div class="mrt">Paycheck · Northwind Inc</div><div class="mrs">CHECKING · AUG 1</div></div><span class="mra" style="color:var(--income)">+$4,180</span></div>
-            <div class="gl" style="margin-top:14px">Spending · 34 entries</div>
-            <div class="mrow" style="margin-top:8px"><div class="mrd"><div class="mrt">Rent &amp; utilities</div><div class="mrs">4 ENTRIES</div></div><span class="mra" style="color:var(--clay)">−$1,992</span></div>
-            <div class="mrow"><div class="mrd"><div class="mrt">Groceries</div><div class="mrs">11 ENTRIES</div></div><span class="mra" style="color:var(--clay)">−$612</span></div>
-            <div style="display:flex;gap:7px;margin-top:14px"><span class="chip gh">↓ CSV</span><span class="chip gh">↓ PDF</span></div>
-          </div>
-          <div class="mtab"><div class="mt2"><span class="msr">home</span>Home</div><div class="mt2"><span class="msr">list_alt</span>Quick list</div><div class="mt2"><div class="mfab"><span class="msr">add</span></div><div style="font-size:6.5px;font-weight:600;color:var(--sageDeep);margin-top:2px">Record</div></div><div class="mt2 on"><span class="msr">insights</span>Insights</div><div class="mt2"><span class="msr">account_balance_wallet</span>Budget</div></div>
-        </div></div>
+        <div class="gd" data-pf="gal_d3">Named goals with a fill bar — emergency fund, deposit, a trip.</div>
+        <figure class="more-pic">
+          <img src="assets/photos/pf-pots.jpg" alt="Coins in a jar with sprouts growing — savings pots" width="720" height="720" loading="lazy" decoding="async">
+        </figure>
         <span class="plus" data-pf="badge_plus">Personal Plus</span>
       </div>
     </div>
@@ -1036,7 +924,7 @@ h1 em{font-style:normal;font-weight:600;color:var(--sageDeep);letter-spacing:-2.
         <h4 data-pf="foot_col_company">Company</h4>
         <a href="mailto:hello@qaavah.com">hello@qaavah.com</a>
         <a href="mailto:hello@qaavah.com" data-pf="foot_contact">Contact</a>
-        <a href="/store-screenshots.html" data-pf="foot_store">Store screenshots</a>
+        <a href="/store-screenshots.html" data-pf="foot_store">Listing frames</a>
       </div>
       <div class="fcol">
         <h4 data-pf="foot_col_legal">Legal</h4>
@@ -1077,11 +965,11 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)tick();else{pl
 
 
 
-<script src="js/site-countries.js?v=17"></script>
-<script src="js/pf-localize.js?v=17"></script>
-<script src="js/site-i18n.js?v=17"></script>
-<script src="js/pf-i18n.js?v=17"></script>
-<script src="js/tour-site.js?v=17"></script>
+<script src="js/site-countries.js?v=24"></script>
+<script src="js/pf-localize.js?v=24"></script>
+<script src="js/site-i18n.js?v=24"></script>
+<script src="js/pf-i18n.js?v=24"></script>
+<script src="js/tour-site.js?v=24"></script>
 
 </body>
 </html>
