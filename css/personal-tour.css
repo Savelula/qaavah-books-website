@@ -269,5 +269,17 @@ nav{position:sticky;top:0;z-index:60;background:rgba(250,250,247,.9);backdrop-fi
 #layoutPersonal .fin a{color:#585D55}
 #layoutPersonal .fin a:hover{color:var(--ink)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-@media(max-width:980px){.flowin,.plans{grid-template-columns:1fr}.phone{margin:0 auto}.nlinks{display:none}.navin>.btn{margin-left:auto}section{padding:70px 0}.gal{gap:18px}.gcell{max-width:460px;margin-inline:auto}}
+/* Mobile: these must be ID-scoped, otherwise `#layoutPersonal .flowin`
+   (specificity 1,1,0) wins and the workflow stays a 2-column grid. */
+@media(max-width:980px){
+  #layoutPersonal .flowin{display:flex;flex-direction:column;align-items:stretch;gap:18px}
+  #layoutPersonal .plans{grid-template-columns:1fr}
+  #layoutPersonal .flowin>.phone,#layoutPersonal .phone{margin:0 auto;width:min(300px,86vw);height:auto;aspect-ratio:372/756;max-width:100%;border-radius:36px;padding:8px}
+  #layoutPersonal .phone .screen{border-radius:30px}
+  #layoutPersonal .nlinks{display:none}
+  #layoutPersonal .navin>.btn{margin-left:auto}
+  #layoutPersonal section{padding:56px 0}
+  #layoutPersonal .gal{gap:18px}
+  #layoutPersonal .gcell{max-width:460px;margin-inline:auto}
+}
 

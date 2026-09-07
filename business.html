@@ -18,7 +18,7 @@
 :root{--brand:#283593;--brandDark:#1A237E;--brandTint:#E8EAF6;--brandLift:#C5CAE9;--paper:#FAFAF7;--bone:#F4F1E9;--ink:#15161A;--muted:#7A7D85;--faint:#A8ABB3;--body:#585D63;--rule:rgba(21,22,34,.1);--hair:rgba(21,22,34,.06);--income:#16834A;--incomeTint:#E7F3EC;--expense:#B33A2A;--expenseTint:#F8EBE8;--amber:#B07310;--amberText:#B45309;--amberTint:#FBF1DD;--gold:#D4A017;--sage:#5F8A6E}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:"Geist","Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty;overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Geist","Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty;overflow-x:clip}
 a{color:var(--brand);text-decoration:none}a:hover{color:var(--brandDark)}
 .phone,.gsc{font-family:"Plus Jakarta Sans",system-ui,sans-serif}
 /* No sans-serif fallback — that is what turned "menu"/"translate" into readable words when the icon font was slow. */
@@ -419,25 +419,43 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
   .hero-visual{width:min(280px,84vw)}
 }
 
+.flownav{display:none}
+@media(max-width:980px){
+  .flownav{order:3;display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 2px}
+  .fnb{width:44px;height:44px;border:none;border-radius:50%;background:#fff;display:grid;place-items:center;cursor:pointer;color:var(--brand);box-shadow:0 1px 2px rgba(21,22,34,.08),0 8px 20px -12px rgba(21,22,34,.35)}
+  .fnb:active{background:var(--brand);color:#fff}
+  .fnb .msr{font-size:24px;color:inherit;display:block}
+  .fndots{display:flex;align-items:center;gap:7px}
+  .fndot{width:8px;height:8px;padding:0;border:none;border-radius:999px;background:rgba(21,22,34,.18);cursor:pointer;transition:width .25s,background .25s}
+  .fndot.on{width:22px;background:var(--brand)}
+}
+
 /* —— Mobile workflow —— */
 .flow-head{margin-bottom:0}
 .flow-body{min-width:0}
 @media(max-width:980px){
-  .flowin{display:flex;flex-direction:column;gap:22px;align-items:stretch}
+  /* !important + id scope: guard against any later sheet restoring the 2-col grid */
+  .flowin,#layoutBusiness .flowin{display:flex!important;flex-direction:column;gap:18px;align-items:stretch;grid-template-columns:1fr!important;grid-template-areas:none!important}
   .flow-head{order:1;grid-area:auto}
-  .flowin > .phone{order:2;grid-area:auto;margin:4px auto 8px;width:min(290px,82vw);height:auto;aspect-ratio:372/756;border-radius:36px;padding:8px;align-self:center}
-  .flowin > .phone .screen{border-radius:30px}
-  .flow-body{order:3;grid-area:auto}
-  .steps{margin-top:8px;gap:4px}
-  .step{padding:12px 14px;border-radius:14px;grid-template-columns:32px 1fr;gap:12px}
-  .step h4{font-size:16px;letter-spacing:-.4px}
-  .step:not(.on) p{display:none}
-  .step.on p{font-size:13.5px}
-  .flowctl{margin-top:14px;padding-left:8px;flex-wrap:wrap}
+  .flowin > .phone,#layoutBusiness .flowin > .phone{order:2;grid-area:auto;margin:2px auto 6px;width:min(340px,92vw);height:auto;aspect-ratio:372/620;max-height:min(560px,60vh);max-width:100%;border-radius:38px;padding:8px;align-self:center;position:relative;top:auto;box-shadow:0 14px 32px -16px rgba(21,22,34,.5)}
+  .flowin > .phone .screen{border-radius:31px;position:relative;top:auto;left:auto;width:auto;height:auto;transform:none}
+  .flow-body{order:4;grid-area:auto;width:100%}
+  .steps{margin:0 -18px;padding:6px 18px 14px;flex-direction:row;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .steps::-webkit-scrollbar{display:none}
+  .step{flex:0 0 min(84%,340px);scroll-snap-align:center;display:block;padding:16px 18px 18px;border-radius:18px;background:#fff;opacity:.55;box-shadow:0 1px 2px rgba(21,22,34,.05),0 10px 26px -20px rgba(21,22,34,.35);transition:opacity .3s,box-shadow .3s,transform .3s;transform:scale(.985)}
+  .step.on{opacity:1;transform:none;box-shadow:0 1px 2px rgba(21,22,34,.06),0 18px 40px -24px rgba(21,22,34,.42)}
+  .step .n{padding:0;font-size:11px;letter-spacing:.1em;color:var(--brand)}
+  .step h4{margin-top:7px;font-size:18px;letter-spacing:-.5px;line-height:1.2}
+  .step p{display:block!important;font-size:14px;line-height:1.55;margin-top:7px}
+  .step .bar{height:3px}
+  .flowctl{margin-top:2px;padding-left:0;justify-content:space-between;gap:12px}
+  .flowctl button{min-height:40px;padding:11px 18px}
 }
 @media(max-width:640px){
-  .flowin > .phone{width:min(268px,78vw)}
-  .step .n{font-size:10.5px}
+  .flowin > .phone,#layoutBusiness .flowin > .phone{width:min(320px,94vw);aspect-ratio:372/580;max-height:min(500px,56vh)}
+  .steps{margin:0 -14px;padding:6px 14px 14px}
+  .step{flex:0 0 88%;padding:15px 16px 17px}
+  .step h4{font-size:17px}
 }
 
 /* —— Mobile nav + overflow —— */
@@ -449,7 +467,7 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
   .navin{gap:10px;padding:10px 16px}
 }
 @media(max-width:980px){
-  .flowin,.plans,.spot{grid-template-columns:1fr}
+  .plans,.spot{grid-template-columns:1fr}
   .spot.flip .stxt{order:0}
   .phone{margin:0 auto;width:min(340px,100%);height:auto;aspect-ratio:372/756;max-width:100%}
   .screen{min-height:0}
@@ -525,7 +543,6 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
   .flow{padding-top:36px}
   .flowin{gap:16px}
   .flow-head{margin-bottom:0}
-  .flowin > .phone{margin:8px auto 4px}
   .more{padding:40px 0}
   .lets{padding:40px 0}
 }
@@ -533,6 +550,13 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
   section{padding:40px 0}
   .hero{padding:28px 0 32px}
   .flowctl{padding-left:0;justify-content:flex-start}
+}
+@media(max-width:400px){
+  /* keep the nav row inside the screen — page-wide sideways scroll made the
+     workflow section look cropped */
+  .navin{flex-wrap:nowrap;min-width:0}
+  .brand{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+  .nav-tools{min-width:0;flex:0 1 auto}
 }
 
 .phone{overflow:hidden;max-width:100%}
@@ -901,6 +925,12 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
       </div>
     </div></div>
 
+    <div class="flownav" role="group" aria-label="Workflow steps">
+      <button type="button" class="fnb" id="fnPrev" aria-label="Previous screen"><span class="msr" style="transform:rotate(180deg)">chevron_right</span></button>
+      <div class="fndots" id="fnDots"></div>
+      <button type="button" class="fnb" id="fnNext" aria-label="Next screen"><span class="msr">chevron_right</span></button>
+    </div>
+
     <div class="flow-body">
       <div class="steps" id="steps">
         <div class="step on" data-i="0"><div class="n">01</div><div><h4 data-biz="flow_s1_h">Open the shutters</h4><p data-biz="flow_s1_p">Today's net, revenue against expenses, and the week beside the month. Anything that needs you — low stock, unpaid credit — is already at the top.</p></div><div class="bar"></div></div>
@@ -1190,7 +1220,6 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
       <div class="about">
         <a class="brand" href="/business.html" style="font-size:15px"><img src="assets/logo-mark.png" alt="Qaavah Books" style="width:34px;height:34px"><span><b>Qaavah</b> <i>Books</i></span></a>
         <p data-biz="foot_about">Bookkeeping for the till, the team, and the shelf — built for shops that run on a phone. A product of Qavaah Platforms LLC.</p>
-        <p class="op"><b>Operator:</b> Qavaah Platforms LLC<br>Shop tools open in Africa &amp; Latin America · Personal money worldwide.</p>
       </div>
       <div class="fcol">
         <h4 data-biz="foot_col_product">Product</h4>
@@ -1204,7 +1233,6 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
         <h4 data-biz="foot_col_company">Company</h4>
         <a href="mailto:hello@qaavah.com">hello@qaavah.com</a>
         <a href="mailto:hello@qaavah.com" data-biz="foot_contact">Contact</a>
-        <a href="/store-screenshots.html" data-biz="foot_store">Store screenshots</a>
       </div>
       <div class="fcol">
         <h4 data-biz="foot_col_legal">Legal</h4>
@@ -1226,17 +1254,63 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
 <script>
 const panes=[...document.querySelectorAll('#screen .pane')],steps=[...document.querySelectorAll('#steps .step')],cnt=document.getElementById('cnt'),pp=document.getElementById('pp');
 let i=0,playing=true,timer=null;
-const DUR=4400;
+const DUR=4000;
 function go(n){
   i=(n+panes.length)%panes.length;
   panes.forEach((p,x)=>p.classList.toggle('on',x===i));
   steps.forEach((s,x)=>{s.classList.remove('on');if(x===i)void s.offsetWidth});
   steps[i].classList.add('on');
   cnt.textContent=`${cnt.dataset.step||'STEP'} ${String(i+1).padStart(2,'0')} / ${String(panes.length).padStart(2,'0')}`;
+  if(typeof centerStep==='function')centerStep();
+  if(typeof dots!=='undefined')dots.forEach((d,x)=>d.classList.toggle('on',x===i));
 }
 function tick(){clearTimeout(timer);if(!playing)return;timer=setTimeout(()=>{go(i+1);tick()},DUR)}
 steps.forEach(s=>s.addEventListener('click',()=>{go(+s.dataset.i);tick()}));
-pp.addEventListener('click',()=>{playing=!playing;pp.textContent=playing?(pp.dataset.pause||'Pause'):(pp.dataset.play||'Play');document.querySelectorAll('.step .bar').forEach(b=>b.style.animationPlayState=playing?'running':'paused');tick()});
+/* mobile: steps are a horizontal snap rail — keep the active card centred and
+   let a swipe pick the step */
+const rail=document.getElementById('steps');
+function railed(){return getComputedStyle(rail).flexDirection==='row'&&rail.scrollWidth-rail.clientWidth>8}
+function centerStep(smooth){
+  if(!railed())return;
+  const s=steps[i],left=Math.max(0,s.offsetLeft-rail.offsetLeft-(rail.clientWidth-s.offsetWidth)/2);
+  railLock=Date.now()+800;
+  if(smooth===false){rail.scrollLeft=left;return}
+  try{rail.scrollTo({left:left,behavior:'smooth'})}catch(e){rail.scrollLeft=left}
+  clearTimeout(centerStep._t);
+  centerStep._t=setTimeout(()=>{if(Math.abs(rail.scrollLeft-left)>4)rail.scrollLeft=left},420);
+}
+let railT=null,railLock=0;
+rail.addEventListener('scroll',()=>{
+  if(!railed()||Date.now()<railLock)return;
+  clearTimeout(railT);
+  railT=setTimeout(()=>{
+    const mid=rail.scrollLeft+rail.clientWidth/2;
+    let best=0,d=Infinity;
+    steps.forEach((s,x)=>{const c=s.offsetLeft-rail.offsetLeft+s.offsetWidth/2,dd=Math.abs(c-mid);if(dd<d){d=dd;best=x}});
+    if(best!==i){go(best);tick()}
+  },130);
+},{passive:true});
+window.addEventListener('resize',()=>centerStep(false));
+const fnDots=document.getElementById('fnDots'),fnPrev=document.getElementById('fnPrev'),fnNext=document.getElementById('fnNext');
+var dots=[];
+if(fnDots){
+  dots=steps.map((s,x)=>{
+    const b=document.createElement('button');
+    b.type='button';b.className='fndot'+(x===0?' on':'');
+    b.setAttribute('aria-label','Screen '+(x+1));
+    b.addEventListener('click',()=>{go(x);tick()});
+    fnDots.appendChild(b);return b;
+  });
+}
+if(fnPrev)fnPrev.addEventListener('click',()=>{go(i-1);tick()});
+if(fnNext)fnNext.addEventListener('click',()=>{go(i+1);tick()});
+const phoneEl=document.querySelector('.flowin > .phone');
+if(phoneEl)phoneEl.addEventListener('click',e=>{
+  if(!window.matchMedia('(max-width:980px)').matches)return;
+  const r=phoneEl.getBoundingClientRect();
+  go(e.clientX-r.left<r.width/2?i-1:i+1);tick();
+});
+pp.addEventListener('click',()=>{playing=!playing;pp.textContent=playing?(pp.dataset.pause||'Pause'):(pp.dataset.play||'Play');steps.forEach(s=>s.style.setProperty('--x',''));document.querySelectorAll('.step .bar').forEach(b=>b.style.animationPlayState=playing?'running':'paused');tick()});
 const flow=document.getElementById('flow');
 flow.addEventListener('mouseenter',()=>{clearTimeout(timer);document.querySelectorAll('.step.on .bar').forEach(b=>b.style.animationPlayState='paused')});
 flow.addEventListener('mouseleave',()=>{document.querySelectorAll('.step.on .bar').forEach(b=>b.style.animationPlayState='running');tick()});
@@ -1364,7 +1438,7 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)tick();else{pl
 <script src="js/pf-localize.js?v=26"></script>
 <script src="js/site-i18n.js?v=27"></script>
 <script src="js/pf-i18n.js?v=27"></script>
-<script src="js/biz-i18n.js?v=27"></script>
+<script src="js/biz-i18n.js?v=30"></script>
 <script src="js/tour-site.js?v=30"></script>
 
 </body>
