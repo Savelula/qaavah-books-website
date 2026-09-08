@@ -31,6 +31,8 @@ python3 -m http.server 8080
 # http://127.0.0.1:8080/  — United States / France → personal tour; Ghana → shop
 ```
 
+Mobile workflow (`#flow`) layout spec: [`docs/handoff-mobile-workflow/README.md`](docs/handoff-mobile-workflow/README.md) (cropped 420px phone, thin rim, swipe rail + `.flownav`).
+
 ## Before go-live
 
 1. Domain (e.g. `qaavah.com`) — update canonical / og:url in HTML if different

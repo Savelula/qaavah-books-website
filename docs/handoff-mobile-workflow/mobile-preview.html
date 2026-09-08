@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Qaavah Books — mobile view</title>
+<style>
+  body{margin:0;min-height:100vh;background:#F1F3F0;font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:#182018;display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px 16px 40px}
+  .bar{display:flex;align-items:center;gap:10px;font-size:13px;color:#585D55}
+  .bar b{font-weight:600;color:#182018}
+  .bar button{border:none;background:#fff;font:inherit;font-size:12px;font-weight:600;color:#3E614C;padding:9px 14px;border-radius:999px;cursor:pointer;box-shadow:0 1px 2px rgba(24,32,24,.08),0 6px 16px -10px rgba(24,32,24,.3)}
+  .bar button[aria-pressed="true"]{background:#3E614C;color:#fff}
+  .device{background:#0B120D;border-radius:46px;padding:12px;box-shadow:0 30px 70px -24px rgba(24,32,24,.5)}
+  .device iframe{display:block;border:0;border-radius:34px;background:#FAFAF7;width:390px;height:780px}
+  .note{font-size:12.5px;color:#7C8079;max-width:44ch;text-align:center;line-height:1.5}
+</style>
+</head>
+<body>
+  <div class="bar">
+    <b>Mobile view</b> — <span id="lbl">390 × 780</span>
+    <button data-src="../../index.html#flow" aria-pressed="true">Personal</button>
+    <button data-src="../../business.html#flow">Business</button>
+    <span style="width:8px"></span>
+    <button data-w="320" data-h="720">320</button>
+    <button data-w="390" data-h="780" aria-pressed="true">390</button>
+    <button data-w="430" data-h="840">430</button>
+    <button data-w="768" data-h="900">768</button>
+  </div>
+  <div class="device"><iframe id="fr" src="../../index.html#flow" title="Qaavah Books personal tour"></iframe></div>
+  <p class="note">Scroll inside the phone. In the workflow section, swipe the step cards sideways — the phone screen and the step counter follow.</p>
+<script>
+  const fr=document.getElementById('fr'),lbl=document.getElementById('lbl'),btns=[...document.querySelectorAll('.bar button[data-w]')],pages=[...document.querySelectorAll('.bar button[data-src]')];
+  pages.forEach(b=>b.addEventListener('click',()=>{
+    pages.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+    fr.src=b.dataset.src;
+  }));
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    btns.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+    fr.style.width=b.dataset.w+'px';fr.style.height=b.dataset.h+'px';
+    lbl.textContent=b.dataset.w+' × '+b.dataset.h;
+  }));
+</script>
+</body>
+</html>

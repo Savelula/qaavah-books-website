@@ -18,7 +18,7 @@
 :root{--brand:#283593;--brandDark:#1A237E;--brandTint:#E8EAF6;--brandLift:#C5CAE9;--paper:#FAFAF7;--bone:#F4F1E9;--ink:#15161A;--muted:#7A7D85;--faint:#A8ABB3;--body:#585D63;--rule:rgba(21,22,34,.1);--hair:rgba(21,22,34,.06);--income:#16834A;--incomeTint:#E7F3EC;--expense:#B33A2A;--expenseTint:#F8EBE8;--amber:#B07310;--amberText:#B45309;--amberTint:#FBF1DD;--gold:#D4A017;--sage:#5F8A6E}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:"Geist","Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty;overflow-x:clip}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Geist","Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty;overflow-x:hidden}
 a{color:var(--brand);text-decoration:none}a:hover{color:var(--brandDark)}
 .phone,.gsc{font-family:"Plus Jakarta Sans",system-ui,sans-serif}
 /* No sans-serif fallback — that is what turned "menu"/"translate" into readable words when the icon font was slow. */
@@ -68,8 +68,8 @@ section[id]{scroll-margin-top:72px}
 .flowctl button{border:none;background:#fff;font-family:inherit;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:9px 16px;border-radius:999px;cursor:pointer;color:var(--brand);box-shadow:0 1px 2px rgba(21,22,34,.08),0 6px 16px -10px rgba(21,22,34,.3)}
 .flowctl button:hover{background:var(--brand);color:#fff}
 /* device */
-.phone{width:372px;height:756px;border-radius:46px;padding:10px;background:#0C0D14;box-shadow:0 30px 70px -24px rgba(21,22,34,.5)}
-.screen{position:relative;width:100%;height:100%;background:var(--paper);border-radius:37px;overflow:hidden}
+.phone{width:372px;height:756px;border-radius:34px;padding:4px;background:#0C0D14;box-shadow:0 30px 70px -24px rgba(21,22,34,.5)}
+.screen{position:relative;width:100%;height:100%;background:var(--paper);border-radius:30px;overflow:hidden}
 .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:112px;height:27px;background:#0C0D14;border-bottom-left-radius:16px;border-bottom-right-radius:16px;z-index:20}
 .pane{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;transform:translateY(14px) scale(.985);transition:opacity .45s cubic-bezier(.22,.9,.24,1),transform .45s cubic-bezier(.22,.9,.24,1);pointer-events:none}
 .pane.on{opacity:1;transform:none;pointer-events:auto}
@@ -419,6 +419,7 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
   .hero-visual{width:min(280px,84vw)}
 }
 
+/* step nav under the phone (mobile only) */
 .flownav{display:none}
 @media(max-width:980px){
   .flownav{order:3;display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 2px}
@@ -434,28 +435,74 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
 .flow-head{margin-bottom:0}
 .flow-body{min-width:0}
 @media(max-width:980px){
-  /* !important + id scope: guard against any later sheet restoring the 2-col grid */
+  /* !important + id scope: a later sheet defining #layoutBusiness .flowin as a
+     2-col grid would otherwise win on specificity */
   .flowin,#layoutBusiness .flowin{display:flex!important;flex-direction:column;gap:18px;align-items:stretch;grid-template-columns:1fr!important;grid-template-areas:none!important}
   .flow-head{order:1;grid-area:auto}
-  .flowin > .phone,#layoutBusiness .flowin > .phone{order:2;grid-area:auto;margin:2px auto 6px;width:min(340px,92vw);height:auto;aspect-ratio:372/620;max-height:min(560px,60vh);max-width:100%;border-radius:38px;padding:8px;align-self:center;position:relative;top:auto;box-shadow:0 14px 32px -16px rgba(21,22,34,.5)}
-  .flowin > .phone .screen{border-radius:31px;position:relative;top:auto;left:auto;width:auto;height:auto;transform:none}
+  .flowin > .phone,#layoutBusiness .flowin > .phone{order:2;grid-area:auto;margin:2px auto 6px;width:min(340px,94%);height:420px;aspect-ratio:auto;max-height:none;max-width:100%;border-radius:30px;padding:3px;align-self:center}
+  /* thin rim, no notch: the whole stacked layout reads as a screen, not a prop */
+  .flowin > .phone .notch{display:none}
+  .flowin > .phone .screen{border-radius:27px;box-shadow:none;outline:none}
   .flow-body{order:4;grid-area:auto;width:100%}
+  /* steps become a swipeable rail: one readable card at a time */
   .steps{margin:0 -18px;padding:6px 18px 14px;flex-direction:row;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .steps::-webkit-scrollbar{display:none}
   .step{flex:0 0 min(84%,340px);scroll-snap-align:center;display:block;padding:16px 18px 18px;border-radius:18px;background:#fff;opacity:.55;box-shadow:0 1px 2px rgba(21,22,34,.05),0 10px 26px -20px rgba(21,22,34,.35);transition:opacity .3s,box-shadow .3s,transform .3s;transform:scale(.985)}
   .step.on{opacity:1;transform:none;box-shadow:0 1px 2px rgba(21,22,34,.06),0 18px 40px -24px rgba(21,22,34,.42)}
-  .step .n{padding:0;font-size:11px;letter-spacing:.1em;color:var(--brand)}
+  .step .n{padding:0;font-size:11px;letter-spacing:.1em}
   .step h4{margin-top:7px;font-size:18px;letter-spacing:-.5px;line-height:1.2}
-  .step p{display:block!important;font-size:14px;line-height:1.55;margin-top:7px}
+  .step p{display:block;font-size:14px;line-height:1.55;margin-top:7px}
   .step .bar{height:3px}
   .flowctl{margin-top:2px;padding-left:0;justify-content:space-between;gap:12px}
   .flowctl button{min-height:40px;padding:11px 18px}
+  /* mobile: the primary action docks to the bottom of the screen like the real
+     app, so a cropped frame can never cut it in half */
+  .pane .cta{position:absolute;left:14px;right:14px;bottom:14px;margin-top:0}
+  .pane:has(.ptab) .cta{bottom:86px}
+  .pane:has(.cta) .pb{padding-bottom:64px}
+  /* payment pane: keep the primary action inside the cropped frame */
+  .pane .amtv{font-size:32px!important;letter-spacing:-1.4px}
+  .pane .amt{padding:8px 0 10px!important}
+  .pane .pays{gap:6px}
+  .pane .pay{padding:10px}
+  .pane .cta{margin-top:10px;padding:13px;font-size:14px}
 }
 @media(max-width:640px){
-  .flowin > .phone,#layoutBusiness .flowin > .phone{width:min(320px,94vw);aspect-ratio:372/580;max-height:min(500px,56vh)}
+  .flowin > .phone,#layoutBusiness .flowin > .phone{width:min(340px,94%)}
+  /* thin rim on phones: keeps the device read without a bezel eating the width */
+  .flowin > .phone .screen{border-radius:27px;outline:none;box-shadow:none}
+  .flowin > .phone .notch{display:none}
+  /* gallery mocks get the same thin rim as the workflow phone */
+  .gp{padding:3px;border-radius:30px}
+  .gsc{border-radius:27px}
+  .mnotch{display:none}
   .steps{margin:0 -14px;padding:6px 14px 14px}
   .step{flex:0 0 88%;padding:15px 16px 17px}
   .step h4{font-size:17px}
+}
+
+
+/* short mobile viewports: compact the record/payment panes so their primary
+   action stays inside the cropped frame */
+@media(max-width:980px) and (max-height:720px){
+  .pane .sb{height:38px;flex:0 0 38px}
+  .pane .pb{padding-top:8px}
+  .pane .ph{margin-bottom:8px}
+  .pane .amt{padding:6px 0 8px!important}
+  .pane .amtv{font-size:26px!important;letter-spacing:-1.2px}
+  .pane .caret{height:26px}
+  .pane .segs span{padding:6px 0}
+  .pane .pays{gap:5px}
+  .pane .pay{padding:8px;font-size:12px}
+  .pane .cta{margin-top:8px;padding:11px;font-size:13.5px}
+  .pane .field{padding:10px 12px;margin-top:8px}
+  .pane .mini{margin:10px 0 6px}
+  .pane .ptab{flex:0 0 62px;min-height:0;padding-top:6px}
+  .pane .pt{font-size:8.5px}
+  .pane .pt .msr{font-size:19px}
+  .pane .pfab{width:46px;height:46px;border-radius:23px;margin-top:-12px}
+  .pane .pfab .msr{font-size:22px}
+  .pane:has(.ptab) .cta{bottom:76px}
 }
 
 /* —— Mobile nav + overflow —— */
@@ -467,7 +514,7 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
   .navin{gap:10px;padding:10px 16px}
 }
 @media(max-width:980px){
-  .plans,.spot{grid-template-columns:1fr}
+  .flowin,.plans,.spot{grid-template-columns:1fr}
   .spot.flip .stxt{order:0}
   .phone{margin:0 auto;width:min(340px,100%);height:auto;aspect-ratio:372/756;max-width:100%}
   .screen{min-height:0}
@@ -543,6 +590,7 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
   .flow{padding-top:36px}
   .flowin{gap:16px}
   .flow-head{margin-bottom:0}
+  .flowin > .phone{margin:8px auto 4px}
   .more{padding:40px 0}
   .lets{padding:40px 0}
 }
@@ -550,13 +598,6 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
   section{padding:40px 0}
   .hero{padding:28px 0 32px}
   .flowctl{padding-left:0;justify-content:flex-start}
-}
-@media(max-width:400px){
-  /* keep the nav row inside the screen — page-wide sideways scroll made the
-     workflow section look cropped */
-  .navin{flex-wrap:nowrap;min-width:0}
-  .brand{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-  .nav-tools{min-width:0;flex:0 1 auto}
 }
 
 .phone{overflow:hidden;max-width:100%}
@@ -595,6 +636,13 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
   .unavailable-in .hctas .btn{justify-content:center;width:100%}
   .tag{font-size:12px;padding:6px 12px;max-width:100%;text-align:left}
   .hero .tag{max-width:100%}
+}
+@media(max-width:400px){
+  /* keep the nav row inside the screen — page-wide sideways scroll made the
+     workflow section look cropped */
+  .navin{flex-wrap:nowrap;min-width:0}
+  .brand{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+  .nav-tools{min-width:0;flex:0 1 auto}
 }
 @media(max-width:380px){
   .brand{font-size:13.5px;gap:6px}
@@ -1220,6 +1268,7 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
       <div class="about">
         <a class="brand" href="/business.html" style="font-size:15px"><img src="assets/logo-mark.png" alt="Qaavah Books" style="width:34px;height:34px"><span><b>Qaavah</b> <i>Books</i></span></a>
         <p data-biz="foot_about">Bookkeeping for the till, the team, and the shelf — built for shops that run on a phone. A product of Qavaah Platforms LLC.</p>
+        <p class="op"><b>Operator:</b> Qavaah Platforms LLC<br>Shop tools open in Africa &amp; Latin America · Personal money worldwide.</p>
       </div>
       <div class="fcol">
         <h4 data-biz="foot_col_product">Product</h4>
@@ -1233,6 +1282,7 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
         <h4 data-biz="foot_col_company">Company</h4>
         <a href="mailto:hello@qaavah.com">hello@qaavah.com</a>
         <a href="mailto:hello@qaavah.com" data-biz="foot_contact">Contact</a>
+        <a href="/store-screenshots.html" data-biz="foot_store">Store screenshots</a>
       </div>
       <div class="fcol">
         <h4 data-biz="foot_col_legal">Legal</h4>
@@ -1254,7 +1304,7 @@ h1 em{font-style:normal;font-weight:600;color:var(--brand);letter-spacing:-2.8px
 <script>
 const panes=[...document.querySelectorAll('#screen .pane')],steps=[...document.querySelectorAll('#steps .step')],cnt=document.getElementById('cnt'),pp=document.getElementById('pp');
 let i=0,playing=true,timer=null;
-const DUR=4000;
+const DUR=4400;
 function go(n){
   i=(n+panes.length)%panes.length;
   panes.forEach((p,x)=>p.classList.toggle('on',x===i));
@@ -1276,6 +1326,7 @@ function centerStep(smooth){
   railLock=Date.now()+800;
   if(smooth===false){rail.scrollLeft=left;return}
   try{rail.scrollTo({left:left,behavior:'smooth'})}catch(e){rail.scrollLeft=left}
+  // some engines ignore smooth scrolling on offscreen containers — land it anyway
   clearTimeout(centerStep._t);
   centerStep._t=setTimeout(()=>{if(Math.abs(rail.scrollLeft-left)>4)rail.scrollLeft=left},420);
 }
@@ -1291,6 +1342,7 @@ rail.addEventListener('scroll',()=>{
   },130);
 },{passive:true});
 window.addEventListener('resize',()=>centerStep(false));
+/* explicit prev / next + dots, and tap the phone's left|right half to step */
 const fnDots=document.getElementById('fnDots'),fnPrev=document.getElementById('fnPrev'),fnNext=document.getElementById('fnNext');
 var dots=[];
 if(fnDots){
@@ -1310,7 +1362,7 @@ if(phoneEl)phoneEl.addEventListener('click',e=>{
   const r=phoneEl.getBoundingClientRect();
   go(e.clientX-r.left<r.width/2?i-1:i+1);tick();
 });
-pp.addEventListener('click',()=>{playing=!playing;pp.textContent=playing?(pp.dataset.pause||'Pause'):(pp.dataset.play||'Play');steps.forEach(s=>s.style.setProperty('--x',''));document.querySelectorAll('.step .bar').forEach(b=>b.style.animationPlayState=playing?'running':'paused');tick()});
+pp.addEventListener('click',()=>{playing=!playing;pp.textContent=playing?(pp.dataset.pause||'Pause'):(pp.dataset.play||'Play');document.querySelectorAll('.step .bar').forEach(b=>b.style.animationPlayState=playing?'running':'paused');tick()});
 const flow=document.getElementById('flow');
 flow.addEventListener('mouseenter',()=>{clearTimeout(timer);document.querySelectorAll('.step.on .bar').forEach(b=>b.style.animationPlayState='paused')});
 flow.addEventListener('mouseleave',()=>{document.querySelectorAll('.step.on .bar').forEach(b=>b.style.animationPlayState='running');tick()});
@@ -1438,7 +1490,7 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)tick();else{pl
 <script src="js/pf-localize.js?v=26"></script>
 <script src="js/site-i18n.js?v=27"></script>
 <script src="js/pf-i18n.js?v=27"></script>
-<script src="js/biz-i18n.js?v=30"></script>
+<script src="js/biz-i18n.js?v=31"></script>
 <script src="js/tour-site.js?v=30"></script>
 
 </body>
